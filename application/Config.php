@@ -9,14 +9,14 @@
  */
 
 
-define('BASE_URL', 'http://localhost/frame/');
+define('BASE_URL', 'http://localhost/cumanax/');
 //define('BASE_URL', 'http://192.168.0.5/didactico/');
 //define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
 define('DEFAULT_CONTROLLER', 'login');
 define('DEFAULT_LAYOUT', 'layout_legna');
-define('APP_NAME', 'XXXXX');
-define('APP_SLOGAN', 'default');
-define('APP_COMPANY', 'default');
+define('APP_NAME', 'CumanaX');
+define('APP_SLOGAN', 'servicios especiales y algo mas');
+define('APP_COMPANY', 'Tecnoservi');
 define('APP_TLF', '');
 define('APP_EMAIL', '');
 define('SESSION_TIME', 1000000);
