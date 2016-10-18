@@ -1,0 +1,246 @@
+<div scroll="auto" class="col-xs-10 col-sm-10 col-md-10 col-lg-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+	<div class="header-titulos">proveedor(<?php if(isset($this->accionn)){echo $this->accionn;} ?>)</div>
+	<section>
+		<form id="form_proveedor">
+		<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_id;} ?>" type="hidden" id="id" name="id" >
+		<input value="<?php if(isset($this->proveedor)){echo $this->accionn;} ?>" type="hidden" id="accion" name="accion" >
+			<ul>
+				<li>
+					<h2>proveedor</h2>
+					<span>* datos requeridos </span>
+				</li>
+				<li>
+					<label>Beneficiario</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_beneficiario;} ?>" type="text" id="beneficiario" name="beneficiario" placeholder="Beneficario">
+				</li>
+				<li>
+					<label>nombre</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_nombre;} ?>" type="text" id="nombre" name="nombre" placeholder="Nombre">
+				</li>
+				<li>
+					<label>RIF</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_rif;} ?>" type="text" id="rif" name="rif" placeholder="Rif">
+				</li>
+				<li>
+					<label>contacto</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_contacto;} ?>" type="text" id="contacto" name="contacto" placeholder="Contacto">
+				</li>
+				<li>
+					<label>direccion</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_direccion;} ?>" type="text" id="direccion" name="direccion" placeholder="Direccion">
+				</li>
+				<li>
+					<label>tipo de credito</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_tipo_credito;} ?>" type="text" id="tipo_credito" name="tipo_credito" placeholder="tipo de credito">
+				</li>
+				<li>
+					<label>porcentaje de retencion</label>
+					<select id="porcentaje_retencion" name="porcentaje_retencion">
+						<option value="" <?php if(isset($this->proveedor)){echo $retVal = ($this->proveedor->_porcentaje_retencion=="") ? "selected" : "" ; }?>>--seleccione--</option>
+						<option value="100" <?php if(isset($this->proveedor)){echo $retVal = ($this->proveedor->_porcentaje_retencion=="100") ? "selected" : "" ; }?>>100</option>
+						<option value="75" <?php if(isset($this->proveedor)){ echo $retVal = ($this->proveedor->_porcentaje_retencion=="75") ? "selected" : "" ; }?>>75</option>
+					</select>
+				</li>
+				<li>
+					<label>Telefono</label>
+					<input value="<?php if(isset($this->proveedor)){echo $this->proveedor->_tlf;} ?>" type="text" id="tlf" name="tlf" placeholder="telefono">
+				</li>
+				
+				<li class="libtn">
+					<button class="btn btn-success" id="<?php if(isset($this->accionn)){echo $this->accionn;} ?>" type="button" >guardar</button>
+					<button class="btn btn-success" type="button" onclick="history.back(1)">atras</button>
+				</li>
+			</ul>
+		</form>
+	</section>
+
+
+<?php if (isset($this->accionn) && $this->accionn=='detallar'): ?>
+	<section id="factura">
+		<div class="header-titulos">facturas 
+			<div id="agregar_factura_area"><span id="agregar_factura" class="glyphicon glyphicon-plus" aria-hidden=true>agregar</span></div>
+		</div>
+		<?php if (isset($this->proveedor->_factura) && count($this->proveedor->_factura) > 0 ):?>
+		<table class="">
+			<tr>
+				<td>
+					nro control
+				</td>
+				<td>
+					recepcion
+				</td>
+				<td>
+					vencimiento
+				</td>
+				<td>
+					tipo							
+				</td>
+				<td>
+					monto
+				</td>
+				<td>
+					decuento
+				</td>
+				<td>
+					sub-total
+				</td>
+				<td>
+					impuestos
+				</td>
+				<td>
+					total
+				</td>
+				<td class="acction" >
+					acciones
+				</td>
+			</tr>
+			
+			<?php for ($i=0; $i < count($this->proveedor->_factura) ; $i++): ?>
+			<tr>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_nro_control; ?>
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_fecha_recepcion; ?>
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_fecha_vencimiento; ?>
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_tipo ?>
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_monto ?>Bs
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_descuento; echo $retVal = ($this->proveedor->_factura[$i]->_tipo_descuento=="1" ) ? "%" : "Bs" ;    ?>
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_sub_total ?>Bs
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_impuesto ?>% --> <?php echo ($this->proveedor->_factura[$i]->_sub_total/100)*$this->proveedor->_factura[$i]->_impuesto ?>Bs
+				</td>
+				<td>
+					<?php echo $this->proveedor->_factura[$i]->_total ?>Bs
+				</td>
+				<td class="acction">
+						
+				<span id="editar_factura" data-id="<?php echo $this->proveedor->_factura[$i]->_id ; ?>" class="glyphicon glyphicon-pencil" aria-hidden=true></span>
+				<span id="eliminar_factura" data-id="<?php echo $this->proveedor->_factura[$i]->_id ; ?>" class="glyphicon glyphicon-trash" aria-hidden=true></span>
+				
+
+					</td>
+				</tr>
+			<?php endfor; ?>
+
+		</table>
+			<?php else: ?>
+
+				<div id="no_hay_facturas"> ¡¡Este proveedor no tiene facturas asociadas¡¡</div>
+
+
+			<?php endif; ?>
+		
+
+
+	</section>
+
+
+
+
+<?php endif; ?>
+
+</div>
+
+
+<section id="ventana_capa" class="hidden">
+
+
+
+<div id="ventana" >
+<form id="form_factura">
+		
+			<ul>
+				<li>
+					<h2>facturas</h2>
+					<span>* datos requeridos </span>
+				</li>
+				<li>
+					<input value="" type="hidden" id="factura_accion">
+				</li>
+
+					<li>
+					<label>Tipo </label>
+					<select id="factura_tipo" name="">
+						
+						<option value="">--seleccione--</option>
+						<option value="FACTURA">factura</option>
+						<option value="NOTA DE DEBITO">nota de debito</option>
+						<option value="NOTA DE CREDITO">nota de credito</option>
+
+					</select>
+				</li>
+				<li>
+					<label>Nro control</label>
+					<input value="" type="text" id="factura_nro_control" name="" placeholder="321-321">
+				</li>
+				<li>
+					<label>Nro Factura</label>
+					<input value="" type="text" id="factura_nro_factura" name="" placeholder="321-321">
+				</li>
+				<li>
+					<label>Fecha elavoracion</label>
+					<input  type="text" id="factura_fecha_ela" name="" value="2016/08/01">
+				</li>
+				<li>
+					<label>Fecha recepcion</label>
+					<input value="" type="text" id="factura_fecha_rec" name="">
+				</li>
+				<li>
+					<label>monto</label>
+					<input value='0' type="text" id="factura_cantidad" name="">
+				</li>
+				
+				<li>
+					<label>tipo de descuento</label>
+					<div id="factura_checkbox">
+					<font>porcentaje</font><input value="1" type="radio" id="factura_tipo_descuento" name="factura_tipo_descuento" placeholder="" checked="checked">
+					<font>cantidad</font><input value="2" type="radio" id="factura_tipo_descuento" name="factura_tipo_descuento" placeholder="">
+					</div>
+
+				</li>
+				<li>
+					<label>Descuento</label>
+					<input value='0' type="number" id="factura_descuento" name="" placeholder="">
+				</li>
+				<li>
+					<label>Sub Total</label>
+					<input value='0' type="text" id="factura_subtotal" name="" disabled="disabled">
+				</li>
+				<li>
+					<label id="label_impuesto">Impuesto 12%</label>
+					<input value="12" type="range" min="0" max="24" id="factura_impuesto" name="">
+
+				</li>
+				<li>
+					<label>iva</label>
+					<input value="" type="text" id="factura_iva" name="" disabled="disabled">
+				</li>
+				<li>
+					<label>total</label>
+					<input value="" type="text" id="factura_total" name=""  disabled="disabled">
+				</li>
+				
+				
+				
+				
+				<li class="libtn">
+					<button class="btn btn-success" id="factura_guardar" type="button" >guardar</button>
+					<button class="btn btn-success" id="_factura_cerrar" type="button">cerrar</button>
+				</li>
+			</ul>
+		</form>
+</div>
+
+</section>

@@ -1,0 +1,369 @@
+tr, td {
+	border-bottom: 1px solid rgba(48, 79, 185, 0.23);
+	padding-top: 8px;
+	padding-bottom: 6px;
+	vertical-align: bottom;
+	padding-left: 5px;
+	/*transition: all cubic-bezier(.6,.04,.98,.34) 0.5s;*/
+}
+.lklklk {
+	width: 100%;
+}
+table {
+	border: 1px solid rgb(48, 79, 185);
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+
+
+tr:hover {
+	background-color: rgba(192, 200, 228, 0.17);
+	
+	padding-bottom: 7px;
+	padding-top: 9px;
+	color: #141c57;
+}
+form ul {
+	width: 100%;
+	list-style-type: none;
+	list-style-position: outside;
+	margin: 0px;
+	padding: 0px;
+}
+form li {
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+	position: relative;
+	width: 33%;
+	float: left;
+	min-height: 90px;
+}
+
+
+form h2{
+
+margin: 0;
+display: inline;
+
+}
+form span{
+
+color: #d45252;
+margin: 5px 0 0 0;
+display: inline;
+float:right;
+
+}
+
+form label {
+	width: 25%;
+	margin-top: 2px;
+	display: inline-block;
+	float: left;
+	padding: 2px;
+}
+.libtn {
+	text-align: center;
+	width: 100%;
+}
+
+
+#area_proveedor {
+	float: left;
+	width: 35%;
+	background-color: rgba(203, 203, 203, 0.3);
+	border: 1px solid rgba(195, 195, 195, 0.77);
+	border-radius: 5px;
+}
+.item {
+	float: left;
+	width: 45%;
+	min-height: 4px;
+	/* margin-top: 1px; */
+	/* margin-bottom: 1px; */
+	margin-left: 1px;
+}
+#area_factura table {
+	font-size: 11px;
+	border: 1px solid;
+	width: 100%;
+	text-align: center;
+}
+
+
+#area_factura td {
+	border: 1px solid;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-color: rgba(156, 175, 255, 0.46);
+	
+}
+#area_factura {
+	padding-left: 5px;
+	float: left;
+	width: 60%;
+	margin: 20;
+}
+
+#area_factura > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1){
+border-bottom: 2px solid #828dcb;
+	
+}
+
+#area_factura > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) {
+	height: 30px;
+	background-color: #cacdff;
+	font-size: 13px;
+	text-align: center;
+}
+#area_factura > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) {
+	height: 30px;
+	background-color: #cacdff;
+	font-size: 13px;
+	text-align: center;
+}
+#datos_banco {
+	float: left;
+	margin-left: 10px;
+	border-bottom: 1px solid;
+	margin-right: 10px;
+	width: 60%;
+	/* text-align: center; */
+	border-color: #0b0b0c;
+}
+table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3){
+
+
+
+
+}
+
+.glyphicon {
+	margin-right: 0px;
+	float: left;
+	font-size: 21px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	text-align: center;
+}
+.col-xs-10 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(5){
+
+	text-align: center;
+}
+.col-xs-10 > table tr:nth-child(2) > td:nth-child(5) {
+	/* background-color: aliceblue; */
+	border-left: 1px solid #b2b9d1;
+}
+.col-xs-10 > table tr:nth-child(2) > td:nth-child(5):hover {
+	/* background-color: aliceblue; */
+
+}
+.glyphicon {
+	margin-right: 0px;
+	float: left;
+	font-size: 21px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+.glyphicon:hover {
+	/* margin-right: 0px; */
+	color: #1b00a4;
+}
+
+
+#orden_de_pago {
+	position: fixed;
+	background-color: rgb(239, 239, 239);
+	left: 1%;
+	border-radius: 5px;
+	box-shadow: 0px 0px 1px 1px rgba(18, 24, 156, 0.6);
+	padding: 20px;
+	right: 1%;
+	top: 1%;
+	/* button: 2px; */
+}
+
+#datos_orden_de_pago {
+	float: left;
+	width: 49%;
+	background-color: #e0e0e0;
+	border-radius: 5px;
+	min-height: 239px;
+	padding-left: 20px;
+	border: 1px solid;
+	margin: 3px;
+	padding-right: 20px;
+	overflow: auto;
+	max-height: 290px;
+}
+#datos_factura {
+	float: left;
+	width: 49%;
+	background-color: #e0e0e0;
+	border-radius: 5px;
+	min-height: 239px;
+	padding-left: 20px;
+	border: 1px solid;
+	margin: 3px;
+	padding-right: 20px;
+}
+
+.camp1 {
+	float: left;
+	font-size: 12px;
+	width: 50%;
+	margin: 2px;
+	border-bottom: 1px solid !important;
+}
+.camp2 {
+	float: left;
+	font-size: 12px;
+	width: 48%;
+	margin: 2px;
+	
+}
+.camp3 {
+	float: left;
+	width: 33%;
+	/* border: 1px solid; */
+	font-size: 12px;
+	margin-bottom: 11px;
+	border-bottom: 1px solid;
+}
+.tm {
+	float: right;
+	margin-right: 5%;
+	width: 30%;
+}
+
+.cantdades {
+	float: left;
+	width: 30%;
+	text-align: right;
+	
+}
+.dos_puntos {
+	float: left;
+	width: 10%;
+	text-align: center;
+}
+#titulo_descuentos {
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
+	font-size: large;
+}
+#cont_descu {
+	float: left;
+	width: 30%;
+	margin-left: 1%;
+}
+#form_orden_de_pago > ul:nth-child(1) > li:nth-child(8),#form_orden_de_pago > ul:nth-child(1) > li:nth-child(7) {
+	width: 100%;
+}
+.saldo_pendiente {
+	width: 100% !important;
+}
+
+#fondo_descuento {
+	position: fixed;
+	width: 100%;
+	background-color: rgba(206, 206, 206, 0.73);
+	height: 1000px;
+	top: 0px;
+	padding-top: 10%;
+	padding-left: 10%;
+	padding-right: 10%;
+	left: 0px;
+}
+#fondo_banco {
+	position: fixed;
+	width: 100%;
+	background-color: rgba(206, 206, 206, 0.73);
+	height: 1000px;
+	top: 0px;
+	padding-top: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
+	left: 0px;
+}
+#descuentos {
+	border: 1px solid #0009b6;
+	background-color: #cbcbcb;
+	border-radius: 5px;
+	min-height: 114px;
+	width: 100%;
+}
+
+#descuento_modal {
+	font-size: 14px;
+	font-style: initial;
+	font-stretch: normal;
+	float: right;
+	margin-top: 8px;
+	border: 1px solid white;
+	padding: 1px;
+	border-radius: 5px;
+	margin-right: 11px;
+	cursor: pointer;
+}
+#descuento_modal:hover {
+	color: #cfcfcf;
+	border-color: #b4b4b4;
+}
+form input, form select, form textarea,form input[type="range"] {
+	
+	width: 100%;
+	
+}
+
+#bancoss {
+	background-color: #e7e7e7;
+	border-radius: 5px;
+	border: 1px solid;
+	border-color: #00106b;
+	min-height: 430px;
+	width: 100%;
+	padding-top: 30px;
+}
+
+.conpleto {
+	width: 100%;
+	padding-left: 20%;
+	padding-right: 20%;
+	font-style: initial;
+	font-size: 12px;
+	padding-bottom: 0px !important;
+	padding-top: 0px !important;
+	min-height: 41px;
+}
+#form_orden_de_pago > ul:nth-child(1) > li > label {
+	width: 100%;
+}
+.veinticinto {
+	width: 25%;
+}
+.setentaycinco {
+	width: 75%;
+}#guardar_orden_de_pago {
+	margin: 30px;
+}.no_hay {
+	color: red;
+	text-align: center;
+	font-style: italic;
+	font-size: 15px;
+}#cargar_datos_tipo_pago {
+	margin: 30px;
+}.msj {
+	width: 100%;
+	float: left;
+	margin-top: 10%;
+	text-align: center;
+	font-size: 21px;
+	color: #6b0000;
+	font-style: italic;
+	box-shadow: 1,1,1 rgva;
+}

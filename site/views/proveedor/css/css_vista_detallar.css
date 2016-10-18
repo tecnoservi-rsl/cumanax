@@ -1,0 +1,79 @@
+.col-xs-10 > section:nth-child(2) {
+	width: 35%;
+	float: left;
+	border: 1px solid rgba(1, 1, 1, 0.2);
+	border-radius: 5px;
+}
+#factura {
+	width: 61%;
+	float: left;
+	margin-left: 3%;
+	border: 1px solid rgba(1, 1, 1, 0.21);
+	border-radius: 5px;
+	margin-top: 0px;
+	padding: 9px;
+	font-size: 9px;
+}
+.header-titulos {
+	color: #000;
+
+	background-color: RGBA(43, 104, 200, 0);
+	
+}
+#factura > table:nth-child(2){
+
+	font-size: 11;
+
+}
+.acction {
+	width: 54px;
+	font-size: 11px;
+	/* text-align: center; */
+	/* border-left: 1px solid rgba(0, 12, 255, 0.2); */
+	padding-right: 12px;
+}
+#agregar_factura_area {
+	font-size: 13px;
+	/* float: right; */
+	margin-right: -5px;
+	/* vertical-align: bottom; */
+	margin-top: 14px;
+	/* border-left: 1px solid !important; */
+}
+tr:hover {
+	background-color: rgba(192, 200, 228, 0.17);
+	/* font-size: 11px; */
+	padding-bottom: 7px;
+	padding-top: 9px;
+	color: #141c57;
+}
+table tr:first-child, table tr:last-child {
+	border-bottom: 2px solid RGBA(42, 60, 197, 0.25);
+}
+#factura_checkbox {
+	position: initial;
+	width: 100%;
+}
+label {
+	position: relative;
+}
+#factura_tipo_descuento {
+	width: 12%;
+}
+form label {
+	width: 31%;
+	margin-top: 2px;
+	display: inline-block;
+	float: left;
+	padding: 2px;
+}
+form input, form select, form input[type="range"] {
+	height: 20px;
+	width: 66%;
+	padding: 1px 24px;
+	font-size: 12px;
+	border-radius: 3px;
+	border: antiquewhite;
+	background: transparent;
+	border-bottom: 1px solid;
+}

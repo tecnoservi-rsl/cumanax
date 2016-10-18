@@ -1,0 +1,47 @@
+
+form ul {
+	width: 100%;
+	list-style-type: none;
+	list-style-position: outside;
+	margin: 0px;
+	padding: 0px;
+}
+
+form li{
+
+padding: 12px;
+border-bottom: 1px solid #eee;
+position: relative;;
+
+}
+
+form li:first-child ,form li:last-child{
+
+	border-bottom: 1px solid #777;
+}
+
+form h2{
+
+margin: 0;
+display: inline;
+
+}
+form span{
+
+color: #d45252;
+margin: 5px 0 0 0;
+display: inline;
+float:right;
+
+}
+
+form label {
+	width: 25%;
+	margin-top: 2px;
+	display: inline-block;
+	float: left;
+	padding: 2px;
+}
+.libtn {
+	text-align: center;
+}
