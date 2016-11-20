@@ -61,7 +61,7 @@ class _menuController extends Controller
 
 
 
-            $this->_view->views=scandir(ROOT . 'site'.DS.'Views');
+            $this->_view->views=scandir(ROOT . 'site'.DS.'views');
 
 
         	
@@ -85,8 +85,14 @@ class _menuController extends Controller
 
 
         $nav=$_GET['nav'];
+        $letra_nav=$_GET['letra_nav'];
+        $letra_nav_principal=$_GET['letra_nav_principal'];
+        $letra_nav_hover=$_GET['letra_nav_hover'];
+
         $header=$_GET['header'];
         $header_letra_border=$_GET['header-letra-border'];
+
+
         $titulos=$_GET['titulos'];
         $titulo_letra_border=$_GET['titulo-letra-border'];
         $pie=$_GET['pie'];
@@ -96,7 +102,7 @@ class _menuController extends Controller
 
 
 
-            $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'custon.css',"r");
+            $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'referencia.css',"r");
             $linea="";
             $i=1;
             while (!feof($fl)) {
@@ -107,53 +113,56 @@ class _menuController extends Controller
                 $linea .= "background-color: #$nav;\n";
                 fgets($fl);
 
-
+                }else if($i==5){
+                $linea .= "color: #$letra_nav; \n";
+                fgets($fl);
+                }else if($i==8){
+                $linea .= "color: #$letra_nav_principal; \n";
+                fgets($fl);
+                }else if($i==11){
+                $linea .= "color: #$letra_nav_hover; \n";
+                fgets($fl);
                 /*header*/
-                }else if($i==7){
+                }else if($i==16){
                 $linea .= "background-color: #$header; \n";
                 fgets($fl);
-
-                }else if($i==9){
+                }else if($i==18){
                 $linea .= "color: #$header_letra_border; \n";
                 fgets($fl);
-
-                }else if($i==10){
+                }else if($i==19){
                 $linea .= "border-color: #$header_letra_border; \n";
                 fgets($fl);
-
+                 }else if($i==51){
+                $linea .= "min-height: ".$ancho_header."px;\n";
+                fgets($fl);
                 /*titulo*/
-
-                }else if($i==13){
+                }else if($i==22){
                 $linea .= "color: #$titulo_letra_border; \n";
                 fgets($fl);
 
-                }else if($i==14){
+                }else if($i==23){
                 $linea .= "border-color: #$titulo_letra_border; \n";
                 fgets($fl);
 
-                }else if($i==20){
+                }else if($i==29){
                 $linea .= "background-color: #$titulos;\n";
                 fgets($fl);
 
                 /*pie*/
 
-                }else if($i==25){
+                }else if($i==34){
                 $linea .= "background-color: #$pie;\n";
                 fgets($fl);
 
-                 }else if($i==28){
+                 }else if($i==37){
                 $linea .= "color: #$pie_letra_border;\n";
                 fgets($fl);
 
-                 }else if($i==32){
+                 }else if($i==41){
                 $linea .= "border-color: #$pie_letra_border;\n";
                 fgets($fl);
-            }else if($i==45){
-                $linea .= "background-color: #$fondo;\n";
-                fgets($fl);
-                 }else if($i==48){
-                $linea .= "min-height: ".$ancho_header."px;\n";
-                fgets($fl);
+              
+                
 
                 }else{
                     $linea .= fgets($fl);
@@ -170,6 +179,9 @@ class _menuController extends Controller
 
              $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'css.info',"w+");
             fputs($fl,$nav."\n");
+            fputs($fl,$letra_nav."\n");
+            fputs($fl,$letra_nav_principal."\n");
+            fputs($fl,$letra_nav_hover."\n");
             fputs($fl,$header."\n");
             fputs($fl,$header_letra_border."\n");
             fputs($fl,$titulos."\n");
@@ -183,6 +195,14 @@ class _menuController extends Controller
 
 
 
+
+    }
+
+
+    function permisos_ch(){
+
+
+        $this->_menu->permisos_ch($_GET['menu'],$_GET['rol'],$_GET['estado']);
 
     }
 

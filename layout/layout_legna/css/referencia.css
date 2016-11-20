@@ -1,44 +1,44 @@
 .navbar-default {
-background-color: #B00000;
+background-color: #d77979;
 }
 .navbar-default .navbar-nav > li > a {
-color: #FFFFFF; 
+color: #F00;
 }
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-color: #FFFFFF; 
+color: blueviolet;
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-color: #A8A8A8; 
+color: #333;
 }
 
 .header-content {
 margin-top: 11px;
-background-color: #D90000; 
+background-color: #;
 margin-top: 31px;
-color: #FFFFFF; 
-border-color: #FFFFFF; 
+color: #;
+border-color: #;
 }
 .header-titulos {
-color: #FFFFFF; 
-border-color: #FFFFFF; 
+color: #;
+border-color: #;
 font-size: 28px;
 font-style: oblique;
 font-family: initial;
 margin-top: 10px;
 text-align: center;
-background-color: #6500D6;
+background-color: #;
 border-radius: 5px;
 margin-bottom: 10px;
 }
 #pie{
-background-color: #943232;
+background-color: rgb(143, 143, 247);
 height: 100px;
 font-size: 12px;
-color: #9C9C9C;
+color: aliceblue;
 text-decoration: none rgb(73, 188, 188);
 padding-top: 80px;
 text-align: center;
-border-color: #9C9C9C;
+border-color: #FFF;
 }
 #mensaje {
 	margin-left: 20px;
@@ -48,7 +48,7 @@ header .row{
 	text-align: center;
 	margin-left: 0px;
 	margin-right: 0px;
-min-height: 200px;
+	min-height: 50px;
 }
 .container-fluid.fondo {
 	background-color: #FFF;
