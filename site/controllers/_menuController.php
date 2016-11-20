@@ -132,7 +132,7 @@ class _menuController extends Controller
                 }else if($i==19){
                 $linea .= "border-color: #$header_letra_border; \n";
                 fgets($fl);
-                 }else if($i==51){
+                 }else if($i==17){
                 $linea .= "min-height: ".$ancho_header."px;\n";
                 fgets($fl);
                 /*titulo*/
@@ -161,7 +161,10 @@ class _menuController extends Controller
                  }else if($i==41){
                 $linea .= "border-color: #$pie_letra_border;\n";
                 fgets($fl);
-              
+                 /*fondo*/
+              }else if($i==44){
+                $linea .= "background-color: #$fondo;\n";
+                fgets($fl);
                 
 
                 }else{
