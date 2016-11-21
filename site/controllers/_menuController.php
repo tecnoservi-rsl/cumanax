@@ -46,7 +46,7 @@ class _menuController extends Controller
 
                 $color=Array();
 
-                 $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'css.info',"r");
+                 $fl=fopen(ROOT . 'layout'.DS.DEFAULT_LAYOUT.DS.'css'.DS.'css.info',"r");
 
                  while (!feof($fl)) {
 
@@ -102,7 +102,7 @@ class _menuController extends Controller
 
 
 
-            $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'referencia.css',"r");
+            $fl=fopen(ROOT . 'layout'.DS.DEFAULT_LAYOUT.DS.'css'.DS.'referencia.css',"r");
             $linea="";
             $i=1;
             while (!feof($fl)) {
@@ -176,11 +176,11 @@ class _menuController extends Controller
 
             fclose($fl);
 
-            $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'layout.css',"w+");
+            $fl=fopen(ROOT . 'layout'.DS.DEFAULT_LAYOUT.DS.'css'.DS.'layout.css',"w+");
             fputs($fl,$linea);
             fclose($fl);
 
-             $fl=fopen(ROOT . 'layout'.DS.'layout_legna'.DS.'css'.DS.'css.info',"w+");
+             $fl=fopen(ROOT . 'layout'.DS.DEFAULT_LAYOUT.DS.'css'.DS.'css.info',"w+");
             fputs($fl,$nav."\n");
             fputs($fl,$letra_nav."\n");
             fputs($fl,$letra_nav_principal."\n");

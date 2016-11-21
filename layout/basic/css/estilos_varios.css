@@ -8,6 +8,9 @@
 	margin-right: 0px;
 	
 }
+.container-fluid.fondo {
+	margin-top: 50px;
+}
 .header-titulos {
 font-size: 28px;
 font-style: oblique;
