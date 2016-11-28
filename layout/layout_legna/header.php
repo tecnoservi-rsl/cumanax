@@ -80,9 +80,9 @@
 
     <header>
         <div class="header-content">
-            <div class="row">
+            
               header <?php echo APP_SLOGAN ?>
-            </div>
+            
         </div>
     </header>
 
