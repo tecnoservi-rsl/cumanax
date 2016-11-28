@@ -65,7 +65,7 @@ class appController extends Controller
 
 
         	
-
+            $this->_view->logs=$this->app->all_logs();
 
            
 

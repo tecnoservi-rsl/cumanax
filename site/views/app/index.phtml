@@ -119,4 +119,38 @@
 		<?php endfor; ?>
 	</div>
 
+	<div class="col-xs-12 well">
+
+	<table class="table table-bordered">
+		<tr><td id="log_cen" colspan="6">log del sistema</td></tr>
+		<tr>
+		<td>ip</td>
+		<td>id_usuario</td>
+		<td>controlador</td>
+		<td>metodo</td>
+		<td>fecha</td>
+		<td>hora</td>
+		</tr>
+
+		<?php for ($i=0; $i < count($this->logs) ; $i++): ?>
+
+		<tr>
+		<td><?php echo $this->logs[$i]['ip'] ?></td>
+		<td><?php echo $this->logs[$i]['id_usuario'] ?></td>
+		<td><?php echo $this->logs[$i]['controlador'] ?></td>
+		<td><?php echo $this->logs[$i]['metodo'] ?></td>
+		<td><?php echo $this->logs[$i]['fecha'] ?></td>
+		<td><?php echo $this->logs[$i]['hora'] ?></td>
+		</tr>
+
+
+		<?php endfor; ?>
+
+	</table>
+
+		
+		
+	</div>
+
+
 </div>
