@@ -14,6 +14,7 @@ define('BASE_URL', 'http://localhost/cumanax/');
 //define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
 define('DEFAULT_CONTROLLER', 'principal');
 define('DEFAULT_LAYOUT', 'layout_legna');
+//define('DEFAULT_LAYOUT', 'basic');
 define('APP_NAME', 'CumanaX');
 define('APP_SLOGAN', 'servicios especiales y algo mas');
 define('APP_COMPANY', 'Tecnoservi');
