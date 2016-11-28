@@ -1,15 +1,15 @@
 <?php
 
 
-class _menuController extends Controller
+class appController extends Controller
 {
 	
-	private $_menu;
+	private $app;
 	
 	
     public function __construct() {
         parent::__construct();
-      $this->_menu=$this->loadModel('_menu');
+      $this->app=$this->loadModel('app');
 		
     }
 
@@ -21,18 +21,18 @@ class _menuController extends Controller
 			$this->_view->setCss(array('css'));
         	$this->_view->titulo = 'menus';
 
-        	$menu=$this->_menu->traer_menus();
-        	$role=$this->_menu->traer_roles();
+        	$menu=$this->app->traer_menus();
+        	$role=$this->app->traer_roles();
         	$matris = Array();
         	for ($i=0; $i < count($menu) ; $i++) { 
 
         		for ($y=0; $y < count($role); $y++) { 
 
-        					$vn=$this->_menu->traer_permisos($menu[$i]['id_menu'],$role[$y]['id_role']);
+        					$vn=$this->app->traer_permisos($menu[$i]['id_menu'],$role[$y]['id_role']);
         	        		if ($vn=='') {
         	        			$matris[$i][$y]['permiso']='0';
         	        		}else{
-        	        		$matris[$i][$y]=$this->_menu->traer_permisos($menu[$i]['id_menu'],$role[$y]['id_role']);
+        	        		$matris[$i][$y]=$this->app->traer_permisos($menu[$i]['id_menu'],$role[$y]['id_role']);
 	
         	        		}
         	        		
@@ -74,10 +74,7 @@ class _menuController extends Controller
         	$this->_view->menus=$menu;
 			$this->_view->rol=$role;
 			$this->_view->matris=$matris;
-			$this->_view->renderizar('index');
-			
-				
-			
+			$this->_view->renderizar('index');		
 	}
 
 
@@ -195,17 +192,13 @@ class _menuController extends Controller
             fputs($fl,$ancho_header);
 
             fclose($fl);
-
-
-
-
     }
 
 
     function permisos_ch(){
 
 
-        $this->_menu->permisos_ch($_GET['menu'],$_GET['rol'],$_GET['estado']);
+        $this->app->permisos_ch($_GET['menu'],$_GET['rol'],$_GET['estado']);
 
     }
 

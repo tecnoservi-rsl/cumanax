@@ -1,6 +1,6 @@
 <?php
 
-class _menuModel extends Model
+class appModel extends Model
 {
     public function __construct() {
         parent::__construct();
@@ -31,8 +31,6 @@ public function menu($id = false){
 
 
 	}
-
-	
 }
 
 
@@ -95,6 +93,21 @@ $sql = "UPDATE permisos SET permiso = $retVal WHERE id_menu = $menu AND id_role=
     }
 
 
+
+    }
+
+
+    public function log($ip,$peticion,$usuario){
+
+
+      
+        $controlador=$peticion->getControlador();
+        $metodo=$peticion->getMetodo();
+       
+
+        echo $sql="INSERT INTO log values ('',$usuario,'$ip','$controlador','$metodo',CURDATE(),CURTIME())";
+        $this->_db->query($sql);
+        
 
     }
 

@@ -57,7 +57,7 @@ console.log("rol--"+this.dataset.rol);
 console.log(this.checked);
 
 
-$.get(base_url+"_menu/permisos_ch",{
+$.get(base_url+"app/permisos_ch",{
 
 'menu'        : this.dataset.menu,
 'rol'         : this.dataset.rol,
@@ -76,7 +76,7 @@ $.get(base_url+"_menu/permisos_ch",{
 $(document).on("click","#cambiar_color",function(){
 
 
-$.get(base_url+"_menu/estilos",{
+$.get(base_url+"app/estilos",{
 
 'nav'                  : $('#nav').val(),
 'letra_nav'            : $('#letra_nav').val(),
