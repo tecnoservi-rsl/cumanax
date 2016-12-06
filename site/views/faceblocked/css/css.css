@@ -1,0 +1,134 @@
+#fondo-bolcked {
+	background: url('http://localhost/cumanax/public/img/sexy2.gif');
+	min-height: 600px;
+	 background-repeat: no-repeat;
+}
+.mensaje-al-usuario {
+	padding-top: 2px;
+	border: 1px solid red;
+	border-radius: 5px;
+	margin-top: 38px;
+	padding-bottom: 9px;
+	transition: cubic-bezier(1,0,0,1) 3s;
+}
+
+
+
+
+.titulo-mesaje-usuario {
+	font-size: 20px;
+	text-align: center;
+	color: red;
+	font-style: italic;
+}
+p {
+	text-align: justify;
+	color: red;
+	border-bottom: 1px solid;
+}
+
+@media screen and (max-width: 1048px) {
+
+	.mensaje-al-usuario {
+	padding-top: 2px;
+	border: 1px solid red;
+	border-radius: 5px;
+	margin-top: 38px;
+	background-color: #e0d7d7e6;
+	}
+  
+}
+
+div.row.botoness_bloch div {
+	width: 32%;
+	float: left;
+	background-color: red;
+	margin: 2px;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	font-style: italic;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: cubic-bezier(.68,-0.55,.27,1.55) 0,5s;
+}
+
+div.row.botoness_bloch div:hover {
+	width: 32%;
+	float: left;
+	background-color: #ec0a0ab3;
+	margin: 2px;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	font-style: italic;
+	border-radius: 2px;
+	cursor: pointer;
+	
+}
+
+.mensaje-al-usuario {
+	padding-top: 2px;
+	border: 1px solid red;
+	border-radius: 5px;
+	margin-top: 38px;
+	padding-bottom: 9px;
+	transition: cubic-bezier(1,0,0,1) 3s;
+}
+
+.mensaje-al-usuario2 {
+	margin-top: -1000px;
+}
+.validar-al-usuario {
+	padding-top: 2px;
+	border: 1px solid red;
+	border-radius: 5px;
+	margin-top: -400px;
+	padding-bottom: 9px;
+	position: absolute;
+	transition: cubic-bezier(1,0,0,1) 3s;
+}
+
+.validar-al-usuario2 {
+	
+	margin-top: 38px;
+	
+
+}
+
+@media screen and (max-width: 1048px) {
+
+	
+	.mensaje-al-usuario {
+	padding-top: 2px;
+	border: 1px solid red;
+	border-radius: 5px;
+	margin-top: 38px;
+	padding-bottom: 9px;
+	transition: cubic-bezier(1,0,0,1) 3s;
+	background-color: #e0d7d7e6;
+
+}
+
+.mensaje-al-usuario2 {
+	margin-top: -1000px;
+}
+
+
+
+
+  
+}
+
+img {
+	vertical-align: middle;
+	width: 200px;
+	height: 200px;
+}
+.col-xs-4 {
+	width: 33.33333333%;
+	text-align: center;
+}
+.page-header {
+	text-align: center;
+}
