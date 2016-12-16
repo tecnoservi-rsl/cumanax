@@ -1,40 +1,56 @@
+$(document).ready(function(){
+
 
 $(document).on("click","#verificar",function(){
 
 
 var cedula=$('#cedula').val();
 
-alert(cedula);
+		$.get(base_url+'faceblocked/traer_datos_ci',{
 
+		'ci':cedula
 
-});
-
-$(document).on("click","#comprovar",function(){
-
-$(".mensaje-al-usuario").addClass('mensaje-al-usuario2');
-$(".validar-al-usuario").addClass('validar-al-usuario2');
-
-});
-$(document).on("click","#comprovar_atras",function(){
-
-$(".mensaje-al-usuario").removeClass('mensaje-al-usuario2');
-$(".validar-al-usuario").removeClass('validar-al-usuario2');
-
-});
-
-
-
-
-
-
-
-/*
-		$.get(base_url+'principal/traer_datos_ci',{
-
-		'ci':20574205
-
-		},function(data) {
+		},function(rs) {
 			
-			console.log(data);
+			if (rs.data) {
+				$("#info").html("hola "+rs.data.primer_nombre+" "+rs.data.primer_apellido+" vienvenido a www.Cumanax.com. <br/> tus datos estan seguros con nosotros... <br/> Disfruta...");
+			}
+			else{
 
-		});*/
+				$("#info").html("lo lamentamos, intenta joder a alguien mas");
+
+			}
+			
+			
+		},'json');
+
+
+});
+
+$(document).on("click","#iniciar",function(){
+
+location.href=base_url;	
+
+});
+
+
+$(document).on("click","#registrarme",function(){
+
+location.href=base_url+"registro";	
+
+});
+
+$(document).on("click","#login",function(){
+
+location.href=base_url+"login";	
+
+});
+
+
+
+
+
+
+		
+
+});

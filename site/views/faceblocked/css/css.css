@@ -3,6 +3,10 @@
 	min-height: 600px;
 	 background-repeat: no-repeat;
 }
+#img_gif {
+	width: 35px;
+	height: 35px;
+}
 .mensaje-al-usuario {
 	padding-top: 2px;
 	border: 1px solid red;
@@ -12,6 +16,13 @@
 	transition: cubic-bezier(1,0,0,1) 3s;
 }
 
+.unico_booton {
+	font-size: 14px !important;
+}
+.md-content > div:nth-child(2) > div:nth-child(2) {
+margin-bottom: 15px;
+	margin-top: 15px;
+}
 
 
 

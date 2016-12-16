@@ -21,9 +21,9 @@
 		</p>
 
 		<div class="row botoness_bloch">
-			<div class="">login</div>
-			<div id="comprovar" class="">comprovar</div>
-			<div class="">regitrarme</div>
+			<div id="login">login</div>
+			<div id="" class="md-trigger" data-modal="modal-1">comprovar</div>
+			<div id="registrarme">registrarme</div>
 		</div>
 
 
@@ -39,29 +39,63 @@
 		</p>
 
 		 <div>
-			<form class="form-horizontal">
-				  <div class="form-group">
-				    <label for="" class="col-sm-2 control-label">Cedula</label>
-				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="cedula" placeholder="Cedula">
-				    </div>
-				  </div>
-				   <div class="form-group">
-				    <center>
-				    	
-				    	 <button type="button" class="btn btn-default" id="verificar">verificar</button>
-				    	 <button type="button" class="btn btn-default" id="comprovar_atras">atras</button>
-				    </center>
-				    
-				    
-				  </div>
-			</form>
+			
 		</div> 
-		
-	
-
-
 	</div>
+
+
+		<div class="md-modal md-effect-13" id="modal-1">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>complete el sigisente formulario</p>
+						
+											
+					<div class="row">
+					  
+					  <div class="col-xs-7">
+					    <input type="text" id="cedula"  class="form-control" placeholder="Cedula">
+					  </div>
+					  <div class="col-xs-4">
+					   <button data-modal="modal-2"  id="verificar" class="unico_booton  md-trigger ">verificar</button>
+					  </div>
+					</div>
+											
+					<button class="md-close">cerrar</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="md-modal md-effect-6" id="modal-2">
+			<div class="md-content">
+				<h3>segundo modal</h3>
+				<div>
+					<p>hola</p>
+						
+											
+					<div class="row" id="info">
+					  
+					 <center>
+					 	<img id="img_gif" width="20px" height="20px" src="<?php echo BASE_URL ?>public/img/loading.gif" alt="">
+					 </center>
+					  <div>
+					  <center>
+					 	Cargando
+					 </center>		
+					</div>
+					</div>
+											
+					<button id="iniciar">ok</button>
+				</div>
+			</div>
+		</div>
+		
+
+
+
+<div class="md-overlay"></div>
+
+
 
 </div>
 <div class="">
