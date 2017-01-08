@@ -1,14 +1,31 @@
 .navbar-default {
-background-color: #B00000;
+	/* background-color: #DE0000; */
+	background: linear-gradient(to bottom, #DA0000, #630000);
+	border-bottom: solid 1px #9B0303;
+	box-sizing: border-box;
+	height: 40px !important;
+	transition: opacity .3s ease;
+	opacity: 0.9;
 }
+
+body{
+
+	background-color: #500000 !important;
+}
+
+#mainNav:hover {
+	background: linear-gradient(to bottom, #DA0000, #A60000);
+	opacity: 1;
+}
+
 .navbar-default .navbar-nav > li > a {
-color: #FFFFFF; 
+color: #F0DB29; 
 }
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-color: #FFFFFF; 
+	color: #F0DB29;
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-color: #A8A8A8; 
+color: #F0DB29; 
 }
 
 .header-content {
@@ -26,7 +43,7 @@ border-color: #FFFFFF;
 
 
 
-background-color: #D90000;
+background-color: #B00000;
 
 
 }
@@ -41,7 +58,7 @@ color: #D1D1D1;
 border-color: #D1D1D1;
 }
 .container-fluid.fondo {
-background-color: #E6E6E6;
+	background-color: #A60000;
 }
 /* 
 ojo este estilo no se debe tocar 

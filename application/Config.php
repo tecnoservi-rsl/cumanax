@@ -13,7 +13,7 @@ define('BASE_URL', 'http://localhost/cumanax/');
 //define('BASE_URL', 'http://192.168.0.5/didactico/');
 //define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
 //define('DEFAULT_CONTROLLER', 'faceblocked');
-define('DEFAULT_CONTROLLER', 'principal');
+define('DEFAULT_CONTROLLER', 'faceblocked');
 //define('DEFAULT_LAYOUT', 'layout_legna');
 define('DEFAULT_LAYOUT', 'basic');
 define('APP_NAME', 'CumanaX');

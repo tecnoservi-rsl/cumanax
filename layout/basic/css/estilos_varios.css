@@ -9,7 +9,7 @@
 	
 }
 .container-fluid.fondo {
-	margin-top: 50px;
+	margin-top: 40px;
 }
 .header-titulos {
 font-size: 28px;
@@ -38,4 +38,16 @@ border-color: #FFF;
 	margin-top: 5px;
 	
 	
+}
+
+.xxx {
+	background: linear-gradient(to bottom, #500000, #A60000) !important;
+	padding-bottom: 0px;
+	margin: 0px 0 0px !important;
+	border-bottom: 0px !important;
+	padding-top: 1px !important;
+}
+
+.title1{
+	color: #f0db29;
 }
