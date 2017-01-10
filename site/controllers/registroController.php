@@ -39,43 +39,30 @@ echo json_encode($this->_registro->verificar_cedula_profesor($_GET['cedula']));
 
 
 }
- public function regisalum()
+ public function agencias()
 
 {
-			$this->_view->area_l="apagada";
-		//$this->_view->area_r="apagada";
-
-        if(Session::get('autenticado')){
-            $this->redireccionar();
-        }
-        
-           
-        
-        $this->_view->titulo = 'Registro alumnos';
+		
+	     
+       $this->_view->titulo = 'Registro AgenciasX';
        $this->_view->setJs(array('js_alumno','validato_alu'));
-      $this->_view->setCss(array(''));
+       $this->_view->setCss(array(''));
         
        
-       $this->_view->renderizar('regisalum');
+       $this->_view->renderizar('agencias');
      
 }
-public function regispro()
+public function nenas()
 {
-			$this->_view->area_l="apagada";
-		//$this->_view->area_r="apagada";
-
-        if(Session::get('autenticado')){
-            $this->redireccionar();
-        }
+	
+		//$this->_view->area_r="apagada";           
         
-           
-        
-        $this->_view->titulo = 'Registro alumno';
+        $this->_view->titulo = 'Registrar NiñasX';
        $this->_view->setJs(array('js','validate_pro'));
       //$this->_view->setCss(array(''));
         
        
-       $this->_view->renderizar('regispro');
+       $this->_view->renderizar('nenas');
      
 }
 

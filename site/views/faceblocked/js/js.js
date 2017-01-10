@@ -13,7 +13,7 @@ var cedula=$('#cedula').val();
 		},function(rs) {
 			
 			if (rs.data) {
-				$("#info").html("hola "+rs.data.primer_nombre+" "+rs.data.primer_apellido+" vienvenido a www.Cumanax.com. <br/> tus datos estan seguros con nosotros... <br/> Disfruta...");
+				$("#info").html("Hola "+rs.data.primer_nombre+" "+rs.data.primer_apellido+" bienvenido a Www.CumanaX.Com. <br/> tus datos estan seguros con nosotros... <br/> Disfruta...");
 			}
 			else{
 
