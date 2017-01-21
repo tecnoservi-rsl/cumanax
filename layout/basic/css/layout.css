@@ -68,3 +68,44 @@ podria afectar el buen
 funcionamiento del mismo
 para agregar estilos a las reglas aqui expresadas puede hacerlo en "estilos_varios.css"
  */
+
+
+ .pietop{
+
+ 	height: 32px; */
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0 0;
+    background: #A60000;
+    background: linear-gradient(to bottom, #A60000, rgba(80,0,0,0.6));
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px 2px rgba(80,0,0,0.8);
+    border-top: solid 1px #C00000;
+    border-bottom: solid 1px #930000;
+ }
+
+ .piebody{
+
+ 	height: 77px;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    padding: 12px 0 0;
+    position: relative;
+    color: #ED7A7A;
+    border-bottom: 1px solid #A60000;
+    background: #7B0000;
+    background: linear-gradient(to bottom, #500000, #7B0000);
+    z-index: -1;
+ }
+
+ .piebottom{
+
+ 	font: 10px Arial;
+    width: 100%;
+    height: 23px;
+    padding: 10px 0 0;
+    color: #930000;
+    background: #500000;
+ }
