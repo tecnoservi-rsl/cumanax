@@ -1,12 +1,69 @@
+<div class="row">
+			<div style="width:1200px;height:800px; margin:40px auto;">
+				<div class="am-container" id="am-container">
+					<?php for ($i=0; $i <30 ; $i++) : ?>
+					
 
+						<a href="#"><img width="<?php echo rand(300, 450) ?>" height="<?php echo rand(250,300) ?>" src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $i+1;?>.jpg"></img></a>
 
-	<div  class="col-xs-10 col-sm-10 col-md-10 col-lg-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
-		<div class="header-titulos"> <?php echo APP_NAME; ?> </div>
-		<div class="col-sm-6">
-			asdasdasd
+					<?php endfor; ?>
+					
+				
+				</div>
+			</div>
 		</div>
-		<div class="col-sm-6">
-			asdsadasd
-		</div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.montage.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/* 
+				 * just for this demo:
+				 */
+				$('#showcode').toggle(
+					function() {
+						$(this).addClass('up').removeClass('down').next().slideDown();
+					},
+					function() {
+						$(this).addClass('down').removeClass('up').next().slideUp();
+					}
+				);
+				$('#panel').toggle(
+					function() {
+						$(this).addClass('show').removeClass('hide');
+						$('#overlay').stop().animate( { left : - $('#overlay').width() + 20 + 'px' }, 300 );
+					},
+					function() {
+						$(this).addClass('hide').removeClass('show');
+						$('#overlay').stop().animate( { left : '0px' }, 300 );
+					}
+				);
+				
+				var $container 	= $('#am-container'),
+					$imgs		= $container.find('img').hide(),
+					totalImgs	= $imgs.length,
+					cnt			= 0;
+				
+				$imgs.each(function(i) {
+					var $img	= $(this);
+					$('<img/>').load(function() {
+						++cnt;
+						if( cnt === totalImgs ) {
+							$imgs.show();
+							$container.montage({
+								liquid 	: false,
+								fillLastRow : true
+							});
+							
+							/* 
+							 * just for this demo:
+							 */
+							$('#overlay').fadeIn(500);
+						}
+					}).attr('src',$img.attr('src'));
+				});	
+				
+			});
+		</script>
 
+	</div>
 	</div>
