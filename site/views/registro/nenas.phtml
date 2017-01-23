@@ -4,41 +4,88 @@
   <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-              <div><h3 class="title1"> <center> Registro de NiñasX</center></h3></div>
-        <form>
+              <div><h3 class="title1"> <center> Registro</center></h3></div>
+         <form id="agregar" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>registro/guardar_publicacion" >
           <div class="form-group">
             <label for="exampleInputEmail1">Nombre Artistico</label>
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Artistico">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Fecha de Nacimiento</label>
-            <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="DD/MM/AA">
+            <label for="exampleInputEmail1">Destrezas</label>
+            <input type="text" class="form-control" id="destrezas" name="destrezas" placeholder="Destrezas">
+          </div>
+                    <div class="form-group">
+            <label for="exampleInputEmail1">Especialidad</label>
+            <input type="text" class="form-control" id="especialidad" name="especialidad" placeholder="Especialidad">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Medidas</label>
             <input type="text" class="form-control" id="medidas" name="medidas" placeholder="Medidas">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Peso</label>
+            <input type="text" class="form-control" id="peso" name="peso" placeholder="peso">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Color de cabello</label>
+            <input type="text" class="form-control" id="color_cabello" name="color_cabello" placeholder="Color de cabello">
+          </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Color de Ojos</label>
+            <input type="text" class="form-control" id="color_ojos" name="color_ojos" placeholder="Color de Ojos">
           </div>
            <div class="form-group">
             <label for="exampleInputEmail1">Color de piel</label>
             <input type="text" class="form-control" id="color_piel" name="color_piel" placeholder="Color de piel">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Color de cabello</label>
-            <input type="email" class="form-control" id="color_cabello" name="color_cabello" placeholder="Color de cabello">
+            <label for="exampleInputEmail1">Fecha de Nacimiento</label>
+            <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="DD/MM/AA">
           </div>
+          
+          <div class="form-group">
+            <label for="exampleInputEmail1">Agencia</label>
+            <select class="form-control" id="agencia" name="agencia">
+            <option value="0">--Seleccione--</option>
+      
+            </select>
+          </div>
+         
             <div class="form-group">
-            <label for="exampleInputEmail1">Color de Ojos</label>
-            <input type="email" class="form-control" id="color_ojos" name="color_ojos" placeholder="Color de Ojos">
+            <label for="exampleInputEmail1">Telefono</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="tlf">
           </div>
+
+
           <div class="form-group">
             <label for="exampleInputPassword1">Videos</label>
-            <input type="file" class="form-control" id="password" name="password" >
+            <input type="file" class="form-control"   id="files_video" name="video" >
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Fotos</label>
-            <input type="file" class="form-control" id="confirmar_password" name="confirmar_password" placeholder="">
+            <input type="file" class="form-control"  multiple="multiple" id="files" name="fotos[]">
           </div>
-          
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Publico a atender :</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" name="publico[]" id="inlineRadio1" value="HOMBRES"> Hombre
+                  </label>
+                  <label class="radio-inline">
+                    <input type="checkbox" name="publico[]" id="inlineRadio2" value="MUJERES"> Mujer
+                  </label>
+                  <label class="radio-inline">
+                    <input type="checkbox" name="publico[]" id="inlineRadio3" value="PAREJAS"> Parejas
+                  </label>
+          </div>
+
+           <div class="row">
+              <div id="list" class="prv">Previsualizacion Fotos</div>
+            </div>
+                
+
+
+             
           <center> <button type="submit" class="btn btn-default">Registrar</button> </center>
         </form> 
             
