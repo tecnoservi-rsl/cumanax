@@ -2,60 +2,54 @@ $(document).ready(function(){
 
 
 
-	if ($('#_ROL_').val()=='3' || $('#_ROL_').val()=='5') {
-
-$(".col-xs-10 > article:nth-child(3) > div:nth-child(2) > div:nth-child(1)").remove();
-
-
-}
-if ($('#_ROL_').val()=='5') {
-
-$(".col-xs-10 > article:nth-child(2) > div:nth-child(2) > div:nth-child(1)").remove();
-$("#menu_gestion > center:nth-child(1) > div:nth-child(1)").remove();
-
-
-
-
-}
-
-
-
-//contlos de proveedor y bancos------------------------------------
-$(document).on("click","#opt_",function(){
-
-
-var controler=this.dataset.controller;
-var accion=this.dataset.accion;
-
-document.location=base_url+controler+"?accion="+accion;
-
-
-});
-
-//------------------------------------------------------------------
-
-
-
-
-
-
-
-$(document).on("click","#x_gestion",function(){
-
-
-var controler=this.dataset.controller;
-
-
-document.location=base_url+controler;
-
-
-});
-
-//------------------------------------------------------------------
-
-
-
-
+			$(function() {
+				/* 
+				 * just for this demo:
+				 */
+				$('#showcode').toggle(
+					function() {
+						$(this).addClass('up').removeClass('down').next().slideDown();
+					},
+					function() {
+						$(this).addClass('down').removeClass('up').next().slideUp();
+					}
+				);
+				$('#panel').toggle(
+					function() {
+						$(this).addClass('show').removeClass('hide');
+						$('#overlay').stop().animate( { left : - $('#overlay').width() + 20 + 'px' }, 300 );
+					},
+					function() {
+						$(this).addClass('hide').removeClass('show');
+						$('#overlay').stop().animate( { left : '0px' }, 300 );
+					}
+				);
+				
+				var $container 	= $('#am-container'),
+					$imgs		= $container.find('img').hide(),
+					totalImgs	= $imgs.length,
+					cnt			= 0;
+				
+				$imgs.each(function(i) {
+					var $img	= $(this);
+					$('<img/>').load(function() {
+						++cnt;
+						if( cnt === totalImgs ) {
+							$imgs.show();
+							$container.montage({
+								liquid 	: false,
+								fillLastRow : true
+							});
+							
+							/* 
+							 * just for this demo:
+							 */
+							$('#overlay').fadeIn(500);
+						}
+					}).attr('src',$img.attr('src'));
+				});	
+				
+			});
 
 
 

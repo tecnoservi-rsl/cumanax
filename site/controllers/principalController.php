@@ -15,13 +15,6 @@ class principalController extends Controller
     {
 
 
-
-    		
-		
-
-		
-
-		
        
 			
 			$this->_view->setJs(array('index','jquery.montage'));
