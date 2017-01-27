@@ -1,20 +1,22 @@
 $(document).ready(function(){
-$('#fotoG').hide();
 
-$(document).on("click", "#ver_niña", function(){
-	$('#perfil').hide(500);
-	$('#fotoG').hide(500);
-	id_foto=$(this).data("url");
-	$('#fotoG').attr('src', id_foto);
-	$('#fotoG').show(500);
-})
 
-$(document).on("click", "#ver_perfil", function(){
-	$('#fotoG').hide(500);
-	$('#perfil').show(500);
+$(document).on("click", "#prevista > img", function(){
+	id=this.id;
+	id_foto=$("#"+id).attr('src');
+	var options = {};
+	$( "#fotoG" ).hide( "fade", options, 1000, callback(id_foto));
+	
 	
 })
 
+
+    function callback(e) {
+      setTimeout(function() {
+      	$('#fotoG').attr('src', e);
+        $( "#fotoG" ).removeAttr( "style" ).hide().fadeIn();
+      }, 1000 );
+    };
 
 
 
