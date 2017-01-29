@@ -45,3 +45,13 @@
 
     min-width: 100%;
 }
+#boton_izquierda{
+   z-index: 2;
+    margin-right: -8%;
+    padding-top: 30%;
+}
+#boton_derecha{
+   z-index: 2;
+    margin-left: -9%;
+    padding-top: 30%;
+}
