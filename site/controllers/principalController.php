@@ -15,6 +15,8 @@ class principalController extends Controller
     {
 
 
+    			
+
        
 			
 			$this->_view->setJs(array('index','jquery.montage'));
@@ -23,7 +25,23 @@ class principalController extends Controller
 			$this->_view->renderizar('index');
 							
 			
-	}	
+	}
+
+	    public function principal($muestra=false)
+    {
+
+
+    			echo $muestra;
+
+       
+			
+			$this->_view->setJs(array('index','jquery.montage'));
+			$this->_view->setCss(array('css','style'));
+        		$this->_view->titulo = 'index';
+			$this->_view->renderizar('index');
+							
+			
+	}		
 	
 }
 
