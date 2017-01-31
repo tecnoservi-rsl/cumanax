@@ -44,7 +44,7 @@ echo json_encode($this->_registro->verificar_cedula_profesor($_GET['cedula']));
 {
 		
 	     
-       $this->_view->titulo = 'Registro AgenciasX';
+       $this->_view->titulo = 'Registro Agencias';
        $this->_view->setJs(array('js_alumno','validato_alu'));
        $this->_view->setCss(array('index'));
         
@@ -57,7 +57,7 @@ public function nenas()
 	
 		//$this->_view->area_r="apagada";           
         
-        $this->_view->titulo = 'Registrar NiñasX';
+        $this->_view->titulo = 'Registrar Niñas';
        $this->_view->setJs(array('js','validate_pro','rne'));
       $this->_view->setCss(array('index'));
         
@@ -69,14 +69,22 @@ public function nenas()
 public function guardar_publicacion()
 {
 	
-	print_r($_FILES);
 
 	 $this->_registro->guardar_publicacion($_POST,$_FILES);
                
-     //  $this->redireccionar('registro/nenas');
+     $this->redireccionar('registro/nenas');
      
 }
 
+public function guardar_agencia()
+{
+	
+
+	 $this->_registro->guardar_agencia($_POST);
+               
+     $this->redireccionar('registro/agencias');
+     
+}
 
 
 

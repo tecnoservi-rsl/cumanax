@@ -1,5 +1,41 @@
 
 
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    border-left: 1px solid #eee8aa4d;
+    border-radius: 4px;
+
+
+   background: rgba(77, 0, 0, 0.5);
+color: #000;
+box-shadow: 0 0 1px #000
+}
+.marco-desc {
+    border: 4px;
+    border-color: #080707;
+    color: #000;
+    border-radius: 0px;
+    box-shadow: 0 0 1px #000;
+/*    background: linear-gradient(to bottom, #A60000, #3C020999) !important;
+*/ 
+
+    
+}
+
+
+
+
+.negro{
+    text-decoration-color: #fff;
+    color: black;
+}
+#negro{
+    text-decoration-color: #fff;
+    color: black;
+}
+
 .dorado{
     text-decoration-color: #EEE8AA;
     color: #EEE8AA;
@@ -21,11 +57,17 @@
     text-align: center;
     border-bottom: 1px solid #eee889;
 }
+
+
 .perfil {
-    color: antiquewhite;
-    padding: 23px;
+    color: #ED7A7A;
+    box-shadow: 4px;
+    padding: 15px;
     border-left: 1px solid #eee8aa4d;
-    min-height: 300px;
+    min-height: 350px;
+    margin-top: 0px;
+    padding-right: 0px;
+    padding-left: 28px;
 }
 .prviuw {
     float: left;
@@ -45,13 +87,69 @@
 
     min-width: 100%;
 }
-#boton_izquierda{
-   z-index: 2;
-    margin-right: -8%;
-    padding-top: 30%;
+
+li {
+    display: block;
 }
-#boton_derecha{
-   z-index: 2;
-    margin-left: -9%;
-    padding-top: 30%;
+
+.margen_vista_nina {
+    margin-top: 12px;
+    padding: 0px;
+    margin-left: -29px;
+}
+
+#contacto {
+    padding-top: 27px;
+    color: black;
+    padding-left: 0px;
+}
+
+#mail{
+    color: black;
+    padding-left: 40px;
+}
+
+
+form{ 
+    width:100%; 
+    margin:0 auto; 
+    padding:10px; 
+}
+
+form p, form input[type = "submit"]{
+    text-align:center; 
+    font-size:20px;
+}
+
+input[type = "radio"]{ 
+    display:none;
+}
+
+label{
+    color:black;
+}
+
+.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: -10px;
+
+    text-align: center;
+}
+
+label:hover,
+label:hover ~ label{color:orange;}
+input[type = "radio"]:checked ~ label{color:orange;}
+
+.estrella{
+    font-size: 250%;
+    text-align: center;
+    margin-top: -26px;
+}
+.califica {
+    font-size: 16px;
+    color: black;
+    text-align: center;
 }

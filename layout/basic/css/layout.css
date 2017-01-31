@@ -3,7 +3,7 @@
 	background: linear-gradient(to bottom, #DA0000, #630000);
 	border-bottom: solid 1px #9B0303;
 	box-sizing: border-box;
-	height: 40px !important;
+	height: 60px !important;
 	transition: opacity .3s ease;
 	opacity: 0.9;
 }

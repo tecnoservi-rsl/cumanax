@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="<?php echo BASE_URL; ?>" class="navbar-brand"> <?php echo APP_NAME; ?></a>
+                <a href="<?php echo BASE_URL; ?>principal" class="navbar-brand"><img src="<?php echo BASE_URL; ?>public/img/cara.png" class="logox"><h4 class="texto">CumanaX.com.ve</h4></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,7 +88,8 @@
     <div class="row">
     
         <div class="page-header xxx">
-            <h1 class="title1">Www.CumanaX.Com <small class="text-color">Servicios Especiales</small></h1>
+            <img src="<?php echo BASE_URL; ?>public/img/logox.png" class="logo_centro">
+            <!-- <h1 class="title1">Www.CumanaX.Com <small class="text-color">Servicios Especiales</small></h1> -->
         </div>
 
    
