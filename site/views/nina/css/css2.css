@@ -1,4 +1,26 @@
 
+.xx1 {
+    font-size: 13px;
+    color: #ED7A7A;
+    border-bottom: 1px solid #A60000;
+    background: #7B0000;
+    background: linear-gradient(to bottom, #500000, #7B0000);
+    margin-right: 20px;
+    margin-left: 20px;
+    min-height: 320px;
+
+}
+
+.xx {
+    font-size: 13px;
+    color: #ED7A7A;
+    border-bottom: 1px solid #A60000;
+    background: #7B0000;
+    background: linear-gradient(to bottom, #6C030399, #7B000099);
+    margin-right: 20px;
+    margin-left: 20px;
+    min-height: 320px;
+}
 
 .panel-title {
     margin-top: 0;
@@ -99,7 +121,7 @@ li {
 }
 
 #contacto {
-    padding-top: 27px;
+    padding-top: 13px;
     color: black;
     padding-left: 0px;
 }
@@ -152,4 +174,8 @@ input[type = "radio"]:checked ~ label{color:orange;}
     font-size: 16px;
     color: black;
     text-align: center;
+}
+.prviuw > img {
+    width: 90px;
+    height: 90px;
 }

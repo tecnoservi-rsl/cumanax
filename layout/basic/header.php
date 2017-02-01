@@ -56,7 +56,7 @@
                             <?php for($i = 0; $i < count($_layoutParams['menu']); $i++): ?>
                            
 
-                            <li><a href="<?php echo BASE_URL.$_layoutParams['menu'][$i]['enlace']; ?>"><?php  echo $_layoutParams['menu'][$i]['titulo']; ?></a></li>
+                            <li ><a class="enlace-menu" href="<?php echo BASE_URL.$_layoutParams['menu'][$i]['enlace']; ?>"><b><?php  echo $_layoutParams['menu'][$i]['titulo']; ?></b></a></li>
 
                             <?php endfor; ?>
                             <?php endif; ?>
