@@ -35,7 +35,7 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
 
 
 
- echo $sql="insert into chicas values ('',
+    $sql="insert into chicas values ('',
     '".strtoupper ($datos['nombre'] )."',
     '".strtoupper ($datos['fecha_nacimiento'])."',
     '".strtoupper ($datos['destrezas'] )."',
@@ -85,8 +85,23 @@ $this->_db->query($sql);
 
 
       }
-        
 
+
+ public function guardar_agencia($datos)
+      {   
+
+
+    $sql="insert into agencia values ('',
+    '".strtoupper ($datos['agencia'] )."',
+    '".strtoupper ($datos['nro_contacto'])."',
+    '".strtoupper ($datos['correo'] )."',
+    '".strtoupper ($datos['facebook'])."',
+    '".strtoupper ($datos['pin'] )."',
+    '".strtoupper ($datos['ws'])."'
+    )";
+        
+$this->_db->query($sql);
+}
 }
 
 ?>

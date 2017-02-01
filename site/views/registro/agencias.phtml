@@ -4,8 +4,8 @@
   <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-              <div><h3 class="title1"> <center> Registrar AgenciasX</center></h3></div>
-        <form>
+              <div><h3 class="title1"> <center>Registrar Agencia</center></h3></div>
+        <form id="agregar_agencias"  method="post" action=" <?php echo BASE_URL ?>registro/guardar_agencia" >
           <div class="form-group">
             <label for="exampleInputEmail1">Nombre de la Agencia</label>
             <input type="text" class="form-control" id="agencia" name="agencia" placeholder="Nombre de la Agencia">
@@ -17,8 +17,12 @@
           
           <div class="form-group">
             <label for="exampleInputEmail1">Correo</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Correo">
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo">
           </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Facebook</label>
+            <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Facebook">
+          </div>  
             <div class="form-group">
             <label for="exampleInputEmail1">Blackberry Messenger</label>
             <input type="text" class="form-control" id="pin" name="pin" placeholder="PIN">
@@ -27,20 +31,7 @@
             <label for="exampleInputEmail1">Whatsapp</label>
             <input type="text" class="form-control" id="ws" name="ws" placeholder="Whatsapp">
           </div>
-           <div class="form-group">
-            <label for="exampleInputEmail1">Instagram</label>
-            <input type="text" class="form-control" id="instagram" name="instagram" placeholder="Instagram">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Facebook</label>
-            <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Facebook">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Twitter</label>
-            <input type="text" class="form-control" id="Twitter" name="Twitter" placeholder="Twitter">
-          </div>
-         
-          
+                
           <center> <button type="submit" class="btn btn-default">Registrar</button> </center>
         </form> 
             
