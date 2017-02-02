@@ -6,23 +6,23 @@ class principalModel extends Model
         parent::__construct();
     }
     
-public function traer_publicasion(){
+public function get_all(){
 
 
 
-$sql="SELECT * FROM `propiedad` ORDER BY `id_propiedad` DESC limit 0,6 ";
+$sql="SELECT * FROM `chicas` ORDER BY `id_chicas` DESC limit 0,30 ";
 
 $datos = $this->_db->query($sql);
         
-        return $datos->fetchall();
+return $datos->fetchall();
 
 
 
 }
-public function traer_img($id){
+public function get_photo_all($id){
 
 
-$sql="select * from img where id_propiedad='$id'";
+$sql="select * from fotos_chicas where id_chicas='$id'";
 
 $datos = $this->_db->query($sql);
         

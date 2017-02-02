@@ -25,7 +25,7 @@ public function menu($id = false){
     . "menu.id_menu=permisos.id_menu and \n"
     . "role.id_role = permisos.id_role and\n"
     . "permisos.permiso=1 and \n"
-    . "role.id_role=4";
+    . "role.id_role=2";
 	$menu = $this->_db->query($sql);
 	return $menu->fetchall();
 
