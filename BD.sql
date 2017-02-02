@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-02-2017 a las 01:52:35
+-- Tiempo de generación: 02-02-2017 a las 19:49:15
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -29,19 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `agencia` (
 `id_agencia` int(11) NOT NULL,
   `nombre_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `nro_contacto` int(11) NOT NULL,
+  `nro_contacto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `correo_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `facebook_agencia` int(11) NOT NULL,
+  `facebook_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `pin_agencia` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
-  `whatsapp_agencia` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `whatsapp_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `agencia`
 --
 
 INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `nro_contacto`, `correo_agencia`, `facebook_agencia`, `pin_agencia`, `whatsapp_agencia`) VALUES
-(1, 'BADGIRL', 2147483647, 'BADGIRL@CUMANAX.COM', 0, '5748RAS', 2147483647);
+(1, 'BADGIRL', '2147483647', 'BADGIRL@CUMANAX.COM', '0', '5748RAS', '2147483647'),
+(2, 'Independiente', '2147483647', 'independiente@gmail.com', '0', '', '0');
 
 -- --------------------------------------------------------
 
@@ -55,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `chicas` (
   `fecha_nacimiento` date NOT NULL,
   `destrezas` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `especialidad` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `estatura` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `medidas` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `peso` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `color_cabello` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
@@ -64,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `chicas` (
   `publico` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `horario` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `localidad` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `bbm` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `whatsapp` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `facebook` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
@@ -71,16 +74,15 @@ CREATE TABLE IF NOT EXISTS `chicas` (
   `twitter` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `preview` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `id_agencia` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `chicas`
 --
 
-INSERT INTO `chicas` (`id_chicas`, `nombre_chicas`, `fecha_nacimiento`, `destrezas`, `especialidad`, `medidas`, `peso`, `color_cabello`, `color_ojos`, `color_piel`, `tlf`, `publico`, `horario`, `localidad`, `bbm`, `whatsapp`, `facebook`, `instagram`, `twitter`, `preview`, `id_agencia`) VALUES
-(5, 'HOLA', '2017-02-23', 'DEDED', 'DEDE', 'JHJHJH', 'JHHJHJ', 'JHJH', 'ASDASD', 'ASDASD', 'ASDSAD', '', 'ASDSADASD', 'ASDSAD', 'ASDASD', 'SADSAD', 'SADSAD', 'ASDSAD', 'ASDSAD', 'Le gusta jugar en la ducha, es contorsionista y le gusta demostrarlo. ¡Llamame!', NULL),
-(6, 'ASHLEY', '1992-02-21', 'FLEXIBLE 100%, ATREVIDA', 'RUSO, GRIEGO, FETICHES', '92-62-121', '71', 'ROJO', 'VERDES', 'CATIRA', '04145417743', '', '24 HORAS', 'CUMANA', '54CFD32', '+584145417743', 'ASHLEY ATREVIDITAX', '@ASHLEYOFFICIAL', '@ASHLEYOFFICIAL', 'ME GUSTA EL SADOMASOQUISMO, DESPUES DE ESTAR CONMIGO ESTOY SEGURA QUE A TI TAMBIEN TE GUSTARá.', NULL),
-(7, 'DEBORA', '1990-02-27', 'GARGANTA PROFUNDA', 'ORAL Y GRIEGO', '70-50-98', '65', 'NEGRO', 'NEGROS', 'MORENA', '04129858846', '', '24 HORAS', 'CUMANA', '5C34D345', '+584129858846', 'DEBORA MEDINA', '@DEBORAM', '@DEBORAM', 'TENGO UNA GARGANTA INFINITA Y ME GUSTA INTENTAR LLENARLA. ', NULL);
+INSERT INTO `chicas` (`id_chicas`, `nombre_chicas`, `fecha_nacimiento`, `destrezas`, `especialidad`, `estatura`, `medidas`, `peso`, `color_cabello`, `color_ojos`, `color_piel`, `tlf`, `publico`, `horario`, `localidad`, `email`, `bbm`, `whatsapp`, `facebook`, `instagram`, `twitter`, `preview`, `id_agencia`) VALUES
+(1, 'ASHLEY', '1992-02-02', 'FLEXIBLE 100%, ATREVIDA', 'RUSO, GRIEGO, FETICHES', '1.70', '92-62-121', '71', 'ROJO', 'VERDES', 'CATIRA', '04145417743', 'HOMBRES - MUJERES - PAREJAS', '24 HORAS', 'MATURIN', 'ashleylinda@gmail.com', '54CFD32', '+584145417743', 'ASHLEY ATREVIDITAX', '@ASHLEYOFFICIAL', '@ASHLEYOFFICIAL', 'ME GUSTA EL SADOMASOQUISMO, DESPUES DE ESTAR CONMIGO ESTOY SEGURA QUE A TI TAMBIEN TE GUSTARá.', 2),
+(2, 'Susana', '1990-02-24', 'Mamadora', '69', '1.80', '90-60-90', '57', 'Castaño Claro', 'Ambar', 'Blanca', '04168975549', 'HOMBRES - MUJERES - ', '24 Horas', 'Margarita', 'Susana@hotmail.com', '3284jkds', '+584168975549', 'Susana Marcano', '@susy', '', 'Dskgjsdfl Asdkfjlkads Sadfklj Dsafklj Fdsaikjdfsa Efadkkja Dsfafkjkl Dfsik Fak Dsfasdaf Afdsfad', 1);
 
 -- --------------------------------------------------------
 
@@ -99,24 +101,18 @@ CREATE TABLE IF NOT EXISTS `fotos_chicas` (
 --
 
 INSERT INTO `fotos_chicas` (`id_foto`, `id_chicas`, `nombre_foto`) VALUES
-(4, 5, 'cumanax5892760896d0c1.jpg'),
-(5, 5, 'cumanax589276089e8cc2.jpg'),
-(6, 5, 'cumanax58927608ae2213.jpg'),
-(7, 5, 'cumanax58927608b106e4.jpg'),
-(8, 5, 'cumanax58927608bc8bc5.jpg'),
-(9, 5, 'cumanax58927608bf8f06.jpg'),
-(10, 6, 'cumanax58927965c7eef9.jpg'),
-(11, 6, 'cumanax58927965d194514.jpg'),
-(12, 6, 'cumanax58927965d48fb15.jpg'),
-(13, 6, 'cumanax58927965df71b16.jpg'),
-(14, 6, 'cumanax58927965e286b17.jpg'),
-(15, 6, 'cumanax58927965e566028.jpg'),
-(16, 7, 'cumanax58927a56324953.jpg'),
-(17, 7, 'cumanax58927a564adef4.jpg'),
-(18, 7, 'cumanax58927a5653ded15.jpg'),
-(19, 7, 'cumanax58927a565b34e23.jpg'),
-(20, 7, 'cumanax58927a566c6cb25.jpg'),
-(21, 7, 'cumanax58927a567364f30.jpg');
+(10, 1, 'cumanax58927965c7eef9.jpg'),
+(11, 1, 'cumanax58927965d194514.jpg'),
+(12, 1, 'cumanax58927965d48fb15.jpg'),
+(13, 1, 'cumanax58927965df71b16.jpg'),
+(14, 1, 'cumanax58927965e286b17.jpg'),
+(15, 1, 'cumanax58927965e566028.jpg'),
+(16, 2, 'cumanax589376993596311.jpg'),
+(17, 2, 'cumanax5893769938f8212.jpg'),
+(18, 2, 'cumanax58937699449ff14.jpg'),
+(19, 2, 'cumanax589376995802615.jpg'),
+(20, 2, 'cumanax589376996988316.jpg'),
+(21, 2, 'cumanax589376996c5a017.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=684 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=786 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -794,7 +790,110 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 (680, NULL, '::1', 'nina', 'individual', '2017-02-01', '20:43:57'),
 (681, NULL, '::1', 'nina', 'individual', '2017-02-01', '20:44:34'),
 (682, NULL, '::1', 'nina', 'individual', '2017-02-01', '20:49:09'),
-(683, NULL, '::1', 'nina', 'individual', '2017-02-01', '20:49:22');
+(683, NULL, '::1', 'nina', 'individual', '2017-02-01', '20:49:22'),
+(684, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:02:40'),
+(685, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:05:31'),
+(686, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:06:10'),
+(687, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:06:35'),
+(688, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:07:34'),
+(689, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:07:53'),
+(690, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:10:39'),
+(691, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:10:41'),
+(692, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:11:01'),
+(693, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:13:03'),
+(694, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:13:46'),
+(695, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:14:05'),
+(696, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:14:23'),
+(697, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:17:13'),
+(698, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:17:44'),
+(699, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:18:49'),
+(700, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:23:20'),
+(701, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:23:23'),
+(702, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:24:31'),
+(703, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:24:35'),
+(704, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:24:39'),
+(705, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:24:43'),
+(706, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:24:55'),
+(707, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:25:00'),
+(708, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:27:23'),
+(709, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:28:49'),
+(710, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:29:03'),
+(711, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:29:07'),
+(712, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:29:54'),
+(713, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:38:56'),
+(714, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:42:05'),
+(715, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:44:22'),
+(716, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:45:38'),
+(717, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:46:03'),
+(718, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:46:06'),
+(719, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:46:39'),
+(720, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:46:52'),
+(721, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:47:15'),
+(722, NULL, '::1', 'nina', 'individual', '2017-02-01', '23:58:35'),
+(723, NULL, '::1', 'registro', 'nenas', '2017-02-01', '23:58:45'),
+(724, NULL, '::1', 'registro', 'guardar_publicacion', '2017-02-02', '00:00:33'),
+(725, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:00:34'),
+(726, NULL, '::1', 'principal', 'index', '2017-02-02', '00:01:08'),
+(727, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:01:16'),
+(728, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:03:39'),
+(729, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:04:54'),
+(730, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:05:13'),
+(731, NULL, '::1', 'registro', 'guardar_publicacion', '2017-02-02', '00:06:26'),
+(732, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:06:26'),
+(733, NULL, '::1', 'principal', 'index', '2017-02-02', '00:06:30'),
+(734, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:06:33'),
+(735, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:11:40'),
+(736, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:11:43'),
+(737, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:11:44'),
+(738, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:11:51'),
+(739, NULL, '::1', 'registro', 'guardar_publicacion', '2017-02-02', '00:12:16'),
+(740, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:12:16'),
+(741, NULL, '::1', 'principal', 'index', '2017-02-02', '00:12:39'),
+(742, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:12:41'),
+(743, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:13:42'),
+(744, NULL, '::1', 'registro', 'nina', '2017-02-02', '00:13:59'),
+(745, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:14:06'),
+(746, NULL, '::1', 'registro', 'guardar_publicacion', '2017-02-02', '00:14:35'),
+(747, NULL, '::1', 'registro', 'nenas', '2017-02-02', '00:14:35'),
+(748, NULL, '::1', 'principal', 'index', '2017-02-02', '00:14:38'),
+(749, NULL, '::1', 'nina', 'individual', '2017-02-02', '00:14:39'),
+(750, NULL, '::1', 'aviso', 'index', '2017-02-02', '14:09:43'),
+(751, NULL, '::1', 'legal', 'index', '2017-02-02', '14:09:46'),
+(752, NULL, '::1', 'principal', 'index', '2017-02-02', '14:09:48'),
+(753, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:09:51'),
+(754, NULL, '::1', 'registro', 'nenas', '2017-02-02', '14:10:29'),
+(755, NULL, '::1', 'registro', 'guardar_publicacion', '2017-02-02', '14:12:41'),
+(756, NULL, '::1', 'registro', 'nenas', '2017-02-02', '14:12:41'),
+(757, NULL, '::1', 'principal', 'index', '2017-02-02', '14:12:43'),
+(758, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:12:46'),
+(759, NULL, '::1', 'registro', 'nenas', '2017-02-02', '14:14:58'),
+(760, NULL, '::1', 'registro', 'nenas', '2017-02-02', '14:15:35'),
+(761, NULL, '::1', 'principal', 'index', '2017-02-02', '14:17:33'),
+(762, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:17:34'),
+(763, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:18:34'),
+(764, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:19:05'),
+(765, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:19:07'),
+(766, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:38:27'),
+(767, NULL, '::1', 'principal', 'index', '2017-02-02', '14:38:40'),
+(768, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:03'),
+(769, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:08'),
+(770, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:09'),
+(771, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:12'),
+(772, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:13');
+INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
+(773, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:14'),
+(774, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:15'),
+(775, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:16'),
+(776, NULL, '::1', 'principal', 'index', '2017-02-02', '14:41:18'),
+(777, NULL, '::1', 'principal', 'index', '2017-02-02', '14:47:52'),
+(778, NULL, '::1', 'principal', 'index', '2017-02-02', '14:47:56'),
+(779, NULL, '::1', 'principal', 'index', '2017-02-02', '14:47:57'),
+(780, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:48:01'),
+(781, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:48:08'),
+(782, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:48:48'),
+(783, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:48:49'),
+(784, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:48:53'),
+(785, NULL, '::1', 'nina', 'individual', '2017-02-02', '14:48:57');
 
 -- --------------------------------------------------------
 
@@ -856,7 +955,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 `id_role` int(11) NOT NULL,
   `role` varchar(50) NOT NULL,
   `peso` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `role`
@@ -904,9 +1003,8 @@ CREATE TABLE IF NOT EXISTS `video_chica` (
 --
 
 INSERT INTO `video_chica` (`id_video`, `id_chicas`, `nombre_foto`) VALUES
-(4, 5, 'nenas58927608c2c16'),
-(5, 6, 'nenas58927965e85c6'),
-(6, 7, 'nenas58927a567add6');
+(5, 1, 'nenas58927965e85c6'),
+(6, 2, 'nenas589376996fa68');
 
 --
 -- Índices para tablas volcadas
@@ -974,12 +1072,12 @@ ALTER TABLE `video_chica`
 -- AUTO_INCREMENT de la tabla `agencia`
 --
 ALTER TABLE `agencia`
-MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `chicas`
 --
 ALTER TABLE `chicas`
-MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `fotos_chicas`
 --
@@ -989,7 +1087,7 @@ MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=684;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=786;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
@@ -1004,7 +1102,7 @@ MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `role`
 --
 ALTER TABLE `role`
-MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

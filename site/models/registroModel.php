@@ -111,8 +111,6 @@ $this->_db->query($sql);
 
 public function get_agencias(){
 
-
-
 $sql="SELECT * FROM `agencia` ";
 
 $datos = $this->_db->query($sql);

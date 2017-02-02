@@ -10,15 +10,14 @@ public function get_all(){
 
 
 
-$sql="SELECT * FROM `chicas` ORDER BY `id_chicas` DESC limit 0,30 ";
+$sql="SELECT DISTINCT chicas.*, agencia.nombre_agencia FROM `chicas`,`agencia` where chicas.id_agencia=agencia.id_agencia ORDER BY `id_chicas` DESC limit 0,30 ";
 
 $datos = $this->_db->query($sql);
         
 return $datos->fetchall();
 
-
-
 }
+
 public function get_photo_all($id){
 
 
@@ -28,9 +27,9 @@ $datos = $this->_db->query($sql);
         
         return $datos->fetchall();
 
-
-
 }
+
+
 
 
 }
