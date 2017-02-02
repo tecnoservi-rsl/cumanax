@@ -23,16 +23,20 @@
             <input type="text" class="form-control" id="preview" name="preview" placeholder="Preview">
           </div>
           <div class="form-group">
+            <label for="exampleInputEmail1">Estatura</label>
+            <input type="text" class="form-control" id="estatura" name="estatura" placeholder="Estatura">
+          </div>
+          <div class="form-group">
             <label for="exampleInputEmail1">Medidas</label>
             <input type="text" class="form-control" id="medidas" name="medidas" placeholder="Medidas">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Peso</label>
-            <input type="text" class="form-control" id="peso" name="peso" placeholder="peso">
+            <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Color de cabello</label>
-            <input type="text" class="form-control" id="color_cabello" name="color_cabello" placeholder="Color de cabello">
+            <input type="text" class="form-control" id="color_cabello" name="color_cabello" placeholder="Color de Cabello">
           </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Color de Ojos</label>
@@ -40,29 +44,31 @@
           </div>
            <div class="form-group">
             <label for="exampleInputEmail1">Color de piel</label>
-            <input type="text" class="form-control" id="color_piel" name="color_piel" placeholder="Color de piel">
+            <input type="text" class="form-control" id="color_piel" name="color_piel" placeholder="Color de Piel">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Fecha de Nacimiento</label>
-            <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="DD/MM/AA">
+            <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="AA/MM/DD">
           </div>
 
           <div class="form-group">
             <label for="exampleInputEmail1">Horario</label>
-            <input type="text" class="form-control" id="horario" name="horario" placeholder="tlf">
+            <input type="text" class="form-control" id="horario" name="horario" placeholder="Horario">
           </div>
 
-          <div class="form-group">
-            <label for="exampleInputEmail1">Localidad</label>
-            <input type="text" class="form-control" id="localidad" name="localidad" placeholder="tlf">
-          </div>
-          
           <div class="form-group">
             <label for="exampleInputEmail1">Agencia</label>
             <select class="form-control" id="agencia" name="agencia">
             <option value="0">--Seleccione--</option>
-      
             </select>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Localidad</label>
+            <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">E-Mail</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail">
+          </div>
           </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Telefono</label>
@@ -91,7 +97,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Videos</label>
-            <input type="file" class="form-control"   id="files_video" name="video" >
+            <input type="file" class="form-control"   id="files_video" name="Video" >
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Fotos</label>
@@ -101,13 +107,13 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Publico a atender :</label>
                   <label class="checkbox-inline">
-                    <input type="checkbox" name="publico[]" id="inlineRadio1" value="HOMBRES"> Hombre
+                    <input type="checkbox" name="publico[]" multiple="multiple" id="inlineRadio1" value="HOMBRES"> Hombre
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="publico[]" id="inlineRadio2" value="MUJERES"> Mujer
+                    <input type="checkbox" name="publico[]" multiple="multiple" id="inlineRadio2" value="MUJERES"> Mujer
                   </label>
                   <label class="radio-inline">
-                    <input type="checkbox" name="publico[]" id="inlineRadio3" value="PAREJAS"> Parejas
+                    <input type="checkbox" name="publico[]" multiple="multiple" id="inlineRadio3" value="PAREJAS"> Parejas
                   </label>
           </div>
 
