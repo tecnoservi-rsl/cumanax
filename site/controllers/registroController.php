@@ -56,13 +56,15 @@ public function nenas()
 {
 	
 		//$this->_view->area_r="apagada";           
-        
-        $this->_view->titulo = 'Registrar Niñas';
-       $this->_view->setJs(array('js','validate_pro','rne'));
-      $this->_view->setCss(array('index'));
-        
+     ;	
+         $this->_view->titulo = 'Registrar Niñas';
+       	 $this->_view->setJs(array('js','validate_pro','rne'));
+     	 $this->_view->setCss(array('index'));
+      	 $rs=$this->_registro->get_agencias();
+
+         $this->_view->agencias = $rs;
        
-       $this->_view->renderizar('nenas');
+       	 $this->_view->renderizar('nenas');
      
 }
 

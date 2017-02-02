@@ -60,6 +60,11 @@
             <label for="exampleInputEmail1">Agencia</label>
             <select class="form-control" id="agencia" name="agencia">
             <option value="0">--Seleccione--</option>
+            <?php for($i=0;$i<count($this->agencias);$i++):?>
+              <option value="<?php echo $this->agencias[$i]['id_agencia'] ?>">
+              <?php echo $this->agencias[$i]['nombre_agencia'] ?>                
+              </option>
+              <?php endfor; ?>
             </select>
             <div class="form-group">
             <label for="exampleInputEmail1">Localidad</label>
