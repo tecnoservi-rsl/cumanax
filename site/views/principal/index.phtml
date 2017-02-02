@@ -1,14 +1,16 @@
 <div class="row">
 			<div style="width:1200px;height:800px; margin:40px auto;">
 				<div class="am-container" id="am-container">
-					<?php for ($i=0; $i <30 ; $i++) : ?>
+
+
+					<?php for ($i=0; $i <count($this->todos) ; $i++) : ?>
 					
 						<div class="contenedor-img chicas">
-							<a href="#"><img width="<?php echo rand(300, 450) ?>" height="<?php echo rand(250,300) ?>" src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $i+1;?>.jpg"></img></a>
+							<a href="#"><img width="<?php echo rand(300, 450) ?>" height="<?php echo rand(250,300) ?>" src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $this->todos[$i]['fotos'][0]['nombre_foto'];?>"></img></a>
 								<div class="mascara">  
-			         				<h2>Andrea</h2>  
-			         				<p>Andrea es una chica traviesa, le gusta jugar en la ducha, es contorsionista y le gusta demostrarlo.</p>
-			         				<a href="#" id="ver_niña" data-id="cuando se pongan las fotos dinamicas esto tambien tiene q estar dinamico" class="link">Ver Más</a>  
+			         				<h2><?php echo $this->todos[$i]['nombre_chicas'] ?></h2>  
+			         				<p><?php echo $this->todos[$i]['preview'] ?></p>
+			         				<a href="#" id="ver_niña" data-id="<?php echo $this->todos[$i]['id_chicas'] ?>" class="link">Ver Más</a>  
 								</div>
 						</div>
 

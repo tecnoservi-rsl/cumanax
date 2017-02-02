@@ -46,7 +46,15 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
     '".strtoupper ($datos['color_ojos'])."',
     '".strtoupper ($datos['color_piel'] )."',
     '".strtoupper ($datos['telefono'])."',
-    '".strtoupper ($publico)."',
+    '".strtoupper ($datos['publico'])."',
+    '".strtoupper ($datos['horario'])."',
+    '".strtoupper ($datos['localidad'])."',
+    '".strtoupper ($datos['bbm'])."',
+    '".strtoupper ($datos['whatsapp'])."',
+    '".strtoupper ($datos['facebook'])."',
+    '".strtoupper ($datos['instagram'])."',
+    '".strtoupper ($datos['twitter'])."',
+    '".strtoupper ($datos['preview'])."',
     ".$agencia."
     )";
 
@@ -58,8 +66,8 @@ $this->_db->query($sql);
 
             for ($i=0; $i < count($fotos['fotos']['name']) ; $i++) 
             { 
-                  $target_path = "public/img/imagenes/";
-                  $nombre=uniqid('sosmedica').$fotos['fotos']['name'][$i];
+                  $target_path = "public/img/fotos/";
+                  $nombre=uniqid('cumanax').$fotos['fotos']['name'][$i];
                   $target_path = $target_path .$nombre;
                   $sql="insert into fotos_chicas values ('','".$id_publicacion."','".$nombre."')";
                   $this->_db->query($sql);

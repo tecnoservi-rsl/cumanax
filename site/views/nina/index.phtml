@@ -3,7 +3,7 @@
 <div class="col-md-10 col-md-offset-1">
 	
 <div id="foto_grande " class="col-md-12 center-border margen_vista_nina"  style="position: static; margin-left: 15px;" >
-<a id="ver_perfil"><h1 class="dorado tex-col">Perfil de Andrea</h1></a>
+<a id="ver_perfil"><h1 class="dorado tex-col">Perfil de <?php echo $this->datos['nombre_chicas'] ?></h1></a>
 </div>
 
 
@@ -19,41 +19,19 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img id="fotoG"  class="d-block img-fluid"  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
-      <div class="carousel-caption">
-        
-      </div>
+      <img id="fotoG"  class="d-block img-fluid"  src="<?php echo BASE_URL?>/public/img/fotos/<?php echo $this->datos['fotos'][0]['nombre_foto'] ?>" >
+     
     </div>
+
+   <?php for ($i=1; $i <count($this->datos['fotos']) ; $i++): ?>
+
     <div class="item">
-      <img id="fotoG" class="d-block img-fluid" " src="<?php echo BASE_URL?>/public/img/fotos/2.jpg" >
-      <div class="carousel-caption">
-        
-      </div>
+      <img id="fotoG" class="d-block img-fluid"  src="<?php echo BASE_URL?>/public/img/fotos/<?php echo $this->datos['fotos'][$i]['nombre_foto'] ?>" >
+      
     </div>
-    <div class="item">
-      <img id="fotoG" class="d-block img-fluid" " src="<?php echo BASE_URL?>/public/img/fotos/3.jpg" >
-      <div class="carousel-caption">
-        
-      </div>
-    </div>
-    <div class="item">
-      <img id="fotoG" class="d-block img-fluid" " src="<?php echo BASE_URL?>/public/img/fotos/4.jpg" >
-      <div class="carousel-caption">
-        
-      </div>
-    </div>
-    <div class="item">
-      <img id="fotoG" class="d-block img-fluid" " src="<?php echo BASE_URL?>/public/img/fotos/7.jpg" >
-      <div class="carousel-caption">
-        
-      </div>
-    </div>
-    <div class="item">
-      <img id="fotoG" class="d-block img-fluid" src="<?php echo BASE_URL ?>/public/img/fotos/6.jpg" >
-      <div class="carousel-caption">
-        
-      </div>
-    </div>
+
+	<?php endfor; ?>
+
   </div>
 
   <!-- Controls -->
@@ -79,18 +57,18 @@
 					 <center> <h4 class="minititulo"> <b> Mis Caracteristicas </b></h4> </center>
 					
 					<b>Edad:</b> 19 Años<br>
-					<b>Estatura:</b> 1,56 mts<br>
-					<b>Peso:</b> 47 kgs<br>
-					<b>Medidas:</b> 90-60-90 kgs<br>
-					<b>Color de Ojos:</b> Marrones<br>
-					<b>Color de Piel:</b> Blanca<br>
-					<b>Color de Cabello:</b> Negro<br>
+					<b>Estatura:</b> <?php echo $this->datos['peso'] ?> mts<br>
+					<b>Peso:</b> <?php echo $this->datos['peso'] ?> kgs<br>
+					<b>Medidas:</b><?php echo $this->datos['medidas'] ?><br>
+					<b>Color de Ojos:</b> <?php echo $this->datos['color_ojos'] ?><br>
+					<b>Color de Piel:</b> <?php echo $this->datos['color_piel'] ?><br>
+					<b>Color de Cabello:</b> <?php echo $this->datos['color_cabello'] ?><br>
 					
 					<br>
 					<center> <h4> <b> Mis Habilidades </b></h4> </center>
 	
-					<b>Destrezas:</b> Contorsionista.<br>
-					<b>Especialidad:</b> Hindu, Ruso, Frances, Tailandes, Fetichismo.<br>
+					<b>Destrezas:</b> <?php echo $this->datos['destrezas'] ?><br>
+					<b>Especialidad:</b> <?php echo $this->datos['especialidad'] ?><br>
 		
 					</address>
 
@@ -101,18 +79,18 @@
 					<address>
 				<center> <h4 class="minititulo"> <b> Preview: </b></h4> </center>
 				
-						<p> Andrea es una chica traviesa, le gusta jugar en la ducha, es contorsionista y le gusta demostrarlo. </p>
+						<p> <?php echo $this->datos['preview'] ?> </p>
 				
 					<br>
 					<center> <h4 class="minititulo"> <b> Atiendo a: </b></h4> </center>
 					
-						<p> Hombres y Parejas </p><br>
+						<p> <?php echo $this->datos['publico'] ?> </p><br>
 				
 					
 					<center> <h4 class="minititulo"> <b> Horario </b></h4> </center>
 					
 		
-						<p>24 Horas </p>
+						<p><?php echo $this->datos['horario'] ?> </p>
 					
 					</address>
 				</div>
@@ -124,27 +102,22 @@
 		<div class="row">
 			<div class="col-md-9 margen_vista_nina">
 				<ul>
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active">
+
+
+
+ 
+					<?php for ($i=0; $i <count($this->datos['fotos']) ; $i++): ?>
+
+
+					<li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>" class="active">
 						<div id="prevista" class="prviuw">
-							<img  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
+							 <img id="fotoG"  src="<?php echo BASE_URL?>/public/img/fotos/<?php echo $this->datos['fotos'][$i]['nombre_foto'] ?>" >
 						</div>
 					</li>
 
-					 <li data-target="#carousel-example-generic" data-slide-to="1"><div id="prevista" class="prviuw">
-				<img   src="<?php echo BASE_URL?>/public/img/fotos/2.jpg" >
-				</div></li>
-					    <li data-target="#carousel-example-generic" data-slide-to="2"><div id="prevista" class="prviuw">
-				<img  src="<?php echo BASE_URL?>/public/img/fotos/3.jpg" >
-				</div></li>
-				<li data-target="#carousel-example-generic" data-slide-to="3" class="active"><div id="prevista" class="prviuw">
-				<img  src="<?php echo BASE_URL?>/public/img/fotos/4.jpg" >
-				</div></li>
-					    <li data-target="#carousel-example-generic" data-slide-to="4"><div id="prevista" class="prviuw">
-				<img   src="<?php echo BASE_URL?>/public/img/fotos/7.jpg" >
-				</div></li>
-				<li data-target="#carousel-example-generic" data-slide-to="5"><div id="prevista" class="prviuw">
-				<img   src="<?php echo BASE_URL?>/public/img/fotos/6.jpg" >
-				</div></li>
+					<?php endfor; ?>
+
+
 					 </ul>
 
 			</div>
@@ -155,7 +128,7 @@
 					<strong>Contactame: </strong><br>
 					<span class="glyphicon glyphicon-earphone negro" id="negro"></span>
 				
-					<abbr title="Phone"></abbr> (+58) 414-123-7890
+					<abbr title="Phone"></abbr> <?php echo $this->datos['tlf'] ?>
 					<br>
 					<br>
 					<a href="URL-Instagram" target="_blank"><img alt="@andrealc" height="32" src="<?php echo BASE_URL?>/public/img/ig.png" title="sígueme en Instagram: @andrealc" width="32" /></a>

@@ -54,7 +54,7 @@ $(document).ready(function(){
 
 $(document).on("click", "#ver_niña", function(){
 	id_nina=$(this).data("id");
-	location.href=base_url+'nina/index.phtml';
+	location.href=base_url+'nina/individual/'+id_nina;
 })
 
 

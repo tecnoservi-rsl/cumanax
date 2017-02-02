@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
 
-  $( function() {
-    $( "#fecha_nacimiento" ).datepicker();
-  } );
 
+$( "#fecha_nacimiento" ).datepicker({
+  dateFormat: 'yy-mm-dd'
+});
 
 function archivo(input)
 {
