@@ -11,20 +11,17 @@ class registroModel extends Model
           public function guardar_publicacion($datos,$fotos)
       {    
 
- $publico="no plica";
+$publico="no plica";
 if (isset($datos['publico'])) {
  $publico="";
  for ($i=0; $i < count($datos['publico']) ; $i++) { 
     
-    $publico.= "(".$datos['publico'][$i].")";
-
-
+    $publico.= "".$datos['publico'][$i]." - ";
 }
 }
 
  $agencia="NULL";
 if (isset($datos['agencia']) && $datos["agencia"]!=0) {
-
 
     
     $agencia=$datos['agencia'];
@@ -34,27 +31,28 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
 }
 
 
-
     $sql="insert into chicas values ('',
-    '".strtoupper ($datos['nombre'] )."',
-    '".strtoupper ($datos['fecha_nacimiento'])."',
-    '".strtoupper ($datos['destrezas'] )."',
-    '".strtoupper ($datos['especialidad'])."',
-    '".strtoupper ($datos['medidas'] )."',
-    '".strtoupper ($datos['peso'])."',
-    '".strtoupper ($datos['color_cabello'] )."',
-    '".strtoupper ($datos['color_ojos'])."',
-    '".strtoupper ($datos['color_piel'] )."',
-    '".strtoupper ($datos['telefono'])."',
-    '".strtoupper ($datos['publico'])."',
-    '".strtoupper ($datos['horario'])."',
-    '".strtoupper ($datos['localidad'])."',
-    '".strtoupper ($datos['bbm'])."',
-    '".strtoupper ($datos['whatsapp'])."',
-    '".strtoupper ($datos['facebook'])."',
-    '".strtoupper ($datos['instagram'])."',
-    '".strtoupper ($datos['twitter'])."',
-    '".strtoupper ($datos['preview'])."',
+    '".ucwords  ($datos['nombre'] )."',
+    '".ucwords  ($datos['fecha_nacimiento'])."',
+    '".ucwords  ($datos['destrezas'] )."',
+    '".ucwords  ($datos['especialidad'])."',
+    '".ucwords  ($datos['estatura'])."',
+    '".ucwords  ($datos['medidas'] )."',
+    '".ucwords  ($datos['peso'])."',
+    '".ucwords  ($datos['color_cabello'] )."',
+    '".ucwords  ($datos['color_ojos'])."',
+    '".ucwords  ($datos['color_piel'] )."',
+    '".ucwords  ($datos['telefono'])."',
+    '".ucwords  ($publico)."',
+    '".ucwords  ($datos['horario'])."',
+    '".ucwords  ($datos['localidad'])."',
+    '".ucwords  ($datos['email'])."',
+    '".ucwords  ($datos['bbm'])."',
+    '".ucwords  ($datos['whatsapp'])."',
+    '".ucwords  ($datos['facebook'])."',
+    '".ucwords  ($datos['instagram'])."',
+    '".ucwords  ($datos['twitter'])."',
+    '".ucwords  ($datos['preview'])."',
     ".$agencia."
     )";
 

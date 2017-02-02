@@ -52,14 +52,30 @@
 	<div class="col-md-6">
 		<div class="row">
 			<div class="col-md-5 xx">
+
+				<?php
+						date_default_timezone_set('America/Caracas'); 
+    					$fechac = $this->datos['fecha_nacimiento'];
+    					$hoy = date('Y/m/d');
+    					$fecha_actual = explode("/", $hoy);
+						$nacimiento = explode("-", $fechac);
+
+						if (($nacimiento[1] == $fecha_actual[1]) && ($nacimiento[2] > $fecha_actual[2])) {
+						$fecha_actual[0]=($fecha_actual[0]-1); }
+
+						if ($nacimiento[1] > $fecha_actual[1]) {
+						$fecha_actual[0]=($fecha_actual[0]-1);}
+
+						$edad=($fecha_actual[0]-$nacimiento[0]);
+				?>
 			
 					<address>
 					 <center> <h4 class="minititulo"> <b> Mis Caracteristicas </b></h4> </center>
 					
-					<b>Edad:</b> 19 Años<br>
-					<b>Estatura:</b> <?php echo $this->datos['peso'] ?> mts<br>
-					<b>Peso:</b> <?php echo $this->datos['peso'] ?> kgs<br>
-					<b>Medidas:</b><?php echo $this->datos['medidas'] ?><br>
+					<b>Edad:</b> <?php echo $edad; ?> Años<br>
+					<b>Estatura:</b> <?php echo $this->datos['estatura'] ?> Mts<br>
+					<b>Peso:</b> <?php echo $this->datos['peso'] ?> Kgs<br>
+					<b>Medidas:</b> <?php echo $this->datos['medidas'] ?><br>
 					<b>Color de Ojos:</b> <?php echo $this->datos['color_ojos'] ?><br>
 					<b>Color de Piel:</b> <?php echo $this->datos['color_piel'] ?><br>
 					<b>Color de Cabello:</b> <?php echo $this->datos['color_cabello'] ?><br>
@@ -127,19 +143,30 @@
 					<address>
 					<strong>Contactame: </strong><br>
 					<span class="glyphicon glyphicon-earphone negro" id="negro"></span>
-				
 					<abbr title="Phone"></abbr> <?php echo $this->datos['tlf'] ?>
+					<br><strong><b>Localidad:</b></strong>
+					<abbr title="Localidad"></abbr> <?php echo $this->datos['localidad'] ?>
 					<br>
-					<br>
-					<a href="URL-Instagram" target="_blank"><img alt="@andrealc" height="32" src="<?php echo BASE_URL?>/public/img/ig.png" title="sígueme en Instagram: @andrealc" width="32" /></a>
-					
-					<a href="bbm" target="_blank"><img alt="5CF82B34" height="32" src="<?php echo BASE_URL?>/public/img/bbm.png" title="Hablemos por BBM: 5CF82B34" width="32" /></a>
 
-					<a href="whatsapp" target="_blank"><img alt="+584141237890" height="32" src="<?php echo BASE_URL?>/public/img/whatsapp.png" title="Hablemos por WhatsApp: +58-414-123-7890" width="32" /></a>
+					<?php if ($this->datos['instagram']!=""): ?>
+					<a href="URL-Instagram" target="_blank"><img alt="<?php echo $this->datos['instagram'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/ig.png" title="sígueme en Instagram: <?php echo $this->datos['instagram'] ?>" width="32" /></a>
+					<?php endif ?>
 
-					<a href="twitter" target="_blank"><img alt="@andrealc" height="32" src="<?php echo BASE_URL?>/public/img/twitter.png" title="Sígueme en Twitter: @andrealc" width="32" /></a>
+					<?php if ($this->datos['bbm']!=""): ?>
+					<a href="bbm" target="_blank"><img alt="<?php echo $this->datos['bbm'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/bbm.png" title="Hablemos por BBM: <?php echo $this->datos['bbm'] ?>" width="32" /></a>
+					<?php endif ?>
 
-					<a href="facebook" target="_blank"><img alt="Andrea Traviesa" height="32" src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: Andrea Traviesa" width="32" /></a>
+					<?php if ($this->datos['whatsapp']!=""): ?>
+					<a href="whatsapp" target="_blank"><img alt="<?php echo $this->datos['whatsapp'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/whatsapp.png" title="Hablemos por WhatsApp: <?php echo $this->datos['whatsapp'] ?>" width="32" /></a>
+					<?php endif ?>
+
+					<?php if ($this->datos['twitter']!=""): ?>
+					<a href="twitter" target="_blank"><img alt="<?php echo $this->datos['twitter'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/twitter.png" title="Sígueme en Twitter: <?php echo $this->datos['twitter'] ?>" width="32" /></a>
+					<?php endif ?>
+
+					<?php if ($this->datos['facebook']!=""): ?>
+					<a href="facebook" target="_blank"><img alt="<?php echo $this->datos['facebook'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: <?php echo $this->datos['facebook'] ?>" width="32" /></a>
+					<?php endif ?>
 
 				</div>
 				
@@ -178,14 +205,15 @@
 				</div>
 				
 				<div class="col-md-3">
-					
+					<?php if ($this->datos['email']!=""): ?>
 						<div id="contacto">
 							<address>
 							<strong>E-Mail</strong><br>
 							<span class='glyphicon glyphicon-envelope negro'></span>
-							<a href="mailto:#">andreatraviesa@gmail.com</a>
+							<a href="mailto:#"><?php echo $this->datos['email'] ?></a>
 							</address>
 						</div>
+					<?php endif ?>
 					
 
 				</div>
