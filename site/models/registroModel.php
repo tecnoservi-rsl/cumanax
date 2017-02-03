@@ -32,6 +32,7 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
 
 
     $sql="insert into chicas values ('',
+    '".ucwords  ($datos['tipo'] )."',
     '".ucwords  ($datos['nombre'] )."',
     '".ucwords  ($datos['fecha_nacimiento'])."',
     '".ucwords  ($datos['destrezas'] )."',
