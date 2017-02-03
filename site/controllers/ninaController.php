@@ -37,13 +37,27 @@ class ninaController extends Controller
 
         	}
 
-        	$this->_view->datos=$rs[$index];
 
+        	$this->_view->datos=$rs[$index];
+            $this->_view->valoracion=$this->_index->promedio_chica($id);
         	
 			$this->_view->renderizar('index');
 							
 			
-	}	
+	}
+
+
+    public function votacion(){
+
+    $validacion=$this->_index->validar_voto($this->_ip);
+    if($validacion==0){
+        echo 0;
+    }
+    else{
+    echo json_encode($this->_index->votacion($_POST['valor'],$_POST['id'],$this->_ip));
+}
+
+   }	
 	
 }
 

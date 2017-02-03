@@ -47,6 +47,10 @@ box-shadow: 0 0 1px #000
 }
 
 
+.popularidad {
+    font-size: 25px !important;
+    color: orange;
+}
 
 
 .negro{
@@ -58,9 +62,9 @@ box-shadow: 0 0 1px #000
     color: black;
 }
 
-.dorado{
+.dorado {
     text-decoration-color: #EEE8AA;
-    color: #EEE8AA;
+    color: #FF8686;
 }
 
 .articulo1{
