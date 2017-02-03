@@ -21,7 +21,7 @@ function auto_conpletado(){
 
 
   $( function() {
-    $( "#buscar--agencia" ).autocomplete({
+    $( "#agencia_name" ).autocomplete({
       source: agencias
     });
   } );
@@ -29,8 +29,9 @@ function auto_conpletado(){
 
 
 
-
-
+$(document).on("click", "#btn_buscar", function(){
+	location.href=base_url+"agencia/?bn="+$("#bn").val()+"&agencia_name="+$("#agencia_name").val();
+});
 
 
 

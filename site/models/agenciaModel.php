@@ -29,7 +29,17 @@ $datos = $this->_db->query($sql);
 
 }
 
+public function get_only_name($name){
 
+
+
+$sql="SELECT * FROM `agencia` where  nombre_agencia like '%$name%' ";
+
+$datos = $this->_db->query($sql);
+        
+return $datos->fetchall();
+
+}
 
 
 }

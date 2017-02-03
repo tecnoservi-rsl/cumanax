@@ -71,8 +71,9 @@
 	background: #860000;
 	border-radius: 5px;
 	color: #ed7a7a;
-	margin-bottom: 15px;
+	margin-bottom: 57px;
 	border-color: #510000E6;
+	margin-top: 20px;
 }
 div.texto-busqueda {
 	text-align: justify;
@@ -82,4 +83,7 @@ div.texto-busqueda {
 }
 .alineado {
 	line-height: 2;
+}
+div.col-md-12:nth-child(3) {
+	margin-top: 7px;
 }

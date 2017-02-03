@@ -17,7 +17,18 @@ class agenciaController extends Controller
         $this->_view->titulo = 'agencia';
       	$this->_view->setJs(array('index'));
        $this->_view->setCss(array('css'));
-        $this->_view->agencias=$this->_agencia->get_all();
+        
+        if ($_GET["bn"]==1) {
+        
+         $this->_view->agencias=$this->_agencia->get_only_name($_GET["agencia_name"]);
+
+        }else{
+
+          $this->_view->agencias=$this->_agencia->get_all();
+        }
+
+
+      
 
 
         $this->_view->renderizar('index');
