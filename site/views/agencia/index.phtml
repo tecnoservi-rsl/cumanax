@@ -33,16 +33,16 @@
 				<div class="contenedor-img  agencias-banner-listado">
 
 					<a href="#"  id="ver_agencia" data-id="<?php echo $this->agencias[$i]['id_agencia'] ?>">
-						<img id="img-agencias"  src="<?php echo BASE_URL;?>public/img/fotos/cumanax58927608b106e4.jpg"></img>
+						<img id="img-agencias"  src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $this->agencias[$i]['foto'][0]['nombre_foto'] ?>"></img>
 						<div class="mascara">  
 				         		<h2><?php echo $this->agencias[$i]['nombre_agencia'] ?></h2>  
 				         		
-				         		
+				      
 				         		
 						</div>
 				<div class="pie-agencia">
 
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 				<label class="puntos" for="radio1">4.9</label>
 					<label class="estrella" for="radio1">&#9733;</label>
 					<label class="estrella" for="radio1">&#9733;</label>
@@ -52,8 +52,8 @@
 
 
 				</div>
-				<div class="col-sm-6 descripcion-agencia">
-					nos especializamos en el placer, nuestras chicas están dispuestas a cumplir con tu fantasía más perversa 
+				<div class="col-sm-4 descripcion-agencia">
+					 <?php echo $this->agencias[$i]['preview'] ?>
 				</div>
 				         			
 
@@ -81,6 +81,15 @@
 					<a href="facebook" target="_blank"><img alt="<?php echo $this->agencias[$i]['facebook_agencia'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: <?php echo $this->agencias[$i]['facebook_agencia'] ?>" width="32" /></a>
 					</div>
 					<?php endif ?>
+
+							<div class="col-sm-3 contarores">
+					damas:<span class="badge"><?php echo $this->agencias[$i]['total']["damas"]['cantidad'] ?></span>
+					caballeros:<span class="badge"><?php echo $this->agencias[$i]['total']['caballeros']['cantidad'] ?></span>
+					trans:<span class="badge"><?php echo $this->agencias[$i]['total']['trans']['cantidad'] ?></span>
+					</div>
+
+
+
 				         		</div>
 					</a>
 				</div>

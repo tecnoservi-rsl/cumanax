@@ -78,28 +78,20 @@ $this->_db->query($sql);
             }
 
 
-                    $target_path = "public/video/publicaciones/";
-                  $nombre=uniqid('nenas').$fotos['video']['name'];
-                  $target_path = $target_path .$nombre;
-                  $sql="insert into video_chica values ('','".$id_publicacion."','".$nombre."')";
-                  $this->_db->query($sql);
-                  move_uploaded_file($fotos['video']['tmp_name'], $target_path); 
-                 // $obj_img = new SimpleImage();
-                 // $obj_img->load($target_path);
-                 // $obj_img->resize(300,300);
-                 // $obj_img->save($target_path);
+                 
 
 
 
       }
 
 
- public function guardar_agencia($datos)
+ public function guardar_agencia($datos,$fotos)
       {   
 
 
-    $sql="insert into agencia values ('',
+   echo $sql="insert into agencia values ('',
     '".strtoupper ($datos['agencia'] )."',
+    '".strtoupper ($datos['preview'] )."',
     '".strtoupper ($datos['nro_contacto'])."',
     '".strtoupper ($datos['correo'] )."',
     '".strtoupper ($datos['facebook'])."',
@@ -108,6 +100,29 @@ $this->_db->query($sql);
     )";
         
 $this->_db->query($sql);
+
+
+ $id_publicacion=$this->_db->lastInsertId();
+
+
+
+            for ($i=0; $i < count($fotos['fotos']['name']) ; $i++) 
+            { 
+                  $target_path = "public/img/fotos/";
+                  $nombre=uniqid('cumanax').$fotos['fotos']['name'][$i];
+                  $target_path = $target_path .$nombre;
+                  $sql="insert into fotos_agencia values ('','".$id_publicacion."','".$nombre."')";
+                  $this->_db->query($sql);
+                  move_uploaded_file($fotos['fotos']['tmp_name'][$i], $target_path); 
+               
+            }
+
+
+
+
+
+
+
 }
 
 public function get_agencias(){

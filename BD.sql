@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-02-2017 a las 05:33:42
+-- Tiempo de generación: 03-02-2017 a las 21:28:41
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `cumanax`
+-- Base de datos: `<cuma></cuma>nax`
 --
 
 -- --------------------------------------------------------
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `agencia` (
   `id_agencia` int(11) NOT NULL,
   `nombre_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `preview` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `nro_contacto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `correo_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `facebook_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -40,10 +41,10 @@ CREATE TABLE `agencia` (
 -- Volcado de datos para la tabla `agencia`
 --
 
-INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `nro_contacto`, `correo_agencia`, `facebook_agencia`, `pin_agencia`, `whatsapp_agencia`) VALUES
-(1, 'BADGIRL', '2147483647', 'BADGIRL@CUMANAX.COM', '0werwerwer', '5748RAS', '2147483647'),
-(2, 'Independiente', '2147483647', 'independiente@gmail.com', '0werwer', 'erwwerwer', '0'),
-(3, 'AREN DE RUBY', '324234234', '234234234@SADSD.COM', '234234', '234234234', '23423424');
+INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `preview`, `nro_contacto`, `correo_agencia`, `facebook_agencia`, `pin_agencia`, `whatsapp_agencia`) VALUES
+(7, 'EL AREN DE RUBY', 'ESPECIALISTAS EN PLACER... NUESTRAS CHICAS QUIEREN CUMPLIR TODAS TUS FANTACIAS', '0414-52-65-896', 'LEGNA18205@GMAIL.COM', 'ASDSAD', 'ASDSAD', 'SADSAD'),
+(8, 'DAMAS DE LA NOCHE', 'HACEMOS DE SEXO UNA EXPERIENCIA INOLVIDABLE. ', '0414-52-65-896', 'LEGNA18205@GMAIL.COM', '654654654', '', ''),
+(9, 'LAS LOBAS', 'TENEMOS LA MAYOR CANTIDAD DE CHICAS QUE PUEDEN HACERTE DE TODO', '324234234', 'LEGNA18205@GMAIL.COM', '', 'ASDSAD', 'SADSADA');
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,27 @@ CREATE TABLE `chicas` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `fotos_agencia`
+--
+
+CREATE TABLE `fotos_agencia` (
+  `id_foto` int(11) NOT NULL,
+  `id_agencia` int(11) NOT NULL,
+  `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `fotos_agencia`
+--
+
+INSERT INTO `fotos_agencia` (`id_foto`, `id_agencia`, `nombre_foto`) VALUES
+(4, 7, 'cumanax5894d31b96813cumanaxxxxxxxxxx.png'),
+(5, 8, 'cumanax5894d7dc950cdffff.jpg'),
+(6, 9, 'cumanax5894d821e0f53l.php.gif');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `fotos_chicas`
 --
 
@@ -112,7 +134,8 @@ CREATE TABLE `log` (
 
 INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
 (1, NULL, '127.0.0.1', 'principal', 'index', '2016-12-19', '10:13:35'),
-(933, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-03', '00:29:51');
+(2, NULL, '127.0.0.1', 'app', 'index', '2016-12-19', '10:14:08'),
+(1178, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-03', '16:27:07');
 
 -- --------------------------------------------------------
 
@@ -203,18 +226,6 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `id_role`, `login`, `password`, `estado`) VALUES
 (1, 1, 'admin', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `video_chica`
---
-
-CREATE TABLE `video_chica` (
-  `id_video` int(11) NOT NULL,
-  `id_chicas` int(11) NOT NULL,
-  `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
 --
 -- Índices para tablas volcadas
 --
@@ -232,6 +243,14 @@ ALTER TABLE `agencia`
 ALTER TABLE `chicas`
   ADD PRIMARY KEY (`id_chicas`),
   ADD KEY `id_agencia` (`id_agencia`);
+
+--
+-- Indices de la tabla `fotos_agencia`
+--
+ALTER TABLE `fotos_agencia`
+  ADD PRIMARY KEY (`id_foto`),
+  ADD KEY `id_chicas` (`id_agencia`),
+  ADD KEY `id_chicas_2` (`id_agencia`);
 
 --
 -- Indices de la tabla `fotos_chicas`
@@ -278,14 +297,6 @@ ALTER TABLE `usuario`
   ADD KEY `id_role_5` (`id_role`);
 
 --
--- Indices de la tabla `video_chica`
---
-ALTER TABLE `video_chica`
-  ADD PRIMARY KEY (`id_video`),
-  ADD KEY `id_chicas` (`id_chicas`),
-  ADD KEY `id_chicas_2` (`id_chicas`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -293,32 +304,37 @@ ALTER TABLE `video_chica`
 -- AUTO_INCREMENT de la tabla `agencia`
 --
 ALTER TABLE `agencia`
-  MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `chicas`
 --
 ALTER TABLE `chicas`
-  MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `fotos_agencia`
+--
+ALTER TABLE `fotos_agencia`
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=934;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1179;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --
@@ -330,11 +346,6 @@ ALTER TABLE `role`
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `video_chica`
---
-ALTER TABLE `video_chica`
-  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
 -- Restricciones para tablas volcadas
 --
 
@@ -343,6 +354,12 @@ ALTER TABLE `video_chica`
 --
 ALTER TABLE `chicas`
   ADD CONSTRAINT `chicas_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `fotos_agencia`
+--
+ALTER TABLE `fotos_agencia`
+  ADD CONSTRAINT `fotos_agencia_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos_chicas`
@@ -368,12 +385,6 @@ ALTER TABLE `permisos`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `video_chica`
---
-ALTER TABLE `video_chica`
-  ADD CONSTRAINT `video_chica_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
