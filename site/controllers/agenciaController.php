@@ -24,7 +24,16 @@ class agenciaController extends Controller
      
 }
 
+    public function auto_completado()
+{
+        
+    
+      
 
+
+       echo json_encode( $this->_agencia->get_all());
+     
+}
 
 
 }

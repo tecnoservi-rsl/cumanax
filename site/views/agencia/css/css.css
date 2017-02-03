@@ -64,3 +64,22 @@
 	font-style: italic;
 	font-family: unset;
 }
+.buscar-agencias-div {
+	border: 1px solid;
+	min-height: 170px;
+	padding: 22px;
+	background: #860000;
+	border-radius: 5px;
+	color: #ed7a7a;
+	margin-bottom: 15px;
+	border-color: #510000E6;
+}
+div.texto-busqueda {
+	text-align: justify;
+	padding: 10px;
+	font-size: 14px;
+	font-style: unset;
+}
+.alineado {
+	line-height: 2;
+}
