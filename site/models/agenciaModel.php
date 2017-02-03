@@ -42,6 +42,24 @@ return $datos->fetchall();
 }
 
 
+public function get_count_camp($id,$tipo){
+
+
+
+$sql="SELECT count(id_chicas) as cantidad FROM agencia,chicas where  agencia.id_agencia = chicas.id_agencia and chicas.tipo='$tipo' and agencia.id_agencia = '$id'  ";
+
+$datos = $this->_db->query($sql);
+        
+return $datos->fetch();
+
+}
+
+
+
+
+
+
+
 }
 
 ?>

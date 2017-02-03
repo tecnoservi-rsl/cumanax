@@ -18,18 +18,33 @@ class agenciaController extends Controller
       	$this->_view->setJs(array('index'));
        $this->_view->setCss(array('css'));
         
-        if ($_GET["bn"]==1) {
-        
-         $this->_view->agencias=$this->_agencia->get_only_name($_GET["agencia_name"]);
+        if (isset($_GET["bn"])) {
+          $rs=$this->_agencia->get_only_name($_GET["agencia_name"]);
+          for ($i=0; $i < count($rs) ; $i++) { 
+            $rs[$i]['foto']= $this->_agencia->get_photo_all($rs[$i]['id_agencia']);
+            $rs[$i]['total']['damas']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"damas");
+            $rs[$i]['total']['caballeros']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"caballeros");
+            $rs[$i]['total']['trans']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"trans");
+          }
+            
+           $this->_view->agencias=$rs;
 
         }else{
 
-          $this->_view->agencias=$this->_agencia->get_all();
+         $rs=$this->_view->agencias=$this->_agencia->get_all();
+
+         for ($i=0; $i < count($rs) ; $i++) { 
+            $rs[$i]['foto']= $this->_agencia->get_photo_all($rs[$i]['id_agencia']);
+               $rs[$i]['total']['damas']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"damas");
+            $rs[$i]['total']['caballeros']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"caballeros");
+            $rs[$i]['total']['trans']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"trans");
+          }
+
+          $this->_view->agencias=$rs;
+
         }
 
-
       
-
 
         $this->_view->renderizar('index');
      

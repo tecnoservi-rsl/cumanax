@@ -73,7 +73,7 @@ border-color: #FFF;
 }
 
 .logo_centro {
-	height: 20%;
+	height: auto;
 	width: 20%;
 	margin-top: 25px;
 }
