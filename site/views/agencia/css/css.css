@@ -97,7 +97,8 @@ div.col-md-12:nth-child(3) {
 	position: relative;
 	width: 32px;
 }
-
+/* estos son para pantallas sm */
+/* ---------------------------------------------------------------------------------------------------- */
 @media (min-width: 750px) and (max-width: 970px) {
    .contarores {
 	font-size: 6px;
@@ -130,7 +131,8 @@ div.col-md-12:nth-child(3) {
 }
 
 }
-
+/* estos son para pantallas xs */
+/* ---------------------------------------------------------------------------------------------------- */
 @media  (max-width: 749px) {
 .contarores {
 	font-size: 14px;
@@ -179,3 +181,5 @@ div.col-md-12:nth-child(3) {
 
 
 }
+/* fin de los media  */
+/* ---------------------------------------------------------------------------------------------------- */
