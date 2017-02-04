@@ -30,7 +30,7 @@
 		
 			
 				
-				<div class="contenedor-img  agencias-banner-listado">
+				<div class="contenedor-img   agencias-banner-listado">
 
 					<a href="#"  id="ver_agencia" data-id="<?php echo $this->agencias[$i]['id_agencia'] ?>">
 						<img id="img-agencias"  src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $this->agencias[$i]['foto'][0]['nombre_foto'] ?>"></img>
@@ -42,7 +42,7 @@
 						</div>
 				<div class="pie-agencia">
 
-				<div class="col-sm-2">
+				<div class="col-md-2 col-sm-3 col-xs-6">
 				<label class="puntos" for="radio1">4.9</label>
 					<label class="estrella" for="radio1">&#9733;</label>
 					<label class="estrella" for="radio1">&#9733;</label>
@@ -52,15 +52,15 @@
 
 
 				</div>
-				<div class="col-sm-4 descripcion-agencia">
+				<div class="col-md-4 col-sm-3 col-xs-6 descripcion-agencia">
 					 <?php echo $this->agencias[$i]['preview'] ?>
 				</div>
 				         			
 
 					<?php if ($this->agencias[$i]['pin_agencia']!=""): ?>
 					
-						<div class="col-sm-1">
-							<a href="bbm" target="_blank"><img alt="<?php echo $this->agencias[$i]['pin_agencia_agencia'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/bbm.png" title="Hablemos por BBM: <?php echo $this->agencias[$i]['pin_agencia'] ?>" width="32" /></a>
+						<div class="col-md-1 col-sm-1 hidden-xs">
+							<a href="bbm" target="_blank"><img alt="<?php echo $this->agencias[$i]['pin_agencia_agencia'] ?>"  src="<?php echo BASE_URL?>/public/img/bbm.png" title="Hablemos por BBM: <?php echo $this->agencias[$i]['pin_agencia'] ?>"  /></a>
 						
 					</div>
 					
@@ -68,8 +68,8 @@
 
 					<?php if ($this->agencias[$i]['whatsapp_agencia']!=""): ?>
 					
-						<div class="col-sm-1">
-					<a href="whatsapp" target="_blank"><img alt="<?php echo $this->agencias[$i]['whatsapp_agencia'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/whatsapp.png" title="Hablemos por WhatsApp: <?php echo $this->agencias[$i]['whatsapp_agencia'] ?>" width="32" /></a>
+						<div class="col-md-1 col-sm-1 hidden-xs">
+					<a href="whatsapp" target="_blank"><img alt="<?php echo $this->agencias[$i]['whatsapp_agencia'] ?>"  src="<?php echo BASE_URL?>/public/img/whatsapp.png" title="Hablemos por WhatsApp: <?php echo $this->agencias[$i]['whatsapp_agencia'] ?>"  /></a>
 					</div>
 					<?php endif ?>
 
@@ -77,12 +77,12 @@
 
 					<?php if ($this->agencias[$i]['facebook_agencia']!=""): ?>
 					
-						<div class="col-sm-1">
-					<a href="facebook" target="_blank"><img alt="<?php echo $this->agencias[$i]['facebook_agencia'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: <?php echo $this->agencias[$i]['facebook_agencia'] ?>" width="32" /></a>
+						<div class="col-md-1 col-sm-1 hidden-xs">
+					<a href="facebook" target="_blank"><img alt="<?php echo $this->agencias[$i]['facebook_agencia'] ?>"  src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: <?php echo $this->agencias[$i]['facebook_agencia'] ?>"  /></a>
 					</div>
 					<?php endif ?>
 
-							<div class="col-sm-3 contarores">
+							<div class="col-md-3  col-sm-3  col-xs-12 contarores">
 					damas:<span class="badge"><?php echo $this->agencias[$i]['total']["damas"]['cantidad'] ?></span>
 					caballeros:<span class="badge"><?php echo $this->agencias[$i]['total']['caballeros']['cantidad'] ?></span>
 					trans:<span class="badge"><?php echo $this->agencias[$i]['total']['trans']['cantidad'] ?></span>

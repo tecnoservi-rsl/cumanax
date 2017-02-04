@@ -31,7 +31,7 @@ public function nenas()
 		//$this->_view->area_r="apagada";           
      ;	
          $this->_view->titulo = 'Registrar';
-       	 $this->_view->setJs(array('js','validate_pro','rne'));
+       	 $this->_view->setJs(array('rne'));
      	 $this->_view->setCss(array('index'));
       	 $rs=$this->_registro->get_agencias();
 
