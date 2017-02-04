@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-02-2017 a las 21:28:41
+-- Tiempo de generación: 04-02-2017 a las 01:16:35
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `<cuma></cuma>nax`
+-- Base de datos: `cumanax`
 --
 
 -- --------------------------------------------------------
@@ -36,15 +36,6 @@ CREATE TABLE `agencia` (
   `pin_agencia` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
   `whatsapp_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `agencia`
---
-
-INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `preview`, `nro_contacto`, `correo_agencia`, `facebook_agencia`, `pin_agencia`, `whatsapp_agencia`) VALUES
-(7, 'EL AREN DE RUBY', 'ESPECIALISTAS EN PLACER... NUESTRAS CHICAS QUIEREN CUMPLIR TODAS TUS FANTACIAS', '0414-52-65-896', 'LEGNA18205@GMAIL.COM', 'ASDSAD', 'ASDSAD', 'SADSAD'),
-(8, 'DAMAS DE LA NOCHE', 'HACEMOS DE SEXO UNA EXPERIENCIA INOLVIDABLE. ', '0414-52-65-896', 'LEGNA18205@GMAIL.COM', '654654654', '', ''),
-(9, 'LAS LOBAS', 'TENEMOS LA MAYOR CANTIDAD DE CHICAS QUE PUEDEN HACERTE DE TODO', '324234234', 'LEGNA18205@GMAIL.COM', '', 'ASDSAD', 'SADSADA');
 
 -- --------------------------------------------------------
 
@@ -91,15 +82,6 @@ CREATE TABLE `fotos_agencia` (
   `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `fotos_agencia`
---
-
-INSERT INTO `fotos_agencia` (`id_foto`, `id_agencia`, `nombre_foto`) VALUES
-(4, 7, 'cumanax5894d31b96813cumanaxxxxxxxxxx.png'),
-(5, 8, 'cumanax5894d7dc950cdffff.jpg'),
-(6, 9, 'cumanax5894d821e0f53l.php.gif');
-
 -- --------------------------------------------------------
 
 --
@@ -127,15 +109,6 @@ CREATE TABLE `log` (
   `fecha` date NOT NULL,
   `hora` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `log`
---
-
-INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
-(1, NULL, '127.0.0.1', 'principal', 'index', '2016-12-19', '10:13:35'),
-(2, NULL, '127.0.0.1', 'app', 'index', '2016-12-19', '10:14:08'),
-(1178, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-03', '16:27:07');
 
 -- --------------------------------------------------------
 
@@ -309,7 +282,7 @@ ALTER TABLE `agencia`
 -- AUTO_INCREMENT de la tabla `chicas`
 --
 ALTER TABLE `chicas`
-  MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `fotos_agencia`
 --
@@ -319,12 +292,12 @@ ALTER TABLE `fotos_agencia`
 -- AUTO_INCREMENT de la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1179;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
