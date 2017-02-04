@@ -13,6 +13,7 @@ abstract class Controller
 {
     protected $_view;
     protected $_modelo;
+    protected $_ip;
     
     public function __construct() {
         $this->_view = new View(new Request);
@@ -36,7 +37,7 @@ abstract class Controller
         }else{
             $ip=$_SERVER['REMOTE_ADDR'];
         }
-
+        $this->_ip=$ip;
         $this->_modelo->log($ip,new Request,$usuario);
 
 
