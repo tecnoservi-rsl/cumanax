@@ -29,10 +29,10 @@ $datos = $this->_db->query($sql);
 
 }
 
-public function validar_voto($ip){
+public function validar_voto($ip,$id_chica){
 
 
-$sql="select * from votacion where ip='$ip' and fecha=CURDATE()";
+$sql="select * from votacion where ip='$ip' and id_chica=$id_chica and fecha=CURDATE()";
 
 $datos = $this->_db->query($sql);
         

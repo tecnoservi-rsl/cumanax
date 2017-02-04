@@ -49,7 +49,7 @@ class ninaController extends Controller
 
     public function votacion(){
 
-    $validacion=$this->_index->validar_voto($this->_ip);
+    $validacion=$this->_index->validar_voto($this->_ip,$_POST['id']);
     if($validacion==0){
         echo 0;
     }
