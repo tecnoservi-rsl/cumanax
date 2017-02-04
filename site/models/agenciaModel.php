@@ -54,7 +54,20 @@ return $datos->fetch();
 
 }
 
+public function point_for_agencia($id){
 
+
+
+$sql = "SELECT SUM(votacion.votacion)/ COUNT(votacion.id_votacion) as puntuacion FROM agencia,chicas,votacion WHERE \n"
+    . "agencia.id_agencia = chicas.id_agencia and\n"
+    . "chicas.id_chicas= votacion.id_chica AND\n"
+    . "agencia.id_agencia='$id' GROUP by agencia.id_agencia";
+
+$datos = $this->_db->query($sql);
+        
+return $datos->fetch();
+
+}
 
 
 
