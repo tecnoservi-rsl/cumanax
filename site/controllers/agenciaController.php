@@ -32,14 +32,14 @@ class agenciaController extends Controller
 
         }else{
 
-         $rs=$this->_view->agencias=$this->_agencia->get_all();
+         $rs=$this->_view->agencias=$this->_agencia->get_all_for_point();
 
          for ($i=0; $i < count($rs) ; $i++) { 
             $rs[$i]['foto']= $this->_agencia->get_photo_all($rs[$i]['id_agencia']);
               $rs[$i]['total']['damas']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"dama");
             $rs[$i]['total']['caballeros']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"caballero");
             $rs[$i]['total']['trans']=$this->_agencia->get_count_camp($rs[$i]['id_agencia'],"trans");
-              $rs[$i]['puntos']=$this->_agencia->point_for_agencia($rs[$i]['id_agencia']);
+             
           }
 
           $this->_view->agencias=$rs;

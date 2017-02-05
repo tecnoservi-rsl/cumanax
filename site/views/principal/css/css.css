@@ -11,3 +11,12 @@
 }
 /* fin de los media  */
 /* ---------------------------------------------------------------------------------------------------- */
+
+.col-md-8.col-md-offset-2 {
+	color: #ee796d;
+	font-size: 18px;
+	text-align: justify;
+	line-height: 2;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

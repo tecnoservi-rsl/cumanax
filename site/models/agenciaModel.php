@@ -17,6 +17,27 @@ $datos = $this->_db->query($sql);
 return $datos->fetchall();
 
 }
+
+public function get_all_for_point(){
+
+
+
+$sql = "SELECT agencia.*,\n"
+    . "COUNT(votacion.id_votacion) as votos,\n"
+    . "AVG(votacion.votacion) as puntos\n"
+    . "FROM\n"
+    . "agencia \n"
+    . "LEFT JOIN chicas on agencia.id_agencia=agencia.id_agencia\n"
+    . "LEFT JOIN votacion on votacion.id_chica= chicas.id_chicas\n"
+    . "GROUP BY agencia.id_agencia\n"
+    . "ORDER BY votos DESC LIMIT 0,30";
+
+$datos = $this->_db->query($sql);
+        
+return $datos->fetchall();
+
+}
+
 public function get_all_for_id($id){
 
 
@@ -44,7 +65,16 @@ public function get_only_name($name){
 
 
 
-$sql="SELECT * FROM `agencia` where  nombre_agencia like '%$name%' ";
+$sql = "SELECT agencia.*,\n"
+    . "COUNT(votacion.id_votacion) as votos,\n"
+    . "AVG(votacion.votacion) as puntos\n"
+    . "FROM\n"
+    . "agencia \n"
+    . "LEFT JOIN chicas on agencia.id_agencia=agencia.id_agencia\n"
+    . "LEFT JOIN votacion on votacion.id_chica= chicas.id_chicas\n"
+    . "WHERE agencia.nombre_agencia LIKE '%$name%'\n"
+    . "GROUP BY agencia.id_agencia\n"
+    . "ORDER BY votos DESC LIMIT 0,30";
 
 $datos = $this->_db->query($sql);
         
