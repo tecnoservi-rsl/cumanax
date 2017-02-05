@@ -1,0 +1,21 @@
+.row > div:nth-child(2) > div:nth-child(1) {
+	min-height: 20px;
+	background: #e68f8fcc;
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px;
+	color: white;
+}
+.row > div:nth-child(2) > div:nth-child(2) {
+	min-height: 70px;
+	background-color: beige;
+	padding: 41px;
+	text-align: justify;
+}
+.col-md-8 {
+	margin-top: 40px;
+}
+
+.col-md-8 > div:nth-child(2) > div:nth-child(1) {
+	margin-top: 29px;
+}

@@ -17,6 +17,17 @@ $datos = $this->_db->query($sql);
 return $datos->fetchall();
 
 }
+public function get_all_for_id($id){
+
+
+
+$sql="SELECT * FROM `agencia` where id_agencia=$id ";
+
+$datos = $this->_db->query($sql);
+        
+return $datos->fetch();
+
+}
 
 public function get_photo_all($id){
 

@@ -10,7 +10,19 @@ class registroController extends Controller
         $this->_registro = $this->loadModel('registro');
     }
     
-    public function index(){}
+    public function index(){
+
+
+
+       $this->_view->titulo = 'Registro ';
+      // $this->_view->setJs(array(''));
+       $this->_view->setCss(array('router'));
+        
+       
+       $this->_view->renderizar('router');
+
+
+    }
 
  public function agencias()
 

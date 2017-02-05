@@ -61,6 +61,24 @@ class agenciaController extends Controller
        echo json_encode( $this->_agencia->get_all());
      
 }
+    public function individual()
+{
+        
+          $rs=$this->_view->agencias=$this->_agencia->get_all_for_id($_GET['id_agencia']);
+          $rs['foto']= $this->_agencia->get_photo_all($_GET['id_agencia']);
+          $rs['total']['damas']=$this->_agencia->get_count_camp($_GET['id_agencia'],"dama");
+          $rs['total']['caballeros']=$this->_agencia->get_count_camp($_GET['id_agencia'],"caballero");
+          $rs['total']['trans']=$this->_agencia->get_count_camp($_GET['id_agencia'],"trans");
+          $rs['puntos']=$this->_agencia->point_for_agencia($_GET['id_agencia']);
+
+          $this->_view->agencias=$rs;
+          $this->_view->titulo = $rs['nombre_agencia'];
+          $this->_view->setJs(array(''));
+          $this->_view->setCss(array('css_induvidual_agencia'));
+
+          $this->_view->renderizar('agencia');
+     
+}
 
 
 }

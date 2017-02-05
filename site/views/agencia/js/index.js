@@ -36,4 +36,15 @@ $(document).on("click", "#btn_buscar", function(){
 
 
 
+
+
+$(document).on("click", ".agencias-banner-listado", function(){
+	//alert(base_url+"agencia/indicidual/?id_agencia="+this.dataset.id);
+	location.href=base_url+"agencia/individual/?id_agencia="+this.dataset.id;
 });
+
+
+
+
+});
+

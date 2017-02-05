@@ -1,0 +1,5 @@
+.row > div:nth-child(2) {
+	background: white;
+	width: 50%;
+	margin-left: 25%;
+}
