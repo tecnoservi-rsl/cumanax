@@ -27,6 +27,28 @@ $datos = $this->_db->query($sql);
 return $datos->fetchall();
 
 }
+public function get_all_tipo($tipo){
+
+
+
+ $sql = "SELECT chicas.*,\n"
+    . "AVG(votacion.votacion) puntos,\n"
+    . "COUNT(votacion.id_votacion) as nro_votos ,\n"
+    . "agencia.nombre_agencia\n"
+    . "FROM\n"
+    . "chicas \n"
+    . "LEFT JOIN votacion on chicas.id_chicas=votacion.id_chica and week(votacion.fecha) = week(CURRENT_DATE)\n"
+    . "LEFT JOIN agencia on agencia.id_agencia= chicas.id_agencia\n"
+    . "where chicas.tipo = '$tipo'  \n"
+    . "GROUP BY chicas.id_chicas\n"
+    . "ORDER BY nro_votos DESC \n"
+    . "limit 0,30";
+
+$datos = $this->_db->query($sql);
+        
+return $datos->fetchall();
+
+}
 
 public function get_photo_all($id){
 
