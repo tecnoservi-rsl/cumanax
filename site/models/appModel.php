@@ -16,7 +16,8 @@ public function menu($id = false){
     . "role.id_role = permisos.id_role and\n"
     . "permisos.permiso=1 and \n"
     . "role.id_role=usuario.id_role and\n"
-    . "usuario.id_usuario=".$id;
+    . "usuario.id_usuario=".$id."\n"
+    . "order by id_menu asc\n";
 	$menu = $this->_db->query($sql);
 	return $menu->fetchall();
 		
@@ -25,7 +26,8 @@ public function menu($id = false){
     . "menu.id_menu=permisos.id_menu and \n"
     . "role.id_role = permisos.id_role and\n"
     . "permisos.permiso=1 and \n"
-    . "role.id_role=2";
+    . "role.id_role=2 \n"
+    . "order by id_menu asc\n";
 	$menu = $this->_db->query($sql);
 	return $menu->fetchall();
 

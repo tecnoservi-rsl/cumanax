@@ -27,7 +27,7 @@ $sql = "SELECT agencia.*,\n"
     . "AVG(votacion.votacion) as puntos\n"
     . "FROM\n"
     . "agencia \n"
-    . "LEFT JOIN chicas on agencia.id_agencia=agencia.id_agencia\n"
+    . "LEFT JOIN chicas on agencia.id_agencia=chicas.id_agencia\n"
     . "LEFT JOIN votacion on votacion.id_chica= chicas.id_chicas\n"
     . "GROUP BY agencia.id_agencia\n"
     . "ORDER BY votos DESC LIMIT 0,30";
