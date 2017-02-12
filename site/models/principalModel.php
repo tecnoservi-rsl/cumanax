@@ -101,7 +101,18 @@ $datos = $this->_db->query($sql);
 
 }
 
+public function buscar_chicas($nombre){
+   
+$sql="select * from chicas,pagos WHERE chicas.nombre_chicas like '$nombre%' and chicas.id_chicas=pagos.id_chicas";
+$datos = $this->_db->query($sql);
+return $datos->fetchall();
 
 }
 
-?>
+public function eliminar_chicas($id_chica){
+$sql="delete from chicas where id_chicas='$id_chica'";
+$this->_db->query($sql);
+return 0;
+}
+
+}?>
