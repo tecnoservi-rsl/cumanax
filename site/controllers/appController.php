@@ -212,6 +212,10 @@ class appController extends Controller
         echo json_encode($this->chicas->eliminar_chicas($_POST['id_chica']));
     }
 
+    function pago_chicas(){
+       $this->chicas=$this->loadModel('principal');
+       echo json_encode($this->chicas->pago_chicas($_POST['id_chica'],$_POST['meses']));
+    }
 }
 
 

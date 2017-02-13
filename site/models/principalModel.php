@@ -115,4 +115,10 @@ $this->_db->query($sql);
 return 0;
 }
 
+public function pago_chicas($id_chica,$meses){
+$sql="update pagos set fecha_pago=CURDATE(), fecha_vencimiento=DATE_ADD(CURDATE(), interval $meses month) where id_chicas='$id_chica'";
+$this->_db->query($sql);
+return 0;  
+}
+
 }?>

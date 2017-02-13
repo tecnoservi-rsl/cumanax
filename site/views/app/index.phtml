@@ -100,30 +100,31 @@
 
 <div class="modal fade" tabindex="-1" id="modalpago" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
+  <input type="text" hidden id="id_chica_pago">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">Habilitar/Desabilitar</h4>
+        <h4 class="modal-title" id="gridSystemModalLabel">Realizar Pago</h4>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12"> 
-          	<select class="form-control">
+          	<select id="meses" class="form-control">
           		<option>--Seleccione--</option>
-          		<option value="">1 mes</option>
-          		<option value="">3 meses</option>
-          		<option value="">6 meses</option>
+          		<option value="1">1 mes</option>
+          		<option value="3">3 meses</option>
+          		<option value="6">6 meses</option>
           	</select>
           </div>
         </div>        
       </div>
       <div class="modal-footer">
-        <button type="button" id="habilitar" class="btn btn-primary">Guardar</button>
+        <button type="button" id="pago" class="btn btn-primary">Guardar</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
 
 
 

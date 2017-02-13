@@ -113,7 +113,6 @@ function mostrar_chicas(nombre_chica){
 			html+="<th>Telefono</th>";
 			html+="<th>Fecha ultimo pago</th>";
 			html+="<th>Fecha de vencimiento</th>";
-			html+="<th>Estatus</th>";
 			html+="<th>Acciones</th>";
 			html+="</tr>";
 			html+="</thead>";
@@ -132,8 +131,8 @@ function mostrar_chicas(nombre_chica){
 			html+="<td>" + datos[i].tlf + "</td>";
 			html+="<td>" + datos[i].fecha_pago + "</td>";
 			html+="<td>" + datos[i].fecha_vencimiento + "</td>";
-			html+="<td>" + datos[i].estatus + "</td>";
-			html+="<td><a id='eliminar_chicas' data-toggle='tooltip' data-placement='bottom' title='Eliminar Chica' data-id_chica='"+datos[i].id_chicas+"'><span class='glyphicon glyphicon-trash'></span></a>  <a data-toggle='modal' data-target='#modalpago' title='Habilitar/Desabilitar' data-id_chica='"+datos[i].id_chicas+"'><span class='glyphicon glyphicon-usd'></span></a></td>";
+			html+="<td><a id='eliminar_chicas' data-toggle='tooltip' data-placement='bottom' title='Eliminar Chica' data-id_chica='"+datos[i].id_chicas+"'><span class='glyphicon glyphicon-trash'></span></a>";
+			html+="<a data-toggle='modal' id='id_pago' data-target='#modalpago' title='Habilitar/Desabilitar' data-id_chica='"+datos[i].id_chicas+"'><span class='glyphicon glyphicon-usd'></span></a></td>";
 			}
 			
 			html+="</tbody> </table> </div> </div> </div>";
@@ -146,6 +145,12 @@ function mostrar_chicas(nombre_chica){
 $(document).on("keyup", "#buscar_chicas", function(){
 	nombre_chica=$("#buscar_chicas").val();
 	mostrar_chicas(nombre_chica);
+
+});
+
+$(document).on("click", "#id_pago", function(){
+	id_chica=$(this).data("id_chica");
+	$("#id_chica_pago").val(id_chica);
 
 });
 
@@ -165,14 +170,20 @@ $.post(base_url + 'app/eliminar_chicas',{
 
 });
 
-$(document).on("click", "habilitar", function(){
-	id_chica=$(this).data("id_chica");
-	$.post(base_url + 'app/habilitar_chicas',{
-		id_chica: id_chica
+$(document).on("click", "#pago", function(){
+	
+	id_chica=$("#id_chica_pago").val();
+	console.log(id_chica);
+	meses=$("#meses").val();
+	$.post(base_url + 'app/pago_chicas',{
+		id_chica: id_chica,
+		meses: meses
 			},function(datos){
-			alert("chica eliminada");
+			alert("Pago Realizado");
 			mostrar_chicas($("#buscar_chicas").val());			
 	           },"json");
 });
+
+
 
 });
