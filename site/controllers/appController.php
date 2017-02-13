@@ -202,7 +202,15 @@ class appController extends Controller
 
     }
 
+    function buscar_chicas(){
+        $this->chicas=$this->loadModel('principal');
+       echo json_encode( $this->chicas->buscar_chicas($_POST['nombre_chica']));
+    }
 
+    function eliminar_chicas(){
+        $this->chicas=$this->loadModel('principal');
+        echo json_encode($this->chicas->eliminar_chicas($_POST['id_chica']));
+    }
 
 }
 
