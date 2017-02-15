@@ -16,7 +16,7 @@ define('BASE_URL', 'http://localhost/cumanax/');
 define('DEFAULT_CONTROLLER', 'aviso');
 //define('DEFAULT_LAYOUT', 'layout_legna');
 define('DEFAULT_LAYOUT', 'basic');
-define('APP_NAME', 'CumanaX');
+define('APP_NAME', 'OrienteX');
 define('APP_SLOGAN', 'Servicios especiales y algo mas');
 define('APP_COMPANY', 'Tecnoservi');
 define('APP_TLF', '');

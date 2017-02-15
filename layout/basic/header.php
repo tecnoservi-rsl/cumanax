@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="<?php echo BASE_URL; ?>principal" class="navbar-brand"><img src="<?php echo BASE_URL; ?>public/img/cara.png" class="logox"><h4 class="texto">CumanaX.com.ve</h4></a>
+                <a href="<?php echo BASE_URL; ?>principal" class="navbar-brand"><img src="<?php echo BASE_URL; ?>public/img/cara.png" class="logox"><h4 class="texto">OrienteX.com.ve</h4></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

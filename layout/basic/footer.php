@@ -1,14 +1,14 @@
     </div>
 </div>
 <div class="pietop">
-www.CumanaX.com.ve
+www.OrienteX.com.ve
 
 </div>
  <section class="piebody">
         <div class="container">
         <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo APP_SLOGAN ?></div>
         <div class="col-xs-12 col-md-4">Copyright <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> 2016-2017 </div>
-        <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> web desarrollada por grupo <?php echo APP_NAME ?></div>
+        <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> web desarrollada por grupo <?php echo APP_COMPANY ?></div>
         <div class="col-xs-12"> <br>El sitio contiene material sexualmente explícito. Ingrese SÓLO si tiene por lo menos 18 años de edad y acepta ser responsable de los actos a ejecutar mediante este sitio web.
  </div>
         </div>
@@ -16,7 +16,7 @@ www.CumanaX.com.ve
 
     <div class="piebottom">
 
-        www.CumanaX.com.ve
+        www.OrienteX.com.ve
 
     </div>
 
