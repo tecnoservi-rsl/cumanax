@@ -14,6 +14,29 @@
 	cursor: pointer;
 }
 
+.title-aviso {
+  background-color: #410707 !important;
+  /* border-color: #000; */
+  border: 1px solid #500000 !important;
+  border-radius: 7px;
+}
+
+.title-termino {
+	color: #df7979 !important;
+}
+
+.texto-top30 {
+	text-shadow: 2px 2px #000;
+	color: #FF8686 !important;
+	margin-top: 10px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.buscaragencia {
+	margin-top: 3px;
+}
+
 #fotoG{
 
     min-width: 100%;
@@ -45,12 +68,13 @@
 	/* position: relative; */
 	font-size: 16px;
 	padding: 0px;
-	background: rgba(227, 105, 105, 0.83);
+	background: linear-gradient(to bottom, #DA0000, #630000);
 	bottom: 0px;
 	position: absolute;
 	min-height: 41px;
 	padding: 5px;
 	width: 100%;
+	color: #f37979;
 }
 .estrella {
 	font-size: 20px;
@@ -60,7 +84,7 @@
 }
 .descripcion-agencia {
 	font-size: 14px;
-	color: black;
+	color: #f37979;
 	text-align: justify;
 	font-style: italic;
 	font-family: unset;
@@ -79,7 +103,6 @@
 }
 .buscar-agencias-div {
 	border: 1px solid;
-	min-height: 170px;
 	padding: 22px;
 	background: #860000;
 	border-radius: 5px;
@@ -87,7 +110,9 @@
 	margin-bottom: 57px;
 	border-color: #510000E6;
 	margin-top: 20px;
+	padding-top: 17px;
 }
+
 div.texto-busqueda {
 	text-align: justify;
 	padding: 10px;
@@ -208,6 +233,8 @@ div.col-md-12:nth-child(3) {
 	margin-bottom: 0px;
 	color: #ffd700b3;
 }
+
+
 
 
 }
