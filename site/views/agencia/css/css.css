@@ -137,6 +137,11 @@ div.col-md-12:nth-child(3) {
 	position: relative;
 	width: 32px;
 }
+#agencia_name {
+	background: #470000;
+	color: white;
+	border: 1px solid #452c2c;
+}
 /* estos son para pantallas sm */
 /* ---------------------------------------------------------------------------------------------------- */
 @media (min-width: 750px) and (max-width: 970px) {

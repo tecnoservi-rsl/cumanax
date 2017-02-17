@@ -61,7 +61,8 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
 $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
 
-
+ $sql="insert into pagos values('',$id_publicacion,CURDATE(),DATE_ADD(CURDATE(), interval 3 DAY))";
+$this->_db->query($sql);
 
             for ($i=0; $i < count($fotos['fotos']['name']) ; $i++) 
             { 
