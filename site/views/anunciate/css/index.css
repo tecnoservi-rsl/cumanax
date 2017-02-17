@@ -4,6 +4,9 @@
     padding: 10px;
 }
 
+
+
+
 .bigicon {
     font-size: 35px;
     color: #36A0FF;
@@ -53,6 +56,10 @@ label {
 }
 
 .title-termino {
+  color: #ee7979 !important;
+}
+
+.text-anunciate{
   color: #fff !important;
 }
 

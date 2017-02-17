@@ -10,15 +10,15 @@ public function get_all(){
 
 
 
-$sql = "SELECT chicas.*,\n"
+ $sql = "SELECT chicas.*,\n"
     . "AVG(votacion.votacion) puntos,\n"
     . "COUNT(votacion.id_votacion) as nro_votos ,\n"
     . "agencia.nombre_agencia\n"
     . "FROM\n"
     . "chicas \n"
     . "LEFT JOIN votacion on chicas.id_chicas=votacion.id_chica and week(votacion.fecha) = week(CURRENT_DATE)\n"
-    . "LEFT JOIN agencia on agencia.id_agencia= chicas.id_agencia\n"
-    . "RIGHT JOIN pagos on pagos.id_chicas = chicas.id_chicas and pagos.fecha_vencimiento > CURDATE()\n"
+    . "LEFT JOIN agencia on agencia.id_agencia= chicas.id_agencia, pagos\n"
+    . "where pagos.id_chicas = chicas.id_chicas and pagos.fecha_vencimiento > CURDATE()\n"
     . "GROUP BY chicas.id_chicas\n"
     . "ORDER BY nro_votos DESC \n"
     . "limit 0,30";

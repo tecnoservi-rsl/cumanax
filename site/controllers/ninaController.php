@@ -11,10 +11,20 @@ class ninaController extends Controller
       
     }
 
-    public function index(){}
+    public function index(){
+
+            $this->redireccionar('principal');
+
+    }
 
     public function individual($id)
     {
+
+        if($id==false){
+
+            $this->redireccionar('principal');
+
+        } 
   
 			
 			$this->_view->setJs(array('index'));

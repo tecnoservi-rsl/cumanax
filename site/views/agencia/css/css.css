@@ -3,6 +3,18 @@
 	/* height: auto; */
 	top: -20%;
 }
+.prviuw {
+    float: left;
+    margin: 3px;
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#fotoG{
+
+    min-width: 100%;
+}
 .agencias-banner-listado {
 	width: 100%;
 	height: auto;
@@ -35,6 +47,11 @@
 
 .buscaragencia {
 	margin-top: 3px;
+}
+
+.texto-mensaje{
+	font-size: 25px;
+	text-align: center;
 }
 
 #fotoG{
@@ -243,5 +260,7 @@ div.col-md-12:nth-child(3) {
 
 
 }
+
+
 /* fin de los media  */
 /* ---------------------------------------------------------------------------------------------------- */

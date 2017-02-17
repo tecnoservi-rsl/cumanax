@@ -10,27 +10,27 @@
 
 		 <div id="datos" class=" col-md-12 xx">
 							<address>
-							<strong><h2>El Aren de Ruby: </h2></strong>
+							<strong><h2> <?php echo $this->agencias['nombre_agencia'] ?> </h2></strong>
 					
 							<span class="glyphicon glyphicon-earphone negro" id="negro"></span>
-							<abbr title="Phone"></abbr> 04248486869
+							<abbr title="Phone"></abbr> <?php echo $this->agencias['nro_contacto'] ?>
 
 							<br><strong><b>Localidad:</b></strong>
-							<abbr title="Localidad"></abbr> Direccion
+							<abbr title="Localidad"></abbr> <?php echo $this->agencias['localidad'] ?>
 							<br><br>
 
 						
 
-							<a href="bbm" target="_blank"><img alt="" height="32" src="<?php echo BASE_URL?>/public/img/bbm.png" title="Hablemos por BBM: " width="32" /></a><b>56GFS231</b><br>
+							<a href="bbm" target="_blank"><img alt="" height="32" src="<?php echo BASE_URL?>/public/img/bbm.png" title="Hablemos por BBM: " width="32" /></a><b><?php echo $this->agencias['pin_agencia'] ?></b><br>
 					
-							<a href="whatsapp" target="_blank"><img alt="<?php echo $this->datos['whatsapp'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/whatsapp.png" title="Hablemos por WhatsApp: <?php echo $this->datos['whatsapp'] ?>" width="32" /></a><b>0424-8986869</b><br>
+							<a href="whatsapp" target="_blank"><img alt="<?php echo $this->datos['whatsapp'] ?>" height="32" src="<?php echo BASE_URL?>/public/img/whatsapp.png" title="Hablemos por WhatsApp: " width="32" /></a><b><?php echo $this->agencias['whatsapp_agencia'] ?></b><br>
 
-							<a href="facebook" target="_blank"><img alt="" height="32" src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: " width="32" /></a><b>El Aren de Ruby</b><br>
+							<a href="facebook" target="_blank"><img alt="" height="32" src="<?php echo BASE_URL?>/public/img/face.png" title="Sígueme en Facebook: " width="32" /></a><b><?php echo $this->agencias['facebook_agencia'] ?></b><br>
 
 							<br>
 							<strong>E-Mail</strong><br>	
 							<span class='glyphicon glyphicon-envelope negro'></span>
-							<a href="mailto:#">CORREO</a>
+							<a href="mailto:#"><?php echo $this->agencias['correo_agencia'] ?></a>
 							
 		 </div>
 	</div>
@@ -44,7 +44,7 @@
 						
 					
 							<label class="estrella">&#9733;</label>
-							<label class="valor_rating">4,78 Pts</label>
+							<label class="valor_rating"><?php echo $this->agencias['puntos']['puntuacion'] ?> Pts</label>
 
 						
 				</div>
@@ -53,17 +53,17 @@
 
 						
 					
-							<center><label class="prev"><h2>Vivir Para Cojer, Cojer Para Vivir, Nuestros Rubies Te Haran Sentir de Maravilla</h2></label></center>
+							<center><label class="prev"><h2><?php echo $this->agencias['preview'] ?></h2></label></center>
 
 						
 				</div>
 
 				<div class="contamos">
 				<strong>Contamos con:</strong><br>	
-							<img class="color_imagen" alt="" height="32" src="<?php echo BASE_URL?>/public/img/femenino.png" title="femenino" width="32" />damas:<span class="badge"></span> -
+							<img class="color_imagen" alt="" height="32" src="<?php echo BASE_URL?>/public/img/femenino.png" title="femenino" width="32" />damas: <?php echo $this->agencias['total']['damas']['cantidad'] ?><span class="badge"></span> -
 
-							<img class="color_imagen" alt="" height="32" src="<?php echo BASE_URL?>/public/img/masculino.png" title="masculino" width="32" />caballeros:<span class="badge"></span> - 
-							<img class="color_imagen" alt="" height="38" src="<?php echo BASE_URL?>/public/img/trans.png" title="trans" width="32" />trans:<span class="badge"></span>
+							<img class="color_imagen" alt="" height="32" src="<?php echo BASE_URL?>/public/img/masculino.png" title="masculino" width="32" />caballeros: <?php echo $this->agencias['total']['caballeros']['cantidad'] ?><span class="badge"></span> - 
+							<img class="color_imagen" alt="" height="38" src="<?php echo BASE_URL?>/public/img/trans.png" title="trans" width="32" />trans: <?php echo $this->agencias['total']['trans']['cantidad'] ?><span class="badge"></span>
 							</address>
 				</div>
 
@@ -83,36 +83,14 @@
 		
 			<div class="col-md-12 vista_ninas">
 				<ul>
-
+				<?php for($i=0;$i<count($this->agencias["chicas"]);$i++): ?>
 					<li>
-						<div id="prevista" class="listado_chicas">
-							 <img id="fotoG"  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
+						<div id="prevista" class="prviuw">
+							 <img id="fotoG"  src="<?php echo BASE_URL?>public/img/fotos/<?php echo $this->agencias['chicas'][$i]['nombre_foto']?>" >
 						</div>
 					</li>
-
-					<li>
-						<div id="prevista" class="listado_chicas">
-							 <img id="fotoG"  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
-						</div>
-					</li>
-
-					<li>
-						<div id="prevista" class="listado_chicas">
-							 <img id="fotoG"  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
-						</div>
-					</li>
-
-					<li>
-						<div id="prevista" class="listado_chicas">
-							 <img id="fotoG"  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
-						</div>
-					</li>
-
-					<li>
-						<div id="prevista" class="listado_chicas">
-							 <img id="fotoG"  src="<?php echo BASE_URL?>/public/img/fotos/1.jpg" >
-						</div>
-					</li>
+				<?php endfor;?>
+					
 
 					</ul>
 
@@ -122,7 +100,7 @@
 
 
 	
-				<?php print_r($this->agencias) ?>	
+				
 	
 
 

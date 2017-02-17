@@ -11,7 +11,7 @@
 	</div>
 	</div>
 
-	<div class="col-md-10 col-md-offset-1 texto-top30">Top 30 de Oriente.com.ve los mas votados de la semana. Esperemos que sea de su agrado la experencia en esta web.</div>
+	<div class="col-md-10 col-md-offset-1 texto-top30">Top 20 de Oriente.com.ve los mas votados de la semana. Esperemos que sea de su agrado la experencia en esta web.</div>
 </div>
 			
 
@@ -19,7 +19,10 @@
 				<div class="am-container" id="am-container">
 
 
-					<?php for ($i=0; $i <count($this->todos) ; $i++) : ?>
+					<?php
+
+					for ($i=0; $i <count($this->todos) ; $i++) : ?>
+
 					
 						<div class="contenedor-img chicas">
 							<a href="#"><img width="<?php echo rand(300, 450) ?>" height="<?php echo rand(250,300) ?>" src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $this->todos[$i]['fotos'][0]['nombre_foto'];?>"></img></a>

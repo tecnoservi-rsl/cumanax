@@ -70,6 +70,7 @@ class agenciaController extends Controller
           $rs['total']['caballeros']=$this->_agencia->get_count_camp($_GET['id_agencia'],"caballero");
           $rs['total']['trans']=$this->_agencia->get_count_camp($_GET['id_agencia'],"trans");
           $rs['puntos']=$this->_agencia->point_for_agencia($_GET['id_agencia']);
+          $rs['chicas']=$this->_agencia->chicas_agencias($_GET['id_agencia']);
 
           $this->_view->agencias=$rs;
           $this->_view->titulo = $rs['nombre_agencia'];

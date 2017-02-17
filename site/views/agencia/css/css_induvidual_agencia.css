@@ -71,7 +71,22 @@
 	/* min-height: 320px; */
 }
 
+.prviuw {
+    float: left;
+    margin: 3px;
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+.prviuw > img {
+    width: 250px;
+    height: 250px;
+}
 
+#fotoG{
+
+    min-width: 100%;
+}
 
 li {
     display: block;

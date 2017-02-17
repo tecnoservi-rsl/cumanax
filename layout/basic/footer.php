@@ -23,6 +23,7 @@ www.OrienteX.com.ve
 
  <!-- Publicos -->
 <script src="<?php echo BASE_URL; ?>public/js/jquery.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/countdown.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/alertify.min.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/config.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine.js" type="text/javascript"></script>

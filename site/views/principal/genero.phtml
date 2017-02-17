@@ -5,7 +5,17 @@
 				<div class="col-md-12">
 					<h4 class="title-termino"><center> 
 					<b> 
-					<?php echo ucwords($this->busqueda_tipo); ?>
+					<?php if($this->busqueda_tipo == 'dama' or $this->busqueda_tipo== 'caballero'){
+
+						echo ucwords($this->busqueda_tipo).'s';
+
+					} else{
+
+						echo ucwords($this->busqueda_tipo);
+					}
+
+
+					 ?>
 					<br>
 				 
 	</b></center> </h4> </div> 
@@ -16,7 +26,17 @@
 				<div class="am-container" id="am-container">
 
 
-					<?php for ($i=0; $i <count($this->todos) ; $i++) : ?>
+						<?php 
+
+						if(count($this->todos) == 0){ ?>
+
+						
+							<div class="col-md-10 col-md-offset-1 texto-mensaje"> <b> No existen registros. </b></div>
+
+					
+					<?php	} else{ 
+
+						for ($i=0; $i <count($this->todos) ; $i++) : ?>
 					
 						<div class="contenedor-img chicas">
 							<a href="#"><img width="<?php echo rand(300, 450) ?>" height="<?php echo rand(250,300) ?>" src="<?php echo BASE_URL;?>public/img/fotos/<?php echo $this->todos[$i]['fotos'][0]['nombre_foto'];?>"></img></a>
@@ -27,7 +47,7 @@
 								</div>
 						</div>
 
-					<?php endfor; ?>
+					<?php endfor; } ?>
 					
 				
 

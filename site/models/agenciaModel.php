@@ -61,6 +61,16 @@ $datos = $this->_db->query($sql);
 
 }
 
+public function chicas_agencias($id){
+$sql="SELECT fotos_chicas.*,chicas.* from 
+fotos_chicas,chicas where 
+fotos_chicas.id_chicas=chicas.id_chicas 
+and chicas.id_agencia=$id
+group by (fotos_chicas.id_chicas)";
+$datos=$this->_db->query($sql);
+    return $datos->fetchall();
+}
+
 public function get_only_name($name){
 
 

@@ -21,11 +21,13 @@ class principalController extends Controller
         	$this->_view->titulo = 'inicio';
         	$rs=$this->_index->get_all();
 
+
         	for ($i=0; $i < count($rs) ; $i++) { 
         		
         		$rs[$i]["fotos"]=$this->_index->get_photo_all($rs[$i]["id_chicas"]);
         	}
 
+           
         	$this->_view->todos = $rs;
         	
 			$this->_view->renderizar('index');
@@ -37,7 +39,11 @@ class principalController extends Controller
     {
 
 
-    			
+    	if($muestra==false){
+
+            $this->redireccionar('principal');
+
+        } 
 
        
 			
