@@ -15,6 +15,7 @@ class errorController extends Controller
     
     public function access($codigo)
     {
+         $this->_view->setCss(array('css'));
         $this->_view->titulo = 'Error';
         $this->_view->mensaje = $this->_getError($codigo);
         $this->_view->renderizar('access');
@@ -23,7 +24,7 @@ class errorController extends Controller
     private function _getError($codigo = false)
     {
         if($codigo){
-            $codigo = $this->filtrarInt($codigo);
+            $codigo = $codigo;
             if(is_int($codigo))
                 $codigo = $codigo;
         }

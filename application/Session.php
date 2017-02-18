@@ -41,19 +41,14 @@ class Session
             return $_SESSION[$clave];
     }
     
-    public static function acceso($level)
+    public static function acceso()
     {
         if(!Session::get('autenticado')){
             header('location:' . BASE_URL . 'error/access/5050');
             exit;
         }
-        
-        Session::tiempo();
-        
-        if(Session::getLevel($level) > Session::getLevel(Session::get('level'))){
-            header('location:' . BASE_URL . 'error/access/5050');
-            exit;
-        }
+         
+       
     }
     
     public static function accesoView($level)

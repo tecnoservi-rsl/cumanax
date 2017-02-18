@@ -5,6 +5,8 @@ class registroController extends Controller
     private $_registro;
     
     public function __construct() {
+
+      Session::acceso();
         parent::__construct();
         
         $this->_registro = $this->loadModel('registro');
@@ -13,7 +15,7 @@ class registroController extends Controller
     public function index(){
 
 
-
+ 
        $this->_view->titulo = 'Registro ';
       // $this->_view->setJs(array(''));
        $this->_view->setCss(array('router'));

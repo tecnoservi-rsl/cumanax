@@ -8,6 +8,9 @@ class appController extends Controller
 	
 	
     public function __construct() {
+
+        Session::acceso();
+
         parent::__construct();
       $this->app=$this->loadModel('app');
 		
@@ -44,33 +47,13 @@ class appController extends Controller
 
         	}
 
-                $color=Array();
-
-                 $fl=fopen(ROOT . 'layout'.DS.DEFAULT_LAYOUT.DS.'css'.DS.'css.info',"r");
-
-                 while (!feof($fl)) {
-
-                    $color[]=fgets($fl);
-
-
-                 }
-                 fclose($fl);
-
-                 $this->_view->colores=$color;
 
 
 
 
-            $this->_view->views=scandir(ROOT . 'site'.DS.'views');
 
-
-        	
+        	$this->_view->cont=$this->app->all_cont();
             $this->_view->logs=$this->app->all_logs();
-
-           
-
-
-
         	$this->_view->menus=$menu;
 			$this->_view->rol=$role;
 			$this->_view->matris=$matris;

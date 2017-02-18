@@ -122,6 +122,16 @@ $sql = "UPDATE permisos SET permiso = $retVal WHERE id_menu = $menu AND id_role=
           return $res->fetchall();
     }
 
+         public function all_cont(){
+
+       
+        $sql = "SELECT * FROM log"; 
+        
+        $res=$this->_db->query($sql);
+
+          return $res->fetchall();
+    }
+
 
 
 }
