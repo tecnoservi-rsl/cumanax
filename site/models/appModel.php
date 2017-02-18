@@ -124,12 +124,33 @@ $sql = "UPDATE permisos SET permiso = $retVal WHERE id_menu = $menu AND id_role=
 
          public function all_cont(){
 
-       
-        $sql = "SELECT * FROM log"; 
-        
-        $res=$this->_db->query($sql);
+       //total
+    $sql = "SELECT count(*) as num \n"
+    . " FROM (SELECT log.ip FROM log GROUP BY ip) as tabla";
+     $res=$this->_db->query($sql);
+      $res->setFetchMode(PDO::FETCH_ASSOC);
+     $cont['total']=$res->fetch();
+        //las de hoy
+    $sql = "SELECT count(*) as num \n"
+    . " FROM (SELECT log.ip FROM log WHERE log.fecha = curdate() GROUP BY ip) as tabla";
+     $res=$this->_db->query($sql);
+     $res->setFetchMode(PDO::FETCH_ASSOC);
+     $cont['hoy']=$res->fetch();
+        //semana
+    $sql = "SELECT count(*) as num \n"
+    . " FROM (SELECT log.ip FROM log WHERE week(log.fecha) = week(curdate()) GROUP BY ip) as tabla";
+     $res=$this->_db->query($sql);
+     $res->setFetchMode(PDO::FETCH_ASSOC);
+     $cont['semana']=$res->fetch();
+        //mes
+    $sql = "SELECT count(*) as num \n"
+    . " FROM (SELECT log.ip FROM log WHERE MONTH(log.fecha) = MONTH(curdate()) GROUP BY ip) as tabla";
+     $res=$this->_db->query($sql);
+     $res->setFetchMode(PDO::FETCH_ASSOC);
+     $cont['mes']=$res->fetch();
 
-          return $res->fetchall();
+    
+          return $cont;
     }
 
 

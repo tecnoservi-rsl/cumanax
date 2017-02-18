@@ -51,10 +51,31 @@
 
 
 	
-
+<div class="header-titulos col-xs-12"> logs del sistemas</div>
 	<div class="col-xs-12 well">
 
 	<table class="table table-bordered">
+		
+		<tr>
+	
+		<td id="log_cen" colspan="6" >ips registrados</td>
+		
+		</tr>
+		<tr>
+	
+		<td>total</td>
+		<td>hoy</td>
+		<td>estas semana</td>
+		<td>este mes</td>
+		</tr>
+		<tr>
+	
+		<td><?php echo $this->cont['total']['num'] ?></td>
+		<td><?php echo $this->cont['hoy']['num'] ?></td>
+		<td><?php echo $this->cont['semana']['num'] ?></td>
+		<td><?php echo $this->cont['mes']['num'] ?></td>
+		</tr>
+
 		<tr><td id="log_cen" colspan="6">log del sistema</td></tr>
 		<tr>
 		<td>ip</td>
