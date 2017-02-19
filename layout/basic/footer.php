@@ -23,7 +23,6 @@ www.OrienteX.com.ve
 
  <!-- Publicos -->
 <script src="<?php echo BASE_URL; ?>public/js/jquery.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>public/js/countdown.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/alertify.min.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/config.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine.js" type="text/javascript"></script>
@@ -34,6 +33,7 @@ www.OrienteX.com.ve
 <script src="<?php echo BASE_URL; ?>public/js/classie.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/modernizr.custom.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/cssParser.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/clockCountdown.js" type="text/javascript"></script>
 <!--
 <script src="<?php echo BASE_URL; ?>public/js/css-filters-polyfill.js" type="text/javascript"></script>
 -->
