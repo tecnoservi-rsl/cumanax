@@ -199,6 +199,15 @@ class appController extends Controller
        $this->chicas=$this->loadModel('principal');
        echo json_encode($this->chicas->pago_chicas($_POST['id_chica'],$_POST['meses']));
     }
+        function updonw(){
+     $objeto=$this->loadModel('app');
+       echo print_r($_POST);
+       if ($_POST['accion']==0) {
+            $objeto->gf($_POST);
+       }else{
+            $objeto->gf();
+       }
+    }
 }
 
 

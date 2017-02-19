@@ -42,3 +42,6 @@
 #div_contenedor2 {
 	min-height: 250px;
 }
+div.col-md-12:nth-child(8) {
+	min-height: 100px;
+}
