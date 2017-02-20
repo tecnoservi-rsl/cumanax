@@ -168,6 +168,35 @@ $sql = "UPDATE permisos SET permiso = $retVal WHERE id_menu = $menu AND id_role=
             }
 
     }
+             public function bloqueo(){
+
+         
+                $sql = "SELECT * FROM switch";
+                $rs=$this->_db->query($sql);
+                if(count($rs->fetchall())>0){
+                  return true;
+                }else
+                {
+                  return false;
+                }
+
+            
+        
+
+    }
+                 public function bloqueo_datos(){
+
+         
+                $sql = "SELECT * FROM switch";
+                $rs=$this->_db->query($sql);
+               
+                  return $rs->fetch();
+                
+
+            
+        
+
+    }
 
 }
 

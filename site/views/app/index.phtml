@@ -51,6 +51,7 @@
 
 		<div class="header-titulos col-xs-12"> up or donw web</div>
 	<div class="col-md-12">
+		<div class="col-md-6">
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" id="radio1" value="activar">
@@ -65,9 +66,19 @@
 			</div>
 			 <div class="form-group">
 			    <label for="">Hasta</label>
-			    <input type="text" class="form-control" id="fecha_activo" placeholder="">
+			    <input type="text" value="<?php if (isset($this->bloqueo->fecha)){ echo $this->bloqueo->fecha;} ?>" class="form-control" id="fecha_activo" placeholder="">
 			  </div>
 			  <button type="submit" id="btn_actv" class="btn btn-default">enviar</button>
+		</div>
+		<div class="col-md-6">
+			<div>estado</div>
+			<?php if(!$this->bloqueo): ?>
+				el sistema esta activo.
+			<?php else:  ?>
+				el sistema se encuentra temporalmente fuera de servicio hasta la fecha <?php echo $this->bloqueo_datos['fecha'] ?>
+			<?php endif; ?>
+		</div>
+			
 		
 	</div>
 	

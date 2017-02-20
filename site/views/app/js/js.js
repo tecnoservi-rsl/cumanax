@@ -127,9 +127,9 @@ $(document).on("click", "#btn_actv", function(){
 			fecha: $("#fecha_activo").val(),
 			accion: accion
 			
-			},function(datos){
-						
-	           },"json");
+			},function(){
+				document.location=base_url+"app";		
+	           });
 
 
 });
@@ -137,12 +137,12 @@ $(document).on("click", "#btn_actv", function(){
 $(document).on("click", "#radio1", function(){
 	
 if (this.value=="activar") {
-alert(this.value);
+
 accion="1";
 $("#fecha_activo").attr('disabled', 'true');
 }
 else{
-alert(this.value);
+
 accion="0";
 $("#fecha_activo").removeAttr("disabled")
 

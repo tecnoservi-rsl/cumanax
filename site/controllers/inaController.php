@@ -25,7 +25,13 @@ class inaController extends Controller
      
 }
 
-
+    public function fecha()
+{
+        
+       $modelo = $this->loadModel('ina');
+        $rs=$modelo->fecha();
+        echo $rs["fecha"];
+}
 
 
 }

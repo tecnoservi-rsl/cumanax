@@ -2,7 +2,7 @@
 class View
 {
    
-    private $_controlador;
+    public $_controlador;
     private $_js;
     private $_css;
     public $menu;

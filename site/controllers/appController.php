@@ -50,8 +50,8 @@ class appController extends Controller
 
 
 
-
-
+             $this->_view->bloqueo=$this->app->bloqueo();
+            $this->_view->bloqueo_datos=$this->app->bloqueo_datos();
         	$this->_view->cont=$this->app->all_cont();
             $this->_view->logs=$this->app->all_logs();
         	$this->_view->menus=$menu;

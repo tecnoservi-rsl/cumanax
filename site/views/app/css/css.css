@@ -45,3 +45,16 @@
 div.col-md-12:nth-child(8) {
 	min-height: 100px;
 }
+div.col-md-12:nth-child(8) > div:nth-child(2) > div:nth-child(1) {
+	background-color: #650505;
+	min-height: 30px;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+}
+div.col-md-12:nth-child(8) > div:nth-child(2){
+	font-size: 15px;
+	color: red;
+	padding: 45px;
+}
