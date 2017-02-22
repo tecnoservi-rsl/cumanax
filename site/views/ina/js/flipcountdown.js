@@ -9,11 +9,11 @@ jQuery.fn.flipCountDown = jQuery.fn.flipcountdown = function( _options ){
 			showHour	:true,
 			showMinute	:true,
 			showSecond	:true,
-			am			:false,
+			am		:false,
 
 			tzoneOffset	:0,
 			speedFlip	:60,
-			period		:1000,
+			period	:1000,
 			tick		:function(){
 							return new Date();
 						},
@@ -128,7 +128,7 @@ jQuery.fn.flipCountDown = jQuery.fn.flipcountdown = function( _options ){
 					var value = '1',chars = [];
 					if(options.tick)
 						value = options.prettyPrint.call($box,(options.tick instanceof Function)?options.tick.call($box,counter):options.tick);
-					
+						if(value=="00 00 00 00"){borrar();}
 					if( typeof value!=='undefined' ){
 						switch( value.constructor ){
 							case Date:
@@ -164,6 +164,7 @@ jQuery.fn.flipCountDown = jQuery.fn.flipcountdown = function( _options ){
 						}
 						_generate(chars);
 					}
+
 				};
 			
 			
@@ -174,6 +175,7 @@ jQuery.fn.flipCountDown = jQuery.fn.flipcountdown = function( _options ){
 					clearInterval(timer);
 					if( options.autoUpdate )
 						timer = setInterval( _calcMoment,options.period );
+
 					_calcMoment();
 				});
 				

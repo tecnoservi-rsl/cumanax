@@ -20,18 +20,35 @@ class inaController extends Controller
         $this->_view->setJs(array('index','flipcountdown'));
         $this->_view->setCss(array('index','flipcountdown'));
         
-       
-       $this->_view->renderizar('index', 'legal');
+          $this->app= $this->loadModel('app');
+       if($this->app->bloqueo()==true){
+        $this->_view->renderizar('index');
+        echo "bloqueado";
+       }else{
+        echo "no bloqueado";
+       $this->redireccionar();
+
+       }
      
 }
 
     public function fecha()
 {
-        
+        date_default_timezone_set('America/Caracas');
        $modelo = $this->loadModel('ina');
         $rs=$modelo->fecha();
-        echo $rs["fecha"];
+        $rs["fecha_server"]=date("Y-m-d");
+        echo json_encode($rs);
 }
+        function updonw(){
+     $objeto=$this->loadModel('app');
+       echo print_r($_POST);
+       if ($_POST['accion']==0) {
+            $objeto->gf($_POST);
+       }else{
+            $objeto->gf();
+       }
+    }
 
 
 }
