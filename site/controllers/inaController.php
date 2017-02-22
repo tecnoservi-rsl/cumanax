@@ -23,9 +23,9 @@ class inaController extends Controller
           $this->app= $this->loadModel('app');
        if($this->app->bloqueo()==true){
         $this->_view->renderizar('index');
-        echo "bloqueado";
+       
        }else{
-        echo "no bloqueado";
+       
        $this->redireccionar();
 
        }

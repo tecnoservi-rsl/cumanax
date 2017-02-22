@@ -9,7 +9,23 @@ var fecha;
 		var dt = new Date(data.fecha);
 		var dd = new Date(data.fecha_server);
 
-	
+		
+
+
+		if (data.fecha=="0000-00-00") {
+			$('.col-md-5').html("disculpa por tanta molestia. estamos en mantenimiento.")
+			return ;
+
+		}
+
+
+
+
+
+
+
+
+
 
 
 		if (dd > dt) {
