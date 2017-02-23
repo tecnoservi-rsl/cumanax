@@ -116,7 +116,9 @@ $sql = "UPDATE permisos SET permiso = $retVal WHERE id_menu = $menu AND id_role=
      public function all_logs(){
 
        
-        $sql = "SELECT * FROM log"; 
+        $sql = "SELECT usuario.login,log.* FROM log\n"
+        . "LEFT JOIN usuario on usuario.id_usuario=log.id_usuario\n"
+        . "order by id DESC";
         
         $res=$this->_db->query($sql);
 
