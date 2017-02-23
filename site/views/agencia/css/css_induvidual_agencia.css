@@ -84,7 +84,8 @@
 }
 
 #fotoG{
-
+	width: 250px;
+	height: 250px;
     min-width: 100%;
 }
 
@@ -136,15 +137,111 @@ input[type = "radio"]:checked ~ label{color:orange;}
 
 
 
-.vista_ninas {
-	margin-top: 10px;
-	padding: 0px;
-	margin-left: -29px;
-}
+
 
  
 
+/* inicio de la mascara  */
+/* ---------------------------------------------------------------------------------------------------- */
 
+.contenedor-img-agencia {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	cursor: default;
+	width: 250px;
+	height: 250px;
+	padding-left: 16px;
+	padding-top: 20px;
+}
+
+.contenedor-img-agencia .mascara,.contenedor-img-agencia .contenido img{
+width: 250px;
+height: 250px;
+position: absolute;
+overflow: hidden;
+top: 0;
+left: 0
+}
+
+
+.contenedor-img-agencia img {
+display: block;
+position: relative;
+
+}
+.contenedor-img-agencia h2 {
+text-transform: uppercase;
+color: #ED7A7A;
+font-weight: 900;
+text-align: center;
+position: relative;
+font-size: 16px;
+background: rgba(77, 0, 0, 0.9);
+margin: 20px 0 0 0
+}
+.contenedor-img-agencia p {
+font-size: 12px;
+position: relative;
+color: #000;
+text-align: center
+}
+.contenedor-img-agencia a.link {
+text-decoration: none;
+background: rgba(255, 255, 255, 0.5);
+color: #000;
+box-shadow: 0 0 1px #000
+}
+.contenedor-img-agencia a.link:hover {
+box-shadow: 0 0 5px #000
+}
+
+
+.chicas-agencia img {
+transition: all 0.2s linear;
+}
+.chicas-agencia .mascara {
+opacity: 0;
+background-color: rgba(173,31,31, 0.7);
+transition: all 0.3s ease-in-out;
+
+}
+.chicas-agencia h2 {
+transform: translateX(-200px);/*Desplazamos a la izquierda*/
+opacity: 0;
+transition: all 0.7s ease-in-out;
+}
+.chicas-agencia p {
+transform: translateX(200px);/*Desplazamos a la derecha*/
+opacity: 0;
+transition: all 0.4s linear;
+}
+.chicas-agencia a.link{
+opacity: 0;
+transition: all 0.4s ease-in-out;
+transform: translateY(100px)/*Desplazamos para abajo*/
+}
+.chicas-agencia:hover img {
+transform: scale(1.1);/*Damos un ligero zoom a la imagen*/
+}
+.chicas-agencia:hover .mascara {
+opacity: 1;
+}
+.chicas-agencia:hover h2,
+.chicas-agencia:hover p,
+.chicas-agencia:hover a.link {
+opacity: 1;
+transform: translateX(0px);/*Regresamos a las posiciones originales*/
+}
+.chicas-agencia:hover p {
+transition-delay: 0.1s;
+}
+.chicas-agencia:hover a.link {
+transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
+transform: translateY(0px);
+}/* fin de la mascara  */
+/* ---------------------------------------------------------------------------------------------------- */
 
 
 

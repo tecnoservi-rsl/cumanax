@@ -17,7 +17,7 @@ class loginController extends Controller
             $this->redireccionar('principal');
         }
         
-        $this->_view->titulo = 'Iniciar Sesion';
+        $this->_view->titulo = 'Iniciar Sesion - OrienteX';
         $this->_view->setJs(array('js'));
         $this->_view->setCss(array('css'));
 

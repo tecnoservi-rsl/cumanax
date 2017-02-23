@@ -18,7 +18,7 @@ class principalController extends Controller
 			
 			$this->_view->setJs(array('principal','jquery.montage'));
 			$this->_view->setCss(array('css','style'));
-        	$this->_view->titulo = 'inicio';
+        	$this->_view->titulo = 'Inicio - OrienteX';
         	$rs=$this->_index->get_all();
 
 

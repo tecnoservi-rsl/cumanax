@@ -14,7 +14,7 @@ class agenciaController extends Controller
 {
 		
        
-        $this->_view->titulo = 'agencia';
+        $this->_view->titulo = 'Agencia - OrienteX';
       	$this->_view->setJs(array('index'));
        $this->_view->setCss(array('css'));
         

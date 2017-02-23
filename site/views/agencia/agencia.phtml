@@ -45,7 +45,7 @@
 						
 					
 							<label class="estrella">&#9733;</label>
-							<label class="valor_rating"><?php echo $this->agencias['puntos']['puntuacion'] ?> Pts</label>
+							<label class="valor_rating"><?php echo round($this->agencias['puntos']['puntuacion'], 2); ?> Pts</label>
 
 						
 				</div>
@@ -74,10 +74,6 @@
 </div>
   
 
-
-
- 
-
 </div>
 
 <div class="col-md-12">
@@ -86,8 +82,13 @@
 				<ul>
 				<?php for($i=0;$i<count($this->agencias["chicas"]);$i++): ?>
 					<li>
-						<div id="prevista" class="prviuw">
+						<div class="contenedor-img-agencia chicas-agencia" id="prevista">
 							 <img id="fotoG"  src="<?php echo BASE_URL?>public/img/fotos/<?php echo $this->agencias['chicas'][$i]['nombre_foto']?>" >
+							 <div class="mascara">  
+			         				<h2><span># <?php echo $this->agencias['chicas'][$i]['nombre_chicas']?> </h2>  
+			         				<p> <?php echo $this->agencias['chicas'][$i]['preview']?> </p>
+			         				<a href="<?php echo BASE_URL?>nina/individual/<?php echo $this->agencias['chicas'][$i]['id_chicas'] ?>" id="ver_niña" class="link">Ver Más</a>  
+								</div>
 						</div>
 					</li>
 				<?php endfor;?>

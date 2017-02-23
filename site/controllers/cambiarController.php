@@ -15,7 +15,7 @@ class cambiarController extends Controller
     {
 
         $this->_view->usu = Session::get('usuario');   
-        $this->_view->titulo = 'Cambiar contraseña';
+        $this->_view->titulo = 'Cambiar contraseña - OrienteX';
         $this->_view->setJs(array('cambiar'));
         
        $this->_view->renderizar('index', 'cambiar');

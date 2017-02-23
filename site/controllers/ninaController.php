@@ -39,7 +39,7 @@ class ninaController extends Controller
         			$index=$i;
 
         		$rs[$i]["fotos"]=$this->_index->get_photo_all($rs[$i]["id_chicas"]);
-        		$this->_view->titulo = $rs[$i]['nombre_chicas'];
+        		$this->_view->titulo = $rs[$i]['nombre_chicas']." - OrienteX";
 
         		endif;
 
