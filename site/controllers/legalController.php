@@ -14,7 +14,7 @@ class legalController extends Controller
 {
 
        
-        $this->_view->titulo = 'CumanaX';
+        $this->_view->titulo = 'Aviso legal - OrienteX';
        
         $this->_view->setJs(array('index'));
         $this->_view->setCss(array('index'));

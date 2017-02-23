@@ -16,7 +16,7 @@ class registroController extends Controller
 
 
  
-       $this->_view->titulo = 'Registro ';
+       $this->_view->titulo = 'Registro - OrienteX';
       // $this->_view->setJs(array(''));
        $this->_view->setCss(array('router'));
         
@@ -31,7 +31,7 @@ class registroController extends Controller
 {
 		
 	     
-       $this->_view->titulo = 'Registro Agencias';
+       $this->_view->titulo = 'Registro Agencias - OrienteX';
        $this->_view->setJs(array('js'));
        $this->_view->setCss(array('index'));
         
@@ -44,7 +44,7 @@ public function nenas()
 	
 		//$this->_view->area_r="apagada";           
      ;	
-         $this->_view->titulo = 'Registrar';
+         $this->_view->titulo = 'Registrar - OrienteX';
        	 $this->_view->setJs(array('rne'));
      	 $this->_view->setCss(array('index'));
       	 $rs=$this->_registro->get_agencias();

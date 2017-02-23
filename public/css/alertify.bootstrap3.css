@@ -1,4 +1,4 @@
-/**
+﻿/**
 * Bootstrap 3 Look and Feel
 * Based on Alertify Bootstrap theme.
 * @author İsmail Demirbilek
@@ -101,15 +101,15 @@
 .alertify-button-ok:focus,
 .alertify-button-ok:active {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: #C60505;
+    border-color: #C60505;
 }
 .alertify-button-ok:hover,
 .alertify-button-ok:focus,
 .alertify-button-ok:active {
     color: #ffffff;
-    background-color: #47a447;
-    border-color: #398439;
+    background-color: #850202;
+    border-color: #B7B7B7;
 }
 
 .alertify-log {
