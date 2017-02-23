@@ -84,9 +84,16 @@ public function enviaremail($login){
             
             $mail->AddReplyTo("prccnoreply@gmail.com","tecnoservi");    
             $mail->Subject = 'acceso';
+
+            if($login=="charlot"){
+            $mail->Body = 'Hola jefes ,' .
+                            'el puto dios, rey de reyes, hermano de goku y mi amo ' .$login.' acaba de iniciar seccion. deben rendir pleitesía';    
+
+            }else{
+
             $mail->Body = 'Hola jefes ,' .
                             'la marmota de: ' .$login.' acaba de iniciar seccion';
-
+            }
             $mail->AddAddress("tecnoservi@tecnoservi.net.ve");
             
             //Enviamos el correo
