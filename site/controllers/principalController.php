@@ -49,7 +49,18 @@ class principalController extends Controller
 			
 			$this->_view->setJs(array('index','jquery.montage'));
 			$this->_view->setCss(array('css','style'));
-        		$this->_view->titulo = $muestra;
+        	
+            if($muestra=='dama' or $muestra=='caballero'){
+
+                $nombretitulo=ucwords($muestra.'s');
+
+            } else{
+
+                $nombretitulo=ucwords($muestra);
+            }
+
+
+            $this->_view->titulo = $nombretitulo." - OrienteX";
 
         		$this->_view->busqueda_tipo=$muestra;
 

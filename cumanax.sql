@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 22-02-2017 a las 20:39:45
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.5.37
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-02-2017 a las 00:39:58
+-- Versión del servidor: 5.6.21
+-- Versión de PHP: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,11 +14,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `cumanax`
 --
+CREATE DATABASE IF NOT EXISTS `cumanax` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `cumanax`;
 
 -- --------------------------------------------------------
 
@@ -26,8 +28,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `agencia`
 --
 
-CREATE TABLE `agencia` (
-  `id_agencia` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `agencia` (
+`id_agencia` int(11) NOT NULL,
   `nombre_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `preview` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `nro_contacto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -35,7 +37,7 @@ CREATE TABLE `agencia` (
   `facebook_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `pin_agencia` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
   `whatsapp_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `agencia`
@@ -50,8 +52,8 @@ INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `preview`, `nro_contacto`
 -- Estructura de tabla para la tabla `chicas`
 --
 
-CREATE TABLE `chicas` (
-  `id_chicas` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `chicas` (
+`id_chicas` int(11) NOT NULL,
   `tipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `nombre_chicas` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_nacimiento` date NOT NULL,
@@ -75,14 +77,15 @@ CREATE TABLE `chicas` (
   `twitter` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `preview` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `id_agencia` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `chicas`
 --
 
 INSERT INTO `chicas` (`id_chicas`, `tipo`, `nombre_chicas`, `fecha_nacimiento`, `destrezas`, `especialidad`, `estatura`, `medidas`, `peso`, `color_cabello`, `color_ojos`, `color_piel`, `tlf`, `publico`, `horario`, `localidad`, `email`, `bbm`, `whatsapp`, `facebook`, `instagram`, `twitter`, `preview`, `id_agencia`) VALUES
-(1, 'DAMA', 'Lorena', '2002-02-05', 'Lo Mama', 'Russo', '1.65', '90,50,90', '50', 'Negro', 'Negro', 'Blanca', '04169874562', 'HOMBRES - MUJERES - PAREJAS - ', '24 Hra', 'Cumana', 'Legna18205@gmail.com', '6e4646t54', '(+51) 04169874562', 'La Travieza', 'La Travieza', 'La Travieza', 'Me Gusta Inventar Mientras Tengo Sexo', NULL);
+(1, 'DAMA', 'Lorena', '2002-02-05', 'Lo Mama', 'Russo', '1.65', '90,50,90', '50', 'Negro', 'Negro', 'Blanca', '04169874562', 'HOMBRES - MUJERES - PAREJAS - ', '24 Hra', 'Cumana', 'Legna18205@gmail.com', '6e4646t54', '(+51) 04169874562', 'La Travieza', 'La Travieza', 'La Travieza', 'Me Gusta Inventar Mientras Tengo Sexo', NULL),
+(2, 'DAMA', 'MARIANA', '1985-02-07', 'Asdasd', 'Sadsa', 'Asd', 'Asd', 'Das', 'Asd', 'Asdasd', 'Morena', '04125488977', 'HOMBRES - MUJERES - PAREJAS - ', '24 Horas', 'Puerto La Cruz', 'Maravillos29@hotmail.com', 'C2FB35A', '04147774774', 'Amanda Gil', '@amanda', '@amanda22', 'preview de prueba', 1);
 
 -- --------------------------------------------------------
 
@@ -90,11 +93,11 @@ INSERT INTO `chicas` (`id_chicas`, `tipo`, `nombre_chicas`, `fecha_nacimiento`, 
 -- Estructura de tabla para la tabla `fotos_agencia`
 --
 
-CREATE TABLE `fotos_agencia` (
-  `id_foto` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fotos_agencia` (
+`id_foto` int(11) NOT NULL,
   `id_agencia` int(11) NOT NULL,
   `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `fotos_agencia`
@@ -109,18 +112,25 @@ INSERT INTO `fotos_agencia` (`id_foto`, `id_agencia`, `nombre_foto`) VALUES
 -- Estructura de tabla para la tabla `fotos_chicas`
 --
 
-CREATE TABLE `fotos_chicas` (
-  `id_foto` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fotos_chicas` (
+`id_foto` int(11) NOT NULL,
   `id_chicas` int(11) NOT NULL,
-  `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `perfil` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `fotos_chicas`
 --
 
-INSERT INTO `fotos_chicas` (`id_foto`, `id_chicas`, `nombre_foto`) VALUES
-(1, 1, 'cumanax58a980c054b17fff.jpg');
+INSERT INTO `fotos_chicas` (`id_foto`, `id_chicas`, `nombre_foto`, `perfil`) VALUES
+(1, 1, 'cumanax58a980c054b17fff.jpg', 0),
+(2, 2, 'cumanax58af2bd778241amanda1.jpg', 0),
+(3, 2, 'cumanax58af2bd781fd4amanda2.jpg', 0),
+(4, 2, 'cumanax58af2bd78911damanda3.jpg', 1),
+(5, 2, 'cumanax58af2bd79909bamanda4.jpg', 0),
+(6, 2, 'cumanax58af2bd79c572amanda5.jpg', 0),
+(7, 2, 'cumanax58af2bd79fa91amanda6.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -128,15 +138,15 @@ INSERT INTO `fotos_chicas` (`id_foto`, `id_chicas`, `nombre_foto`) VALUES
 -- Estructura de tabla para la tabla `log`
 --
 
-CREATE TABLE `log` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `log` (
+`id` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `ip` varchar(12) NOT NULL,
   `controlador` varchar(30) NOT NULL,
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1597 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -1283,7 +1293,464 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 (1137, 1, '127.0.0.1', 'registro', 'index', '2017-02-22', '00:00:06'),
 (1138, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:00:06'),
 (1139, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:00:06'),
-(1140, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '06:34:15');
+(1140, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '06:34:15'),
+(1141, NULL, '::1', 'ina', 'index', '2017-02-23', '13:58:19'),
+(1142, NULL, '::1', 'ina', 'fecha', '2017-02-23', '13:58:19'),
+(1143, NULL, '::1', 'login', 'index', '2017-02-23', '13:58:31'),
+(1144, NULL, '::1', 'ina', 'index', '2017-02-23', '13:58:45'),
+(1145, NULL, '::1', 'ina', 'fecha', '2017-02-23', '13:58:45'),
+(1146, NULL, '::1', 'login', 'index', '2017-02-23', '13:58:50'),
+(1147, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:02'),
+(1148, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:06'),
+(1149, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:11'),
+(1150, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:15'),
+(1151, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:29'),
+(1152, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:32'),
+(1153, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:39'),
+(1154, NULL, '::1', 'login', 'index', '2017-02-23', '13:59:41'),
+(1155, NULL, '::1', 'login', 'index', '2017-02-23', '14:04:23'),
+(1156, 1, '::1', 'app', 'index', '2017-02-23', '14:04:23'),
+(1157, 1, '::1', 'app', 'permisos_ch', '2017-02-23', '14:04:28'),
+(1158, 1, '::1', 'app', 'permisos_ch', '2017-02-23', '14:04:29'),
+(1159, 1, '::1', 'app', 'permisos_ch', '2017-02-23', '14:04:29'),
+(1160, 1, '::1', 'app', 'permisos_ch', '2017-02-23', '14:04:30'),
+(1161, 1, '::1', 'app', 'permisos_ch', '2017-02-23', '14:04:31'),
+(1162, 1, '::1', 'principal', 'index', '2017-02-23', '14:04:38'),
+(1163, 1, '::1', 'app', 'index', '2017-02-23', '14:04:44'),
+(1164, 1, '::1', 'agencia', 'index', '2017-02-23', '14:05:32'),
+(1165, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '14:05:33'),
+(1166, 1, '::1', 'agencia', 'individual', '2017-02-23', '14:05:36'),
+(1167, 1, '::1', 'registro', 'index', '2017-02-23', '14:06:02'),
+(1168, 1, '::1', 'registro', 'nenas', '2017-02-23', '14:06:06'),
+(1169, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '14:07:11'),
+(1170, 1, '::1', 'registro', 'nenas', '2017-02-23', '14:07:11'),
+(1171, 1, '::1', 'agencia', 'index', '2017-02-23', '14:07:15'),
+(1172, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '14:07:15'),
+(1173, 1, '::1', 'agencia', 'individual', '2017-02-23', '14:07:16'),
+(1174, 1, '::1', 'principal', 'index', '2017-02-23', '14:07:31'),
+(1175, 1, '::1', 'nina', 'individual', '2017-02-23', '14:07:33'),
+(1176, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:07:35'),
+(1177, 1, '::1', 'agencia', 'index', '2017-02-23', '14:07:38'),
+(1178, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '14:07:38'),
+(1179, 1, '::1', 'agencia', 'individual', '2017-02-23', '14:07:40'),
+(1180, 1, '::1', 'agencia', 'individual', '2017-02-23', '14:11:56'),
+(1181, 1, '::1', 'principal', 'index', '2017-02-23', '14:14:49'),
+(1182, 1, '::1', 'nina', 'individual', '2017-02-23', '14:14:51'),
+(1183, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:14:55'),
+(1184, 1, '::1', 'nina', 'individual', '2017-02-23', '14:17:55'),
+(1185, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:17:58'),
+(1186, NULL, '::1', 'ina', 'index', '2017-02-23', '14:19:52'),
+(1187, NULL, '::1', 'ina', 'fecha', '2017-02-23', '14:19:54'),
+(1188, NULL, '::1', 'login', 'index', '2017-02-23', '14:20:03'),
+(1189, NULL, '::1', 'login', 'index', '2017-02-23', '14:20:07'),
+(1190, 1, '::1', 'app', 'index', '2017-02-23', '14:20:07'),
+(1191, 1, '::1', 'principal', 'index', '2017-02-23', '14:20:15'),
+(1192, 1, '::1', 'nina', 'individual', '2017-02-23', '14:20:17'),
+(1193, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:20:19'),
+(1194, 1, '::1', 'nina', 'individual', '2017-02-23', '14:22:06'),
+(1195, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:22:08'),
+(1196, NULL, '::1', 'ina', 'index', '2017-02-23', '14:22:22'),
+(1197, NULL, '::1', 'ina', 'fecha', '2017-02-23', '14:22:22'),
+(1198, NULL, '::1', 'login', 'index', '2017-02-23', '14:22:28'),
+(1199, NULL, '::1', 'login', 'index', '2017-02-23', '14:22:34'),
+(1200, 1, '::1', 'app', 'index', '2017-02-23', '14:22:34'),
+(1201, 1, '::1', 'principal', 'tipo', '2017-02-23', '14:22:38'),
+(1202, 1, '::1', 'nina', 'individual', '2017-02-23', '14:22:39'),
+(1203, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:22:42'),
+(1204, 1, '::1', 'nina', 'individual', '2017-02-23', '14:23:27'),
+(1205, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:23:29'),
+(1206, 1, '::1', 'nina', 'individual', '2017-02-23', '14:24:00'),
+(1207, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:24:02'),
+(1208, NULL, '::1', 'ina', 'index', '2017-02-23', '14:24:12'),
+(1209, NULL, '::1', 'ina', 'fecha', '2017-02-23', '14:24:12'),
+(1210, NULL, '::1', 'login', 'index', '2017-02-23', '14:24:19'),
+(1211, NULL, '::1', 'login', 'index', '2017-02-23', '14:24:22'),
+(1212, 1, '::1', 'app', 'index', '2017-02-23', '14:24:22'),
+(1213, 1, '::1', 'principal', 'tipo', '2017-02-23', '14:24:25'),
+(1214, 1, '::1', 'nina', 'individual', '2017-02-23', '14:24:26'),
+(1215, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:24:28'),
+(1216, 1, '::1', 'nina', 'individual', '2017-02-23', '14:25:31'),
+(1217, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:25:33'),
+(1218, NULL, '::1', 'ina', 'index', '2017-02-23', '14:25:43'),
+(1219, NULL, '::1', 'ina', 'fecha', '2017-02-23', '14:25:44'),
+(1220, NULL, '::1', 'login', 'index', '2017-02-23', '14:25:48'),
+(1221, NULL, '::1', 'login', 'index', '2017-02-23', '14:25:52'),
+(1222, 1, '::1', 'app', 'index', '2017-02-23', '14:25:52'),
+(1223, 1, '::1', 'principal', 'tipo', '2017-02-23', '14:25:54'),
+(1224, 1, '::1', 'nina', 'individual', '2017-02-23', '14:25:56'),
+(1225, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:25:58'),
+(1226, 1, '::1', 'nina', 'individual', '2017-02-23', '14:26:25'),
+(1227, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:26:26'),
+(1228, NULL, '::1', 'login', 'index', '2017-02-23', '14:26:45'),
+(1229, NULL, '::1', 'login', 'index', '2017-02-23', '14:26:48'),
+(1230, 1, '::1', 'app', 'index', '2017-02-23', '14:26:48'),
+(1231, 1, '::1', 'principal', 'tipo', '2017-02-23', '14:26:51'),
+(1232, 1, '::1', 'nina', 'individual', '2017-02-23', '14:26:52'),
+(1233, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:26:54'),
+(1234, 1, '::1', 'nina', 'individual', '2017-02-23', '14:28:05'),
+(1235, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:28:07'),
+(1236, 1, '::1', 'nina', 'individual', '2017-02-23', '14:28:29'),
+(1237, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:28:31'),
+(1238, 1, '::1', 'nina', 'individual', '2017-02-23', '14:29:10'),
+(1239, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:29:12'),
+(1240, NULL, '::1', 'login', 'index', '2017-02-23', '14:29:22'),
+(1241, NULL, '::1', 'login', 'index', '2017-02-23', '14:29:24'),
+(1242, 1, '::1', 'app', 'index', '2017-02-23', '14:29:24'),
+(1243, 1, '::1', 'principal', 'tipo', '2017-02-23', '14:29:28'),
+(1244, 1, '::1', 'nina', 'individual', '2017-02-23', '14:29:30'),
+(1245, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:29:32'),
+(1246, NULL, '::1', 'login', 'index', '2017-02-23', '14:30:52'),
+(1247, NULL, '::1', 'login', 'index', '2017-02-23', '14:30:57'),
+(1248, 1, '::1', 'app', 'index', '2017-02-23', '14:30:57'),
+(1249, 1, '::1', 'principal', 'tipo', '2017-02-23', '14:31:01'),
+(1250, 1, '::1', 'nina', 'individual', '2017-02-23', '14:31:03'),
+(1251, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:31:06'),
+(1252, 1, '::1', 'nina', 'individual', '2017-02-23', '14:32:19'),
+(1253, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:32:22'),
+(1254, 1, '::1', 'nina', 'votacion', '2017-02-23', '14:34:16'),
+(1255, NULL, '::1', 'ina', 'index', '2017-02-23', '15:23:51'),
+(1256, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:23:52'),
+(1257, NULL, '::1', 'login', 'index', '2017-02-23', '15:23:54'),
+(1258, NULL, '::1', 'login', 'index', '2017-02-23', '15:24:00'),
+(1259, NULL, '::1', 'login', 'index', '2017-02-23', '15:24:04'),
+(1260, NULL, '::1', 'login', 'index', '2017-02-23', '15:24:08'),
+(1261, NULL, '::1', 'login', 'index', '2017-02-23', '15:24:22'),
+(1262, 1, '::1', 'app', 'index', '2017-02-23', '15:24:22'),
+(1263, 1, '::1', 'principal', 'index', '2017-02-23', '15:24:25'),
+(1264, 1, '::1', 'agencia', 'index', '2017-02-23', '15:24:29'),
+(1265, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:24:30'),
+(1266, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:24:31'),
+(1267, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:26:37'),
+(1268, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:30:05'),
+(1269, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:31:23'),
+(1270, NULL, '::1', 'ina', 'index', '2017-02-23', '15:31:34'),
+(1271, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:31:35'),
+(1272, NULL, '::1', 'login', 'index', '2017-02-23', '15:31:39'),
+(1273, NULL, '::1', 'ina', 'index', '2017-02-23', '15:31:43'),
+(1274, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:31:44'),
+(1275, NULL, '::1', 'login', 'index', '2017-02-23', '15:31:47'),
+(1276, NULL, '::1', 'login', 'index', '2017-02-23', '15:31:53'),
+(1277, 1, '::1', 'app', 'index', '2017-02-23', '15:31:53'),
+(1278, 1, '::1', 'agencia', 'index', '2017-02-23', '15:31:56'),
+(1279, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:31:57'),
+(1280, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:31:59'),
+(1281, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:35:30'),
+(1282, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:35:57'),
+(1283, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:36:13'),
+(1284, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:36:33'),
+(1285, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:38:05'),
+(1286, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:39:24'),
+(1287, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:39:31'),
+(1288, NULL, '::1', 'ina', 'index', '2017-02-23', '15:39:39'),
+(1289, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:39:40'),
+(1290, NULL, '::1', 'login', 'index', '2017-02-23', '15:39:43'),
+(1291, NULL, '::1', 'login', 'index', '2017-02-23', '15:39:47'),
+(1292, 1, '::1', 'app', 'index', '2017-02-23', '15:39:48'),
+(1293, 1, '::1', 'agencia', 'index', '2017-02-23', '15:39:50'),
+(1294, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:39:51'),
+(1295, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:39:52'),
+(1296, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:41:05'),
+(1297, NULL, '::1', 'ina', 'index', '2017-02-23', '15:41:16'),
+(1298, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:41:17'),
+(1299, NULL, '::1', 'login', 'index', '2017-02-23', '15:41:20'),
+(1300, NULL, '::1', 'login', 'index', '2017-02-23', '15:41:24'),
+(1301, 1, '::1', 'app', 'index', '2017-02-23', '15:41:24'),
+(1302, 1, '::1', 'agencia', 'index', '2017-02-23', '15:41:26'),
+(1303, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:41:27'),
+(1304, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:41:28'),
+(1305, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:42:50'),
+(1306, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:42:55'),
+(1307, NULL, '::1', 'ina', 'index', '2017-02-23', '15:43:04'),
+(1308, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:43:04'),
+(1309, NULL, '::1', 'ina', 'index', '2017-02-23', '15:43:07'),
+(1310, NULL, '::1', 'ina', 'fecha', '2017-02-23', '15:43:07'),
+(1311, NULL, '::1', 'login', 'index', '2017-02-23', '15:43:13'),
+(1312, NULL, '::1', 'login', 'index', '2017-02-23', '15:43:18'),
+(1313, 1, '::1', 'app', 'index', '2017-02-23', '15:43:18'),
+(1314, 1, '::1', 'agencia', 'index', '2017-02-23', '15:43:21'),
+(1315, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:43:22'),
+(1316, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:43:23'),
+(1317, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:43:55'),
+(1318, NULL, '::1', 'login', 'index', '2017-02-23', '15:44:07'),
+(1319, NULL, '::1', 'login', 'index', '2017-02-23', '15:44:11'),
+(1320, 1, '::1', 'app', 'index', '2017-02-23', '15:44:11'),
+(1321, 1, '::1', 'agencia', 'index', '2017-02-23', '15:44:15'),
+(1322, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:44:15'),
+(1323, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:44:19'),
+(1324, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:44:55'),
+(1325, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:46:20'),
+(1326, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:46:34'),
+(1327, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:47:28'),
+(1328, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:47:48'),
+(1329, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:48:45'),
+(1330, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:49:13'),
+(1331, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:50:30'),
+(1332, 1, '::1', 'agencia', 'index', '2017-02-23', '15:51:09'),
+(1333, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:51:10'),
+(1334, 1, '::1', 'principal', 'tipo', '2017-02-23', '15:51:11'),
+(1335, 1, '::1', 'agencia', 'index', '2017-02-23', '15:51:13'),
+(1336, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:51:13'),
+(1337, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:51:15'),
+(1338, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:51:43'),
+(1339, NULL, '::1', 'login', 'index', '2017-02-23', '15:51:56'),
+(1340, NULL, '::1', 'login', 'index', '2017-02-23', '15:51:59'),
+(1341, 1, '::1', 'app', 'index', '2017-02-23', '15:51:59'),
+(1342, 1, '::1', 'agencia', 'index', '2017-02-23', '15:52:03'),
+(1343, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:52:03'),
+(1344, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:52:05'),
+(1345, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:52:41'),
+(1346, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:53:50'),
+(1347, 1, '::1', 'registro', 'index', '2017-02-23', '15:54:36'),
+(1348, 1, '::1', 'registro', 'nenas', '2017-02-23', '15:54:41'),
+(1349, 1, '::1', 'agencia', 'index', '2017-02-23', '15:55:10'),
+(1350, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '15:55:11'),
+(1351, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:55:12'),
+(1352, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:55:37'),
+(1353, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:58:32'),
+(1354, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:58:52'),
+(1355, 1, '::1', 'agencia', 'individual', '2017-02-23', '15:59:12'),
+(1356, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:03:05'),
+(1357, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:03:55'),
+(1358, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:05:12'),
+(1359, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:06:17'),
+(1360, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:06:37'),
+(1361, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:11:29'),
+(1362, NULL, '::1', 'login', 'index', '2017-02-23', '16:12:01'),
+(1363, NULL, '::1', 'login', 'index', '2017-02-23', '16:12:06'),
+(1364, 1, '::1', 'app', 'index', '2017-02-23', '16:12:06'),
+(1365, 1, '::1', 'agencia', 'index', '2017-02-23', '16:12:09'),
+(1366, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '16:12:09'),
+(1367, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:12:11'),
+(1368, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:13:22'),
+(1369, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:13:30'),
+(1370, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:14:02'),
+(1371, NULL, '::1', 'ina', 'index', '2017-02-23', '16:20:36'),
+(1372, NULL, '::1', 'ina', 'fecha', '2017-02-23', '16:20:37'),
+(1373, NULL, '::1', 'login', 'index', '2017-02-23', '16:20:45'),
+(1374, NULL, '::1', 'ina', 'index', '2017-02-23', '16:20:48'),
+(1375, NULL, '::1', 'ina', 'fecha', '2017-02-23', '16:20:49'),
+(1376, NULL, '::1', 'login', 'index', '2017-02-23', '16:20:52'),
+(1377, NULL, '::1', 'ina', 'index', '2017-02-23', '16:20:54'),
+(1378, NULL, '::1', 'ina', 'fecha', '2017-02-23', '16:20:55'),
+(1379, NULL, '::1', 'login', 'index', '2017-02-23', '16:20:57'),
+(1380, NULL, '::1', 'login', 'index', '2017-02-23', '16:21:03'),
+(1381, 1, '::1', 'app', 'index', '2017-02-23', '16:21:03'),
+(1382, 1, '::1', 'agencia', 'index', '2017-02-23', '16:21:09'),
+(1383, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '16:21:10'),
+(1384, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:21:11'),
+(1385, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:24:44'),
+(1386, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:25:00'),
+(1387, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:26:43'),
+(1388, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:27:47'),
+(1389, 1, '::1', 'aviso', 'index', '2017-02-23', '16:28:01'),
+(1390, 1, '::1', 'legal', 'index', '2017-02-23', '16:28:05'),
+(1391, 1, '::1', 'principal', 'index', '2017-02-23', '16:28:07'),
+(1392, 1, '::1', 'nina', 'individual', '2017-02-23', '16:28:10'),
+(1393, 1, '::1', 'nina', 'individual', '2017-02-23', '16:28:26'),
+(1394, 1, '::1', 'agencia', 'index', '2017-02-23', '16:28:29'),
+(1395, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '16:28:30'),
+(1396, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:28:32'),
+(1397, 1, '::1', 'nina', 'individual', '2017-02-23', '16:28:36'),
+(1398, 1, '::1', 'nina', 'votacion', '2017-02-23', '16:28:41'),
+(1399, 1, '::1', 'anunciate', 'index', '2017-02-23', '16:28:47'),
+(1400, 1, '::1', 'agencia', 'index', '2017-02-23', '16:28:49'),
+(1401, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '16:28:50'),
+(1402, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:28:52'),
+(1403, 1, '::1', 'nina', 'individual', '2017-02-23', '16:29:14'),
+(1404, 1, '::1', 'nina', 'votacion', '2017-02-23', '16:29:17'),
+(1405, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:30:13'),
+(1406, 1, '::1', 'principal', 'index', '2017-02-23', '16:30:18'),
+(1407, 1, '::1', 'agencia', 'index', '2017-02-23', '16:30:28'),
+(1408, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '16:30:29'),
+(1409, 1, '::1', 'agencia', 'individual', '2017-02-23', '16:30:33'),
+(1410, 1, '::1', 'registro', 'index', '2017-02-23', '16:35:48'),
+(1411, 1, '::1', 'registro', 'nenas', '2017-02-23', '16:35:51'),
+(1412, 1, '::1', 'principal', 'index', '2017-02-23', '16:36:50'),
+(1413, 1, '::1', 'nina', 'individual', '2017-02-23', '16:45:45'),
+(1414, 1, '::1', 'anunciate', 'index', '2017-02-23', '17:04:50'),
+(1415, 1, '::1', 'registro', 'index', '2017-02-23', '17:05:09'),
+(1416, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:05:11'),
+(1417, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:05:15'),
+(1418, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:05:16'),
+(1419, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:08:24'),
+(1420, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:08:26'),
+(1421, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:08:30'),
+(1422, 1, '::1', 'anunciate', 'index', '2017-02-23', '17:08:35'),
+(1423, 1, '::1', 'registro', 'index', '2017-02-23', '17:08:39'),
+(1424, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:08:40'),
+(1425, 1, '::1', 'principal', 'index', '2017-02-23', '17:08:58'),
+(1426, 1, '::1', 'registro', 'index', '2017-02-23', '17:09:00'),
+(1427, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:09:02'),
+(1428, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '17:18:16'),
+(1429, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:18:16'),
+(1430, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '17:19:02'),
+(1431, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:19:02'),
+(1432, 1, '::1', 'registro', 'index', '2017-02-23', '17:20:10'),
+(1433, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:20:12'),
+(1434, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:20:14'),
+(1435, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:20:19'),
+(1436, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:20:20'),
+(1437, 1, '::1', 'registro', 'nenas', '2017-02-23', '17:20:45'),
+(1438, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '17:20:59'),
+(1439, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '17:21:35'),
+(1440, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '17:24:18'),
+(1441, 1, '::1', 'registro', 'guardar_publicacion', '2017-02-23', '17:24:19'),
+(1442, 1, '::1', 'perfil', 'individual', '2017-02-23', '17:31:08'),
+(1443, 1, '::1', 'perfil', 'index', '2017-02-23', '17:31:58'),
+(1444, 1, '::1', 'principal', 'index', '2017-02-23', '17:31:58'),
+(1445, 1, '::1', 'principal', 'index', '2017-02-23', '17:32:05'),
+(1446, 1, '::1', 'principal', 'index', '2017-02-23', '17:32:10'),
+(1447, 1, '::1', 'principal', 'index', '2017-02-23', '17:32:12'),
+(1448, 1, '::1', 'principal', 'index', '2017-02-23', '17:32:24'),
+(1449, 1, '::1', 'principal', 'index', '2017-02-23', '17:32:29'),
+(1450, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:33:07'),
+(1451, 1, '::1', 'principal', 'index', '2017-02-23', '17:33:12'),
+(1452, 1, '::1', 'principal', 'index', '2017-02-23', '17:34:55'),
+(1453, 1, '::1', 'nina', 'individual', '2017-02-23', '17:35:27'),
+(1454, 1, '::1', 'nina', 'votacion', '2017-02-23', '17:35:35'),
+(1455, 1, '::1', 'principal', 'index', '2017-02-23', '17:35:39'),
+(1456, 1, '::1', 'nina', 'individual', '2017-02-23', '17:37:10'),
+(1457, 1, '::1', 'perfil', 'individual', '2017-02-23', '17:37:15'),
+(1458, 1, '::1', 'perfil', 'index', '2017-02-23', '17:40:22'),
+(1459, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:55:49'),
+(1460, 1, '::1', 'nina', 'individual', '2017-02-23', '17:55:52'),
+(1461, 1, '::1', 'principal', 'tipo', '2017-02-23', '17:56:00'),
+(1462, 1, '::1', 'perfil', 'index', '2017-02-23', '17:56:02'),
+(1463, 1, '::1', 'perfil', 'index', '2017-02-23', '17:58:09'),
+(1464, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '17:58:17'),
+(1465, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '17:58:41'),
+(1466, 1, '::1', 'perfil', 'index', '2017-02-23', '17:58:46'),
+(1467, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '17:58:50'),
+(1468, 1, '::1', 'perfil', 'index', '2017-02-23', '18:15:01'),
+(1469, 1, '::1', 'perfil', 'index', '2017-02-23', '18:15:23'),
+(1470, 1, '::1', 'perfil', 'index', '2017-02-23', '18:15:51'),
+(1471, 1, '::1', 'perfil', 'index', '2017-02-23', '18:15:54'),
+(1472, 1, '::1', 'perfil', 'index', '2017-02-23', '18:16:35'),
+(1473, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:16:54'),
+(1474, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:16:54'),
+(1475, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:17:01'),
+(1476, 1, '::1', 'perfil', 'index', '2017-02-23', '18:17:42'),
+(1477, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:17:46'),
+(1478, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:17:49'),
+(1479, 1, '::1', 'perfil', 'index', '2017-02-23', '18:18:29'),
+(1480, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:18:33'),
+(1481, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:18:38'),
+(1482, 1, '::1', 'perfil', 'index', '2017-02-23', '18:19:34'),
+(1483, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:19:39'),
+(1484, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:19:41'),
+(1485, 1, '::1', 'perfil', 'index', '2017-02-23', '18:20:39'),
+(1486, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:20:44'),
+(1487, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:20:45'),
+(1488, 1, '::1', 'perfil', 'index', '2017-02-23', '18:21:44'),
+(1489, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:21:49'),
+(1490, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:21:50'),
+(1491, 1, '::1', 'perfil', 'index', '2017-02-23', '18:22:31'),
+(1492, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:22:35'),
+(1493, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:22:37'),
+(1494, 1, '::1', 'perfil', 'index', '2017-02-23', '18:23:32'),
+(1495, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:23:36'),
+(1496, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:23:39'),
+(1497, 1, '::1', 'perfil', 'index', '2017-02-23', '18:37:07'),
+(1498, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:37:18'),
+(1499, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:37:21'),
+(1500, 1, '::1', 'app', 'foto_perfil', '2017-02-23', '18:37:25'),
+(1501, 1, '::1', 'app', 'foto_perfil', '2017-02-23', '18:38:00'),
+(1502, 1, '::1', 'app', 'foto_perfil', '2017-02-23', '18:38:05'),
+(1503, 1, '::1', 'perfil', 'index', '2017-02-23', '18:44:21'),
+(1504, NULL, '::1', 'login', 'index', '2017-02-23', '18:44:38'),
+(1505, NULL, '::1', 'login', 'index', '2017-02-23', '18:44:43'),
+(1506, 1, '::1', 'app', 'index', '2017-02-23', '18:44:43'),
+(1507, 1, '::1', 'perfil', 'index', '2017-02-23', '18:44:50'),
+(1508, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:44:53'),
+(1509, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:44:55'),
+(1510, 1, '::1', 'perfil', 'index', '2017-02-23', '18:46:37'),
+(1511, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:46:39'),
+(1512, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:46:40'),
+(1513, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:46:43'),
+(1514, NULL, '::1', 'ina', 'index', '2017-02-23', '18:46:51'),
+(1515, NULL, '::1', 'ina', 'fecha', '2017-02-23', '18:46:52'),
+(1516, NULL, '::1', 'login', 'index', '2017-02-23', '18:46:56'),
+(1517, NULL, '::1', 'login', 'index', '2017-02-23', '18:47:02');
+INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
+(1518, 1, '::1', 'app', 'index', '2017-02-23', '18:47:02'),
+(1519, 1, '::1', 'perfil', 'index', '2017-02-23', '18:47:14'),
+(1520, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:47:17'),
+(1521, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:47:18'),
+(1522, 1, '::1', 'perfil', 'index', '2017-02-23', '18:48:35'),
+(1523, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:48:38'),
+(1524, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:48:40'),
+(1525, 1, '::1', 'perfil', 'index', '2017-02-23', '18:48:46'),
+(1526, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:48:50'),
+(1527, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:48:50'),
+(1528, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:48:51'),
+(1529, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:48:51'),
+(1530, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:48:54'),
+(1531, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:48:57'),
+(1532, 1, '::1', 'perfil', 'index', '2017-02-23', '18:49:39'),
+(1533, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:49:46'),
+(1534, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:49:49'),
+(1535, NULL, '::1', 'ina', 'index', '2017-02-23', '18:49:55'),
+(1536, NULL, '::1', 'ina', 'fecha', '2017-02-23', '18:49:56'),
+(1537, NULL, '::1', 'login', 'index', '2017-02-23', '18:50:00'),
+(1538, NULL, '::1', 'login', 'index', '2017-02-23', '18:50:10'),
+(1539, 1, '::1', 'app', 'index', '2017-02-23', '18:50:10'),
+(1540, 1, '::1', 'perfil', 'index', '2017-02-23', '18:50:34'),
+(1541, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:50:37'),
+(1542, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:50:38'),
+(1543, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:50:39'),
+(1544, NULL, '::1', 'ina', 'index', '2017-02-23', '18:51:05'),
+(1545, NULL, '::1', 'ina', 'fecha', '2017-02-23', '18:51:06'),
+(1546, NULL, '::1', 'login', 'index', '2017-02-23', '18:51:10'),
+(1547, NULL, '::1', 'login', 'index', '2017-02-23', '18:51:16'),
+(1548, 1, '::1', 'app', 'index', '2017-02-23', '18:51:16'),
+(1549, 1, '::1', 'perfil', 'index', '2017-02-23', '18:51:21'),
+(1550, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:51:24'),
+(1551, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:51:26'),
+(1552, 1, '::1', 'app', 'foto_perfil', '2017-02-23', '18:51:33'),
+(1553, 1, '::1', 'aviso', 'index', '2017-02-23', '18:52:23'),
+(1554, 1, '::1', 'legal', 'index', '2017-02-23', '18:52:25'),
+(1555, 1, '::1', 'principal', 'index', '2017-02-23', '18:52:29'),
+(1556, 1, '::1', 'agencia', 'index', '2017-02-23', '18:52:39'),
+(1557, 1, '::1', 'agencia', 'auto_completado', '2017-02-23', '18:52:39'),
+(1558, 1, '::1', 'agencia', 'individual', '2017-02-23', '18:52:41'),
+(1559, 1, '::1', 'perfil', 'index', '2017-02-23', '18:54:39'),
+(1560, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:54:45'),
+(1561, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:54:45'),
+(1562, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:54:45'),
+(1563, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:54:47'),
+(1564, 1, '::1', 'perfil', 'index', '2017-02-23', '18:55:22'),
+(1565, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:55:24'),
+(1566, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:55:24'),
+(1567, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:55:24'),
+(1568, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:55:26'),
+(1569, 1, '::1', 'perfil', 'index', '2017-02-23', '18:56:56'),
+(1570, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:00'),
+(1571, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:00'),
+(1572, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:00'),
+(1573, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:00'),
+(1574, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:00'),
+(1575, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:00'),
+(1576, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:57:01'),
+(1577, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:57:02'),
+(1578, NULL, '::1', 'login', 'index', '2017-02-23', '18:58:21'),
+(1579, NULL, '::1', 'login', 'index', '2017-02-23', '18:58:25'),
+(1580, 1, '::1', 'app', 'index', '2017-02-23', '18:58:25'),
+(1581, 1, '::1', 'perfil', 'index', '2017-02-23', '18:58:37'),
+(1582, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:58:40'),
+(1583, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '18:58:40'),
+(1584, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '18:58:42'),
+(1585, 1, '::1', 'app', 'foto_perfil', '2017-02-23', '18:59:00'),
+(1586, 1, '::1', 'principal', 'index', '2017-02-23', '18:59:03'),
+(1587, 1, '::1', 'nina', 'individual', '2017-02-23', '19:05:23'),
+(1588, 1, '::1', 'principal', 'index', '2017-02-23', '19:08:04'),
+(1589, 1, '::1', 'perfil', 'index', '2017-02-23', '19:08:15'),
+(1590, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '19:08:17'),
+(1591, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '19:08:17'),
+(1592, 1, '::1', 'app', 'buscar_chicas', '2017-02-23', '19:08:17'),
+(1593, 1, '::1', 'app', 'fotos_chicas', '2017-02-23', '19:08:19'),
+(1594, 1, '::1', 'app', 'foto_perfil', '2017-02-23', '19:08:24'),
+(1595, 1, '::1', 'principal', 'index', '2017-02-23', '19:08:27'),
+(1596, 1, '::1', 'nina', 'individual', '2017-02-23', '19:08:36');
 
 -- --------------------------------------------------------
 
@@ -1291,11 +1758,11 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 -- Estructura de tabla para la tabla `menu`
 --
 
-CREATE TABLE `menu` (
-  `id_menu` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `menu` (
+`id_menu` int(11) NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `enlace` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `menu`
@@ -1315,19 +1782,20 @@ INSERT INTO `menu` (`id_menu`, `titulo`, `enlace`) VALUES
 -- Estructura de tabla para la tabla `pagos`
 --
 
-CREATE TABLE `pagos` (
-  `id_pagos` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pagos` (
+`id_pagos` int(11) NOT NULL,
   `id_chicas` int(11) NOT NULL,
   `fecha_pago` date NOT NULL,
   `fecha_vencimiento` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `pagos`
 --
 
 INSERT INTO `pagos` (`id_pagos`, `id_chicas`, `fecha_pago`, `fecha_vencimiento`) VALUES
-(1, 1, '2017-02-19', '2017-02-22');
+(1, 1, '2017-02-19', '2017-02-22'),
+(2, 2, '2017-02-23', '2017-02-26');
 
 -- --------------------------------------------------------
 
@@ -1335,12 +1803,12 @@ INSERT INTO `pagos` (`id_pagos`, `id_chicas`, `fecha_pago`, `fecha_vencimiento`)
 -- Estructura de tabla para la tabla `permisos`
 --
 
-CREATE TABLE `permisos` (
-  `id_permisos` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `permisos` (
+`id_permisos` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
   `permiso` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -1349,15 +1817,16 @@ CREATE TABLE `permisos` (
 INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 (1, 1, 2, 1),
 (2, 2, 2, 1),
-(3, 3, 1, 0),
+(3, 3, 1, 1),
 (4, 4, 2, 1),
 (5, 3, 2, 1),
 (6, 5, 2, 1),
 (7, 6, 1, 1),
-(8, 1, 1, 0),
-(9, 4, 1, 0),
-(10, 2, 1, 0),
-(11, 6, 2, 0);
+(8, 1, 1, 1),
+(9, 4, 1, 1),
+(10, 2, 1, 1),
+(11, 6, 2, 0),
+(12, 5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1365,11 +1834,11 @@ INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 -- Estructura de tabla para la tabla `role`
 --
 
-CREATE TABLE `role` (
-  `id_role` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `role` (
+`id_role` int(11) NOT NULL,
   `role` varchar(50) NOT NULL,
   `peso` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `role`
@@ -1385,11 +1854,11 @@ INSERT INTO `role` (`id_role`, `role`, `peso`) VALUES
 -- Estructura de tabla para la tabla `switch`
 --
 
-CREATE TABLE `switch` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `switch` (
+`id` int(11) NOT NULL,
   `accion` int(11) NOT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `switch`
@@ -1404,13 +1873,13 @@ INSERT INTO `switch` (`id`, `accion`, `fecha`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+`id_usuario` int(11) NOT NULL,
   `id_role` int(11) NOT NULL DEFAULT '2',
   `login` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -1425,20 +1894,20 @@ INSERT INTO `usuario` (`id_usuario`, `id_role`, `login`, `password`, `estado`) V
 -- Estructura de tabla para la tabla `votacion`
 --
 
-CREATE TABLE `votacion` (
-  `id_votacion` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `votacion` (
+`id_votacion` int(11) NOT NULL,
   `id_chica` int(11) NOT NULL,
   `votacion` int(11) NOT NULL,
   `ip` varchar(200) NOT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `votacion`
 --
 
 INSERT INTO `votacion` (`id_votacion`, `id_chica`, `votacion`, `ip`, `fecha`) VALUES
-(1, 1, 5, '127.0.0.1', '2017-02-19');
+(3, 2, 5, '::1', '2017-02-23');
 
 --
 -- Índices para tablas volcadas
@@ -1448,87 +1917,73 @@ INSERT INTO `votacion` (`id_votacion`, `id_chica`, `votacion`, `ip`, `fecha`) VA
 -- Indices de la tabla `agencia`
 --
 ALTER TABLE `agencia`
-  ADD PRIMARY KEY (`id_agencia`),
-  ADD UNIQUE KEY `nombre_agencia` (`nombre_agencia`);
+ ADD PRIMARY KEY (`id_agencia`), ADD UNIQUE KEY `nombre_agencia` (`nombre_agencia`);
 
 --
 -- Indices de la tabla `chicas`
 --
 ALTER TABLE `chicas`
-  ADD PRIMARY KEY (`id_chicas`),
-  ADD KEY `id_agencia` (`id_agencia`);
+ ADD PRIMARY KEY (`id_chicas`), ADD KEY `id_agencia` (`id_agencia`);
 
 --
 -- Indices de la tabla `fotos_agencia`
 --
 ALTER TABLE `fotos_agencia`
-  ADD PRIMARY KEY (`id_foto`),
-  ADD KEY `id_chicas` (`id_agencia`),
-  ADD KEY `id_chicas_2` (`id_agencia`);
+ ADD PRIMARY KEY (`id_foto`), ADD KEY `id_chicas` (`id_agencia`), ADD KEY `id_chicas_2` (`id_agencia`);
 
 --
 -- Indices de la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-  ADD PRIMARY KEY (`id_foto`),
-  ADD KEY `id_chicas` (`id_chicas`);
+ ADD PRIMARY KEY (`id_foto`), ADD KEY `id_chicas` (`id_chicas`);
 
 --
 -- Indices de la tabla `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
+ ADD PRIMARY KEY (`id`), ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
+ ADD PRIMARY KEY (`id_menu`);
 
 --
 -- Indices de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD PRIMARY KEY (`id_pagos`),
-  ADD KEY `id_chica` (`id_chicas`);
+ ADD PRIMARY KEY (`id_pagos`), ADD KEY `id_chica` (`id_chicas`);
 
 --
 -- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  ADD PRIMARY KEY (`id_permisos`),
-  ADD KEY `id_menu` (`id_menu`,`id_role`),
-  ADD KEY `id_role` (`id_role`);
+ ADD PRIMARY KEY (`id_permisos`), ADD KEY `id_menu` (`id_menu`,`id_role`), ADD KEY `id_role` (`id_role`);
 
 --
 -- Indices de la tabla `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id_role`);
+ ADD PRIMARY KEY (`id_role`);
 
 --
 -- Indices de la tabla `switch`
 --
 ALTER TABLE `switch`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `id_role_2` (`id_role`),
-  ADD KEY `id_role_3` (`id_role`),
-  ADD KEY `id_role_4` (`id_role`),
-  ADD KEY `id_role_5` (`id_role`);
+ ADD PRIMARY KEY (`id_usuario`), ADD KEY `id_role_2` (`id_role`), ADD KEY `id_role_3` (`id_role`), ADD KEY `id_role_4` (`id_role`), ADD KEY `id_role_5` (`id_role`);
 
 --
 -- Indices de la tabla `votacion`
 --
 ALTER TABLE `votacion`
-  ADD PRIMARY KEY (`id_votacion`),
-  ADD KEY `id_chica` (`id_chica`);
+ ADD PRIMARY KEY (`id_votacion`), ADD KEY `id_chica` (`id_chica`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -1538,62 +1993,62 @@ ALTER TABLE `votacion`
 -- AUTO_INCREMENT de la tabla `agencia`
 --
 ALTER TABLE `agencia`
-  MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `chicas`
 --
 ALTER TABLE `chicas`
-  MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `fotos_agencia`
 --
 ALTER TABLE `fotos_agencia`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1141;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1597;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id_pagos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_pagos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `switch`
 --
 ALTER TABLE `switch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `votacion`
 --
 ALTER TABLE `votacion`
-  MODIFY `id_votacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_votacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
@@ -1602,50 +2057,50 @@ ALTER TABLE `votacion`
 -- Filtros para la tabla `chicas`
 --
 ALTER TABLE `chicas`
-  ADD CONSTRAINT `chicas_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `chicas_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos_agencia`
 --
 ALTER TABLE `fotos_agencia`
-  ADD CONSTRAINT `fotos_agencia_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `fotos_agencia_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-  ADD CONSTRAINT `fotos_chicas_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `fotos_chicas_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `log`
 --
 ALTER TABLE `log`
-  ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `votacion`
 --
 ALTER TABLE `votacion`
-  ADD CONSTRAINT `votacion_ibfk_1` FOREIGN KEY (`id_chica`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `votacion_ibfk_1` FOREIGN KEY (`id_chica`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
