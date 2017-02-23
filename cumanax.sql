@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 13-02-2017 a las 00:29:52
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Servidor: localhost
+-- Tiempo de generación: 22-02-2017 a las 20:39:45
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.5.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `cumanax`
 --
-CREATE DATABASE IF NOT EXISTS `cumanax` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `cumanax`;
 
 -- --------------------------------------------------------
 
@@ -28,8 +26,8 @@ USE `cumanax`;
 -- Estructura de tabla para la tabla `agencia`
 --
 
-CREATE TABLE IF NOT EXISTS `agencia` (
-`id_agencia` int(11) NOT NULL,
+CREATE TABLE `agencia` (
+  `id_agencia` int(11) NOT NULL,
   `nombre_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `preview` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `nro_contacto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -37,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `agencia` (
   `facebook_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `pin_agencia` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
   `whatsapp_agencia` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `agencia`
 --
 
 INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `preview`, `nro_contacto`, `correo_agencia`, `facebook_agencia`, `pin_agencia`, `whatsapp_agencia`) VALUES
-(1, 'badgirls', 'fggsdzf', 'sdfad', 'dafs', 'df', 'dfs', 'df');
+(1, 'AREN DE RUBY', 'GGGGGGGGGGGGGGGGGGGGG', '0414-52-65-896', 'SERVIGOLD@GMAIL.COM', 'LA TRAVIEZA', '45G76S8T', '(+58) 04163817253');
 
 -- --------------------------------------------------------
 
@@ -52,8 +50,8 @@ INSERT INTO `agencia` (`id_agencia`, `nombre_agencia`, `preview`, `nro_contacto`
 -- Estructura de tabla para la tabla `chicas`
 --
 
-CREATE TABLE IF NOT EXISTS `chicas` (
-`id_chicas` int(11) NOT NULL,
+CREATE TABLE `chicas` (
+  `id_chicas` int(11) NOT NULL,
   `tipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `nombre_chicas` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_nacimiento` date NOT NULL,
@@ -77,14 +75,14 @@ CREATE TABLE IF NOT EXISTS `chicas` (
   `twitter` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `preview` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `id_agencia` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `chicas`
 --
 
 INSERT INTO `chicas` (`id_chicas`, `tipo`, `nombre_chicas`, `fecha_nacimiento`, `destrezas`, `especialidad`, `estatura`, `medidas`, `peso`, `color_cabello`, `color_ojos`, `color_piel`, `tlf`, `publico`, `horario`, `localidad`, `email`, `bbm`, `whatsapp`, `facebook`, `instagram`, `twitter`, `preview`, `id_agencia`) VALUES
-(1, 'x', 'hola', '2017-02-01', 'DSF', 'HJ', 'JH', 'JH', 'JH', 'JH', 'JH', 'JH', 'JH', 'JHJH', 'HJ', 'JH', 'HJ', 'HJ', 'JH', 'JH', 'JH', 'HJ', 'HJ', 1);
+(1, 'DAMA', 'Lorena', '2002-02-05', 'Lo Mama', 'Russo', '1.65', '90,50,90', '50', 'Negro', 'Negro', 'Blanca', '04169874562', 'HOMBRES - MUJERES - PAREJAS - ', '24 Hra', 'Cumana', 'Legna18205@gmail.com', '6e4646t54', '(+51) 04169874562', 'La Travieza', 'La Travieza', 'La Travieza', 'Me Gusta Inventar Mientras Tengo Sexo', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,11 +90,18 @@ INSERT INTO `chicas` (`id_chicas`, `tipo`, `nombre_chicas`, `fecha_nacimiento`, 
 -- Estructura de tabla para la tabla `fotos_agencia`
 --
 
-CREATE TABLE IF NOT EXISTS `fotos_agencia` (
-`id_foto` int(11) NOT NULL,
+CREATE TABLE `fotos_agencia` (
+  `id_foto` int(11) NOT NULL,
   `id_agencia` int(11) NOT NULL,
   `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `fotos_agencia`
+--
+
+INSERT INTO `fotos_agencia` (`id_foto`, `id_agencia`, `nombre_foto`) VALUES
+(1, 1, 'cumanax58a984eed0f06fullimage1.jpg');
 
 -- --------------------------------------------------------
 
@@ -104,11 +109,18 @@ CREATE TABLE IF NOT EXISTS `fotos_agencia` (
 -- Estructura de tabla para la tabla `fotos_chicas`
 --
 
-CREATE TABLE IF NOT EXISTS `fotos_chicas` (
-`id_foto` int(11) NOT NULL,
+CREATE TABLE `fotos_chicas` (
+  `id_foto` int(11) NOT NULL,
   `id_chicas` int(11) NOT NULL,
   `nombre_foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `fotos_chicas`
+--
+
+INSERT INTO `fotos_chicas` (`id_foto`, `id_chicas`, `nombre_foto`) VALUES
+(1, 1, 'cumanax58a980c054b17fff.jpg');
 
 -- --------------------------------------------------------
 
@@ -116,341 +128,1162 @@ CREATE TABLE IF NOT EXISTS `fotos_chicas` (
 -- Estructura de tabla para la tabla `log`
 --
 
-CREATE TABLE IF NOT EXISTS `log` (
-`id` int(11) NOT NULL,
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `ip` varchar(12) NOT NULL,
   `controlador` varchar(30) NOT NULL,
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=321 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
 --
 
 INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
-(1, NULL, '::1', 'principal', 'index', '2017-02-07', '20:11:16'),
-(2, NULL, '::1', 'principal', 'index', '2017-02-07', '20:11:18'),
-(3, NULL, '::1', 'principal', 'index', '2017-02-07', '20:11:28'),
-(4, NULL, '::1', 'principal', 'tipo', '2017-02-07', '20:11:29'),
-(5, NULL, '::1', 'principal', 'tipo', '2017-02-07', '20:11:31'),
-(6, NULL, '::1', 'principal', 'tipo', '2017-02-07', '20:11:32'),
-(7, NULL, '::1', 'agencia', 'index', '2017-02-07', '20:11:33'),
-(8, NULL, '::1', 'agencia', 'auto_completado', '2017-02-07', '20:11:33'),
-(9, NULL, '::1', 'anunciate', 'index', '2017-02-07', '20:11:36'),
-(10, NULL, '::1', 'agencia', 'index', '2017-02-07', '20:11:57'),
-(11, NULL, '::1', 'agencia', 'auto_completado', '2017-02-07', '20:11:57'),
-(12, NULL, '::1', 'principal', 'tipo', '2017-02-07', '20:11:59'),
-(13, NULL, '::1', 'principal', 'tipo', '2017-02-07', '20:12:00'),
-(14, NULL, '::1', 'principal', 'tipo', '2017-02-07', '20:12:01'),
-(15, NULL, '::1', 'principal', 'index', '2017-02-07', '20:12:03'),
-(16, NULL, '::1', 'principal', 'index', '2017-02-07', '21:22:32'),
-(17, NULL, '::1', 'principal', 'index', '2017-02-07', '21:22:49'),
-(18, NULL, '::1', 'principal', 'index', '2017-02-07', '21:23:05'),
-(19, NULL, '::1', 'principal', 'index', '2017-02-07', '21:23:32'),
-(20, NULL, '::1', 'principal', 'tipo', '2017-02-07', '21:23:38'),
-(21, NULL, '::1', 'principal', 'tipo', '2017-02-07', '21:23:41'),
-(22, NULL, '::1', 'principal', 'tipo', '2017-02-07', '21:23:42'),
-(23, NULL, '::1', 'agencia', 'index', '2017-02-07', '21:23:43'),
-(24, NULL, '::1', 'agencia', 'auto_completado', '2017-02-07', '21:23:43'),
-(25, NULL, '::1', 'anunciate', 'index', '2017-02-07', '21:23:45'),
-(26, NULL, '::1', 'principal', 'tipo', '2017-02-07', '21:23:56'),
-(27, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-12', '15:09:49'),
-(28, NULL, '127.0.0.1', 'legal', 'index', '2017-02-12', '15:09:53'),
-(29, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:09:57'),
-(30, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:12:07'),
-(31, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:12:30'),
-(32, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:13:47'),
-(33, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:14:17'),
-(34, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:14:41'),
-(35, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:15:39'),
-(36, NULL, '127.0.0.1', 'anunciate', 'index', '2017-02-12', '15:17:10'),
-(37, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-12', '15:17:13'),
-(38, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-12', '15:17:13'),
-(39, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-12', '15:17:14'),
-(40, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-12', '15:17:16'),
-(41, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-12', '15:17:18'),
-(42, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:17:20'),
-(43, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:20:30'),
-(44, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-12', '15:21:02'),
-(45, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:21:13'),
-(46, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:22:03'),
-(47, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:22:40'),
-(48, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:23:56'),
-(49, NULL, '127.0.0.1', 'principal', 'index', '2017-02-12', '15:24:56'),
-(50, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:27:48'),
-(51, NULL, '127.0.0.1', 'app', 'permisos_ch', '2017-02-12', '15:28:22'),
-(52, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:28:24'),
-(53, NULL, '127.0.0.1', 'app', 'permisos_ch', '2017-02-12', '15:28:26'),
-(54, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:28:27'),
-(55, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:29:18'),
-(56, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:29:39'),
-(57, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:37:34'),
-(58, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:38:07'),
-(59, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:39:47'),
-(60, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:40:42'),
-(61, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:41:04'),
-(62, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:41:11'),
-(63, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '15:41:48'),
-(64, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '16:19:11'),
-(65, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '16:20:09'),
-(66, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:20:30'),
-(67, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '16:21:48'),
-(68, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:21:55'),
-(69, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '16:23:01'),
-(70, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:23:07'),
-(71, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:25:39'),
-(72, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:26:13'),
-(73, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:26:21'),
-(74, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '16:27:21'),
-(75, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:27:37'),
-(76, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:28:16'),
-(77, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:28:18'),
-(78, NULL, '127.0.0.1', 'app', 'index', '2017-02-12', '16:28:59'),
-(79, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:28:59'),
-(80, NULL, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-12', '16:29:05'),
-(81, NULL, '::1', 'app', 'index', '2017-02-12', '16:33:26'),
-(82, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:33:35'),
-(83, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:33:41'),
-(84, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:44'),
-(85, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:44'),
-(86, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:45'),
-(87, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:45'),
-(88, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:47'),
-(89, NULL, '::1', 'app', 'index', '2017-02-12', '16:34:49'),
-(90, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:53'),
-(91, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:54'),
-(92, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:55'),
-(93, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:56'),
-(94, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:34:57'),
-(95, NULL, '::1', 'app', 'index', '2017-02-12', '16:35:00'),
-(96, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:35:05'),
-(97, NULL, '::1', 'app', 'index', '2017-02-12', '16:35:07'),
-(98, NULL, '::1', 'app', 'permisos_ch', '2017-02-12', '16:35:10'),
-(99, NULL, '::1', 'app', 'index', '2017-02-12', '16:35:17'),
-(100, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:35:23'),
-(101, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:45:04'),
-(102, NULL, '::1', 'app', 'index', '2017-02-12', '16:45:18'),
-(103, NULL, '::1', 'app', 'index', '2017-02-12', '16:45:52'),
-(104, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:46:04'),
-(105, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:46:06'),
-(106, NULL, '::1', 'app', 'index', '2017-02-12', '16:46:33'),
-(107, NULL, '::1', 'app', 'index', '2017-02-12', '16:46:45'),
-(108, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:46:51'),
-(109, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:46:53'),
-(110, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:46:54'),
-(111, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:46:55'),
-(112, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:52:28'),
-(113, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:53:50'),
-(114, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:53:53'),
-(115, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:53:53'),
-(116, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:53:55'),
-(117, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:09'),
-(118, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:09'),
-(119, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:09'),
-(120, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:10'),
-(121, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:10'),
-(122, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:11'),
-(123, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:12'),
-(124, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:12'),
-(125, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:13'),
-(126, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:13'),
-(127, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:13'),
-(128, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:13'),
-(129, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:14'),
-(130, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:14'),
-(131, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:14'),
-(132, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:14'),
-(133, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:15'),
-(134, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:15'),
-(135, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:17'),
-(136, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:18'),
-(137, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:19'),
-(138, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:19'),
-(139, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:19'),
-(140, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:20'),
-(141, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:20'),
-(142, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:20'),
-(143, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:21'),
-(144, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:21'),
-(145, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:21'),
-(146, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:22'),
-(147, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:42'),
-(148, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:42'),
-(149, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:42'),
-(150, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:42'),
-(151, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:42'),
-(152, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:43'),
-(153, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:43'),
-(154, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:43'),
-(155, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:46'),
-(156, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:46'),
-(157, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:48'),
-(158, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:48'),
-(159, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:48'),
-(160, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:48'),
-(161, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:48'),
-(162, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:49'),
-(163, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:49'),
-(164, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:50'),
-(165, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:51'),
-(166, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:52'),
-(167, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:52'),
-(168, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:52'),
-(169, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:53'),
-(170, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:53'),
-(171, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:54'),
-(172, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:54:54'),
-(173, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:55:06'),
-(174, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:55:06'),
-(175, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:55:06'),
-(176, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:55:06'),
-(177, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:09'),
-(178, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:10'),
-(179, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:10'),
-(180, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:22'),
-(181, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:34'),
-(182, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:40'),
-(183, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:46'),
-(184, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:46'),
-(185, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:48'),
-(186, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:48'),
-(187, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:48'),
-(188, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:48'),
-(189, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:56:58'),
-(190, NULL, '::1', 'app', 'index', '2017-02-12', '16:58:13'),
-(191, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:20'),
-(192, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:20'),
-(193, NULL, '::1', 'app', 'eliminar_chicas', '2017-02-12', '16:58:40'),
-(194, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:46'),
-(195, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:52'),
-(196, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:53'),
-(197, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:53'),
-(198, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:54'),
-(199, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:55'),
-(200, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:56'),
-(201, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '16:58:56'),
-(202, NULL, '::1', 'app', 'index', '2017-02-12', '17:00:02'),
-(203, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:00:08'),
-(204, NULL, '::1', 'app', 'eliminar_chicas', '2017-02-12', '17:00:12'),
-(205, NULL, '::1', 'app', 'index', '2017-02-12', '17:00:50'),
-(206, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:00:55'),
-(207, NULL, '::1', 'app', 'eliminar_chicas', '2017-02-12', '17:01:01'),
-(208, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:08'),
-(209, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:17'),
-(210, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:24'),
-(211, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:27'),
-(212, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:27'),
-(213, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:29'),
-(214, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:30'),
-(215, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:30'),
-(216, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:30'),
-(217, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:30'),
-(218, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:30'),
-(219, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:30'),
-(220, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:38'),
-(221, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:38'),
-(222, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:38'),
-(223, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:38'),
-(224, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:39'),
-(225, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:39'),
-(226, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:39'),
-(227, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:39'),
-(228, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:39'),
-(229, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:39'),
-(230, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:56'),
-(231, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:57'),
-(232, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:57'),
-(233, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(234, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(235, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(236, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(237, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(238, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(239, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:58'),
-(240, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:59'),
-(241, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:59'),
-(242, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:59'),
-(243, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:59'),
-(244, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:01:59'),
-(245, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:00'),
-(246, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:00'),
-(247, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:00'),
-(248, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:00'),
-(249, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:00'),
-(250, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:00'),
-(251, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:01'),
-(252, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:01'),
-(253, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:01'),
-(254, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:01'),
-(255, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:01'),
-(256, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:01'),
-(257, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:02'),
-(258, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:02'),
-(259, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:02'),
-(260, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:02'),
-(261, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:02'),
-(262, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:02'),
-(263, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:03'),
-(264, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:03'),
-(265, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:03'),
-(266, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:03'),
-(267, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:03'),
-(268, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:03'),
-(269, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:04'),
-(270, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:04'),
-(271, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:04'),
-(272, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:04'),
-(273, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:04'),
-(274, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:05'),
-(275, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:05'),
-(276, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:05'),
-(277, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:05'),
-(278, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:05'),
-(279, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:05'),
-(280, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:06'),
-(281, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:06'),
-(282, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:06'),
-(283, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:06'),
-(284, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:06'),
-(285, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:07'),
-(286, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:09'),
-(287, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:10'),
-(288, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:10'),
-(289, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:02:24'),
-(290, NULL, '::1', 'app', 'index', '2017-02-12', '17:04:23'),
-(291, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '17:04:27'),
-(292, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:33:38'),
-(293, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:33:39'),
-(294, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:01'),
-(295, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:45'),
-(296, NULL, '::1', 'app', 'index', '2017-02-12', '18:39:49'),
-(297, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:49'),
-(298, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:56'),
-(299, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:57'),
-(300, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:58'),
-(301, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:58'),
-(302, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:39:59'),
-(303, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '18:40:06'),
-(304, NULL, '::1', 'app', 'index', '2017-02-12', '18:53:58'),
-(305, NULL, '::1', 'app', 'index', '2017-02-12', '18:54:14'),
-(306, NULL, '::1', 'app', 'index', '2017-02-12', '18:54:27'),
-(307, NULL, '::1', 'app', 'index', '2017-02-12', '18:55:14'),
-(308, NULL, '::1', 'app', 'index', '2017-02-12', '18:56:19'),
-(309, NULL, '::1', 'app', 'index', '2017-02-12', '18:56:53'),
-(310, NULL, '::1', 'app', 'index', '2017-02-12', '18:57:39'),
-(311, NULL, '::1', 'app', 'index', '2017-02-12', '18:58:40'),
-(312, NULL, '::1', 'app', 'index', '2017-02-12', '18:59:17'),
-(313, NULL, '::1', 'app', 'index', '2017-02-12', '18:59:45'),
-(314, NULL, '::1', 'app', 'index', '2017-02-12', '18:59:57'),
-(315, NULL, '::1', 'app', 'index', '2017-02-12', '19:03:25'),
-(316, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '19:03:28'),
-(317, NULL, '::1', 'app', 'index', '2017-02-12', '19:03:51'),
-(318, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '19:03:54'),
-(319, NULL, '::1', 'app', 'index', '2017-02-12', '19:11:00'),
-(320, NULL, '::1', 'app', 'buscar_chicas', '2017-02-12', '19:11:04');
+(1, 1, '127.0.0.1', 'principal', 'index', '2017-02-16', '22:04:07'),
+(2, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-17', '23:33:31'),
+(3, NULL, '127.0.0.1', 'legal', 'index', '2017-02-17', '23:33:39'),
+(4, NULL, '127.0.0.1', 'principal', 'index', '2017-02-17', '23:33:43'),
+(5, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-17', '23:33:48'),
+(6, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-17', '23:33:51'),
+(7, NULL, '127.0.0.78', 'principal', 'tipo', '2017-01-01', '23:33:53'),
+(8, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-17', '23:33:55'),
+(9, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-17', '23:33:57'),
+(10, NULL, '127.0.0.1', 'anunciate', 'index', '2017-02-17', '23:33:58'),
+(11, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-17', '23:34:06'),
+(12, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-17', '23:34:07'),
+(13, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-17', '23:34:13'),
+(14, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-17', '23:34:13'),
+(15, NULL, '127.0.0.1', 'principal', 'index', '2017-02-17', '23:34:18'),
+(16, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:42:56'),
+(17, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:43:38'),
+(18, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:46:04'),
+(19, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:46:51'),
+(20, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:47:53'),
+(21, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:50:08'),
+(22, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:50:23'),
+(23, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:50:52'),
+(24, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:51:25'),
+(25, NULL, '127.0.0.1', 'registro', 'nenas', '2017-02-17', '23:52:42'),
+(26, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:53:02'),
+(27, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:53:12'),
+(28, NULL, '127.0.0.1', 'error', 'access', '2017-02-17', '23:53:54'),
+(29, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-17', '23:53:59'),
+(30, NULL, '127.0.0.1', 'legal', 'index', '2017-02-17', '23:54:05'),
+(31, NULL, '127.0.0.1', 'principal', 'index', '2017-02-17', '23:54:10'),
+(32, NULL, '127.0.0.1', 'login', 'index', '2017-02-17', '23:54:30'),
+(33, NULL, '127.0.0.1', 'login', 'index', '2017-02-17', '23:54:43'),
+(34, 1, '127.0.0.1', 'aviso', 'index', '2017-02-17', '23:54:43'),
+(35, 1, '127.0.0.1', 'app', 'index', '2017-02-17', '23:54:51'),
+(36, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-18', '00:02:20'),
+(37, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-18', '15:43:31'),
+(38, NULL, '127.0.0.1', 'error', 'access', '2017-02-18', '15:43:38'),
+(39, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-18', '15:43:45'),
+(40, NULL, '127.0.0.1', 'legal', 'index', '2017-02-18', '15:43:47'),
+(41, NULL, '127.0.0.1', 'login', 'index', '2017-02-18', '15:44:01'),
+(42, NULL, '127.0.0.1', 'login', 'index', '2017-02-18', '15:44:08'),
+(43, 1, '127.0.0.1', 'aviso', 'index', '2017-02-18', '15:44:08'),
+(44, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:44:15'),
+(45, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '15:44:20'),
+(46, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '15:44:20'),
+(47, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:44:50'),
+(48, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:45:06'),
+(49, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:46:00'),
+(50, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:47:29'),
+(51, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:48:38'),
+(52, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:53:57'),
+(53, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:56:53'),
+(54, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '15:58:16'),
+(55, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '16:01:02'),
+(56, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '16:02:35'),
+(57, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '16:03:19'),
+(58, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '16:03:54'),
+(59, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:04:07'),
+(60, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:04:07'),
+(61, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:04:07'),
+(62, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:04:08'),
+(63, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:04:08'),
+(64, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:04:08'),
+(65, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '16:05:12'),
+(66, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:12:47'),
+(67, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:12:48'),
+(68, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-18', '16:12:50'),
+(69, 1, '127.0.0.1', 'app', 'index', '2017-02-18', '18:19:24'),
+(70, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-18', '18:19:43'),
+(71, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-18', '18:19:47'),
+(72, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-18', '18:19:49'),
+(73, 1, '127.0.0.1', 'agencia', 'index', '2017-02-18', '18:19:50'),
+(74, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-18', '18:19:52'),
+(75, 1, '127.0.0.1', 'registro', 'index', '2017-02-18', '18:19:55'),
+(76, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-18', '18:19:57'),
+(77, 1, '127.0.0.1', 'principal', 'index', '2017-02-18', '18:19:59'),
+(78, 1, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:20:10'),
+(79, 1, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:23:38'),
+(80, 1, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:24:27'),
+(81, 1, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:28:18'),
+(82, 1, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:39:46'),
+(83, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:40:26'),
+(84, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:41:57'),
+(85, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:43:56'),
+(86, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:44:18'),
+(87, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '18:56:45'),
+(88, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:11:10'),
+(89, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:11:44'),
+(90, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:16:30'),
+(91, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:19:09'),
+(92, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:30:31'),
+(93, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:34:06'),
+(94, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:43:33'),
+(95, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:46:12'),
+(96, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:53:40'),
+(97, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:56:06'),
+(98, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:56:49'),
+(99, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:57:26'),
+(100, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:57:50'),
+(101, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '19:59:21'),
+(102, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:00:51'),
+(103, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:03:51'),
+(104, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:06:08'),
+(105, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:07:15'),
+(106, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:08:24'),
+(107, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:09:09'),
+(108, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:09:48'),
+(109, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:12:22'),
+(110, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:14:57'),
+(111, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:15:43'),
+(112, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:16:27'),
+(113, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:17:12'),
+(114, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:18:11'),
+(115, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:37:58'),
+(116, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:42:23'),
+(117, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:42:55'),
+(118, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:42:56'),
+(119, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:43:30'),
+(120, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:44:41'),
+(121, NULL, '127.0.0.1', 'ina', 'index', '2017-02-18', '20:45:59'),
+(122, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-19', '07:06:00'),
+(123, NULL, '127.0.0.1', 'ina', 'index', '2017-02-19', '07:06:06'),
+(124, NULL, '127.0.0.1', 'ina', 'index', '2017-02-19', '07:08:39'),
+(125, NULL, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:08:44'),
+(126, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:11:34'),
+(127, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:11:35'),
+(128, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:11:38'),
+(129, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:11:39'),
+(130, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:11:40'),
+(131, NULL, '127.0.0.1', 'anunciate', 'index', '2017-02-19', '07:11:44'),
+(132, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:11:51'),
+(133, NULL, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:11:53'),
+(134, NULL, '127.0.0.1', 'ina', 'index', '2017-02-19', '07:13:37'),
+(135, NULL, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:15:50'),
+(136, NULL, '127.0.0.1', 'anunciate', 'index', '2017-02-19', '07:15:52'),
+(137, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:15:54'),
+(138, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:15:55'),
+(139, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:15:56'),
+(140, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:15:57'),
+(141, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:15:59'),
+(142, NULL, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:16:01'),
+(143, NULL, '127.0.0.1', 'anunciate', 'index', '2017-02-19', '07:17:09'),
+(144, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:17:12'),
+(145, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:17:12'),
+(146, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:17:15'),
+(147, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:17:17'),
+(148, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:17:18'),
+(149, NULL, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:17:19'),
+(150, NULL, '127.0.0.1', 'login', 'index', '2017-02-19', '07:17:40'),
+(151, NULL, '127.0.0.1', 'login', 'index', '2017-02-19', '07:18:03'),
+(152, 1, '127.0.0.1', 'aviso', 'index', '2017-02-19', '07:18:03'),
+(153, 1, '127.0.0.1', 'legal', 'index', '2017-02-19', '07:18:08'),
+(154, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:18:19'),
+(155, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:18:29'),
+(156, NULL, '192.168.42.1', 'aviso', 'index', '2017-02-19', '07:20:20'),
+(157, NULL, '192.168.42.1', 'aviso', 'index', '2017-02-19', '07:20:28'),
+(158, NULL, '192.168.42.1', 'aviso', 'index', '2017-02-19', '07:20:36'),
+(159, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:20:58'),
+(160, NULL, '192.168.42.1', 'aviso', 'index', '2017-02-19', '07:22:59'),
+(161, NULL, '192.168.42.1', 'legal', 'index', '2017-02-19', '07:23:07'),
+(162, NULL, '192.168.42.1', 'principal', 'index', '2017-02-19', '07:23:18'),
+(163, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-19', '07:23:52'),
+(164, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-19', '07:23:57'),
+(165, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-19', '07:23:57'),
+(166, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:24:15'),
+(167, 1, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:24:17'),
+(168, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:24:18'),
+(169, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:24:19'),
+(170, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:24:20'),
+(171, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:24:22'),
+(172, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:24:24'),
+(173, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:24:27'),
+(174, 1, '127.0.0.1', 'registro', 'nenas', '2017-02-19', '07:24:29'),
+(175, 1, '127.0.0.1', 'registro', 'guardar_publicacion', '2017-02-19', '07:25:52'),
+(176, 1, '127.0.0.1', 'registro', 'nenas', '2017-02-19', '07:25:52'),
+(177, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:25:55'),
+(178, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:26:00'),
+(179, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:26:04'),
+(180, 1, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:26:05'),
+(181, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:26:06'),
+(182, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:26:07'),
+(183, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:26:08'),
+(184, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:26:14'),
+(185, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:26:22'),
+(186, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:27:42'),
+(187, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:27:44'),
+(188, 1, '127.0.0.1', 'nina', 'individual', '2017-02-19', '07:27:48'),
+(189, 1, '127.0.0.1', 'nina', 'votacion', '2017-02-19', '07:27:51'),
+(190, 1, '127.0.0.1', 'nina', 'individual', '2017-02-19', '07:27:58'),
+(191, 1, '127.0.0.1', 'nina', 'votacion', '2017-02-19', '07:28:23'),
+(192, 1, '127.0.0.99', 'principal', 'index', '2017-02-15', '07:28:29'),
+(193, 1, '127.50.0.1', 'app', 'index', '2017-02-19', '07:29:56'),
+(194, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:31:20'),
+(195, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:31:40'),
+(196, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:36:02'),
+(197, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:36:46'),
+(198, 1, '127.0.0.1', 'app', 'buscar_chicas', '2017-02-19', '07:38:13'),
+(199, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '07:38:23'),
+(200, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:39:18'),
+(201, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:39:23'),
+(202, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:39:26'),
+(203, 1, '127.0.0.1', 'nina', 'individual', '2017-02-19', '07:39:41'),
+(204, 1, '127.0.0.1', 'nina', 'votacion', '2017-02-19', '07:39:58'),
+(205, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:42:18'),
+(206, 1, '127.0.0.1', 'nina', 'individual', '2017-02-19', '07:42:22'),
+(207, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:42:28'),
+(208, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:42:33'),
+(209, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:42:35'),
+(210, 1, '127.0.0.1', 'principal', 'tipo', '2017-02-19', '07:42:46'),
+(211, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:42:47'),
+(212, 1, '127.0.0.1', 'nina', 'individual', '2017-02-19', '07:42:50'),
+(213, 1, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:42:54'),
+(214, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:42:55'),
+(215, 1, '127.0.0.1', 'registro', 'index', '2017-02-19', '07:43:00'),
+(216, 1, '127.0.0.1', 'registro', 'agencias', '2017-02-19', '07:43:02'),
+(217, 1, '127.0.0.1', 'registro', 'guardar_agencia', '2017-02-19', '07:43:42'),
+(218, 1, '127.0.0.1', 'registro', 'agencias', '2017-02-19', '07:43:43'),
+(219, 1, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:43:45'),
+(220, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:43:46'),
+(221, 1, '127.0.0.1', 'agencia', 'individual', '2017-02-19', '07:43:50'),
+(222, 1, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:44:47'),
+(223, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:44:48'),
+(224, 1, '127.0.0.1', 'agencia', 'index', '2017-02-19', '07:44:55'),
+(225, 1, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-19', '07:44:56'),
+(226, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '07:45:07'),
+(227, 1, '127.0.0.1', 'nina', 'individual', '2017-02-19', '07:54:53'),
+(228, 1, '127.0.0.1', 'aviso', 'index', '2017-02-19', '13:58:53'),
+(229, 1, '127.0.0.1', 'ina', 'index', '2017-02-19', '13:59:00'),
+(230, 1, '127.0.0.1', 'aviso', 'index', '2017-02-19', '13:59:10'),
+(231, 1, '127.0.0.1', 'legal', 'index', '2017-02-19', '13:59:14'),
+(232, 1, '127.0.0.1', 'aviso', 'index', '2017-02-19', '16:01:32'),
+(233, 1, '127.0.0.1', 'legal', 'index', '2017-02-19', '16:01:37'),
+(234, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '16:01:40'),
+(235, 1, '127.0.0.1', 'principal', 'app', '2017-02-19', '16:12:17'),
+(236, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:12:27'),
+(237, 1, '127.0.0.1', 'app', 'permisos_ch', '2017-02-19', '16:12:54'),
+(238, 1, '127.0.0.1', 'app', 'permisos_ch', '2017-02-19', '16:12:54'),
+(239, 1, '127.0.0.1', 'app', 'permisos_ch', '2017-02-19', '16:12:55'),
+(240, 1, '127.0.0.1', 'app', 'permisos_ch', '2017-02-19', '16:12:56'),
+(241, 1, '127.0.0.1', 'principal', 'index', '2017-02-19', '16:12:58'),
+(242, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:13:04'),
+(243, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:14:48'),
+(244, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:16:21'),
+(245, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:20:10'),
+(246, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:20:26'),
+(247, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:25:13'),
+(248, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:26:38'),
+(249, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:27:16'),
+(250, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:28:03'),
+(251, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:34:01'),
+(252, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:34:37'),
+(253, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:39:06'),
+(254, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:41:24'),
+(255, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:42:30'),
+(256, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:43:09'),
+(257, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:50:15'),
+(258, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:50:58'),
+(259, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:52:32'),
+(260, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:54:04'),
+(261, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:57:31'),
+(262, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '16:58:37'),
+(263, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '16:58:39'),
+(264, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '16:59:04'),
+(265, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '16:59:27'),
+(266, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '16:59:43'),
+(267, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:04:01'),
+(268, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '17:20:53'),
+(269, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:21:09'),
+(270, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '17:23:53'),
+(271, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:24:24'),
+(272, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:25:12'),
+(273, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '17:26:46'),
+(274, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:27:06'),
+(275, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '17:27:33'),
+(276, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:27:44'),
+(277, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '17:36:10'),
+(278, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:36:24'),
+(279, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:36:53'),
+(280, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:37:31'),
+(281, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:37:44'),
+(282, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:37:55'),
+(283, 1, '127.0.0.1', 'app', 'updonw', '2017-02-19', '17:37:58'),
+(284, 1, '127.0.0.1', 'app', 'index', '2017-02-19', '17:38:43'),
+(285, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '06:50:51'),
+(286, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '06:51:09'),
+(287, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '06:51:17'),
+(288, 1, '127.0.0.1', 'registro', 'index', '2017-02-20', '07:16:07'),
+(289, 1, '127.0.0.1', 'principal', 'index', '2017-02-20', '07:16:12'),
+(290, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-20', '07:16:17'),
+(291, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '07:16:18'),
+(292, NULL, '127.0.0.1', 'legal', 'index', '2017-02-20', '07:16:29'),
+(293, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '13:26:52'),
+(294, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '13:33:08'),
+(295, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '13:33:50'),
+(296, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '13:33:57'),
+(297, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '13:34:13'),
+(298, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '13:34:33'),
+(299, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '13:34:39'),
+(300, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '13:34:48'),
+(301, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '14:25:13'),
+(302, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '14:25:19'),
+(303, NULL, '127.0.0.1', 'error', 'access', '2017-02-20', '14:25:25'),
+(304, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '14:25:28'),
+(305, NULL, '127.0.0.1', 'legal', 'index', '2017-02-20', '14:25:31'),
+(306, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '14:25:37'),
+(307, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '14:25:42'),
+(308, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '14:25:42'),
+(309, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '14:25:47'),
+(310, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '14:25:55'),
+(311, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '14:25:58'),
+(312, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '14:25:59'),
+(313, 1, '127.0.0.1', 'principal', 'index', '2017-02-20', '14:26:02'),
+(314, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-20', '14:26:07'),
+(315, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '14:26:07'),
+(316, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '14:26:15'),
+(317, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-20', '14:27:15'),
+(318, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-20', '14:27:18'),
+(319, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '14:27:19'),
+(320, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '14:28:17'),
+(321, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:24:03'),
+(322, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:24:13'),
+(323, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:24:58'),
+(324, NULL, '127.0.0.1', 'legal', 'index', '2017-02-20', '17:25:13'),
+(325, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '17:25:17'),
+(326, NULL, '127.0.0.1', 'error', 'access', '2017-02-20', '17:25:30'),
+(327, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '17:25:37'),
+(328, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '17:25:44'),
+(329, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:25:44'),
+(330, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '17:25:53'),
+(331, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '17:26:02'),
+(332, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:26:13'),
+(333, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:26:23'),
+(334, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '17:29:37'),
+(335, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:29:47'),
+(336, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '17:30:05'),
+(337, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '17:30:07'),
+(338, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:30:12'),
+(339, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:40:53'),
+(340, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:41:04'),
+(341, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:45:29'),
+(342, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:46:21'),
+(343, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '17:46:47'),
+(344, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '17:59:42'),
+(345, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '17:59:53'),
+(346, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:00:05'),
+(347, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:00:15'),
+(348, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:03:47'),
+(349, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-20', '18:03:59'),
+(350, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:03:59'),
+(351, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:04:09'),
+(352, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:04:17'),
+(353, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:04:26'),
+(354, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:04:32'),
+(355, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:04:38'),
+(356, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:04:38'),
+(357, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:04:48'),
+(358, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:23:30'),
+(359, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:24:18'),
+(360, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:25:19'),
+(361, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:25:22'),
+(362, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:26:42'),
+(363, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:26:46'),
+(364, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:27:36'),
+(365, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:27:39'),
+(366, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:28:18'),
+(367, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:28:21'),
+(368, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:28:42'),
+(369, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:28:45'),
+(370, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:29:00'),
+(371, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:29:03'),
+(372, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:29:43'),
+(373, 1, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:29:53'),
+(374, 1, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:29:54'),
+(375, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:30:08'),
+(376, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-20', '18:30:15'),
+(377, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:30:15'),
+(378, NULL, '127.0.0.1', 'legal', 'index', '2017-02-20', '18:30:17'),
+(379, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:30:30'),
+(380, NULL, '127.0.0.1', 'legal', 'index', '2017-02-20', '18:30:33'),
+(381, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '18:30:36'),
+(382, NULL, '127.0.0.1', 'error', 'access', '2017-02-20', '18:30:43'),
+(383, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:30:48'),
+(384, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:30:52'),
+(385, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:30:58'),
+(386, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:30:58'),
+(387, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:31:02'),
+(388, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:31:15'),
+(389, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-20', '18:31:21'),
+(390, NULL, '127.0.0.1', 'ina', 'index', '2017-02-20', '18:31:21'),
+(391, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-20', '18:31:22'),
+(392, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:33:39'),
+(393, NULL, '127.0.0.1', 'login', 'index', '2017-02-20', '18:33:48'),
+(394, 1, '127.0.0.1', 'aviso', 'index', '2017-02-20', '18:33:48'),
+(395, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:33:55'),
+(396, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:34:34'),
+(397, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:36:01'),
+(398, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:39:34'),
+(399, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:39:51'),
+(400, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:40:12'),
+(401, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:40:14'),
+(402, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:40:35'),
+(403, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:44:07'),
+(404, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:44:16'),
+(405, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:44:17'),
+(406, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:44:23'),
+(407, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:44:49'),
+(408, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:45:56'),
+(409, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:47:14'),
+(410, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:47:33'),
+(411, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:47:53'),
+(412, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:47:57'),
+(413, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:48:07'),
+(414, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:53:42'),
+(415, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:53:51'),
+(416, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:53:56'),
+(417, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:56:17'),
+(418, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:56:23'),
+(419, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:56:27'),
+(420, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:56:28'),
+(421, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:56:34'),
+(422, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:56:36'),
+(423, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:57:00'),
+(424, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:57:05'),
+(425, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:57:05'),
+(426, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:57:13'),
+(427, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:57:13'),
+(428, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:57:31'),
+(429, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:57:31'),
+(430, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '18:57:47'),
+(431, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '18:57:47'),
+(432, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '19:01:52'),
+(433, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '19:01:55'),
+(434, 1, '127.0.0.1', 'app', 'updonw', '2017-02-20', '19:03:16'),
+(435, 1, '127.0.0.1', 'app', 'index', '2017-02-20', '19:03:16'),
+(436, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-20', '19:10:59'),
+(437, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-20', '19:10:59'),
+(438, NULL, '127.0.0.1', 'legal', 'index', '2017-02-20', '19:11:02'),
+(439, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '19:11:05'),
+(440, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-20', '19:18:34'),
+(441, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-20', '19:18:35'),
+(442, NULL, '127.0.0.1', 'agencia', 'individual', '2017-02-20', '19:18:37'),
+(443, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-20', '19:18:54'),
+(444, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-20', '19:18:55'),
+(445, NULL, '127.0.0.1', 'principal', 'index', '2017-02-20', '19:19:00'),
+(446, NULL, '127.0.0.1', 'nina', 'individual', '2017-02-20', '19:19:02'),
+(447, 1, '127.0.0.1', 'aviso', 'index', '2017-02-21', '20:29:55'),
+(448, 1, '127.0.0.1', 'login', 'index', '2017-02-21', '20:30:07'),
+(449, 1, '127.0.0.1', 'principal', 'index', '2017-02-21', '20:30:07'),
+(450, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:30:22'),
+(451, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '20:30:43'),
+(452, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:30:43'),
+(453, 1, '127.0.0.1', 'principal', 'index', '2017-02-21', '20:30:52'),
+(454, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-21', '20:30:55'),
+(455, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:30:56'),
+(456, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:30:57'),
+(457, NULL, '127.0.0.1', 'login', 'index', '2017-02-21', '20:31:16'),
+(458, NULL, '127.0.0.1', 'login', 'index', '2017-02-21', '20:31:20'),
+(459, 1, '127.0.0.1', 'aviso', 'index', '2017-02-21', '20:31:21'),
+(460, 1, '127.0.0.1', 'legal', 'index', '2017-02-21', '20:31:22'),
+(461, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:31:31'),
+(462, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '20:35:21'),
+(463, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:35:21'),
+(464, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-21', '20:35:26'),
+(465, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:35:27'),
+(466, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:35:27'),
+(467, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:35:32'),
+(468, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:35:33'),
+(469, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:38:02'),
+(470, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:38:09'),
+(471, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:43:22'),
+(472, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:43:23'),
+(473, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:44:25'),
+(474, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:44:28'),
+(475, NULL, '127.0.0.1', 'login', 'index', '2017-02-21', '20:48:24'),
+(476, NULL, '127.0.0.1', 'login', 'index', '2017-02-21', '20:48:35'),
+(477, 1, '127.0.0.1', 'aviso', 'index', '2017-02-21', '20:48:35'),
+(478, 1, '127.0.0.1', 'legal', 'index', '2017-02-21', '20:48:39'),
+(479, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:48:47'),
+(480, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '20:48:59'),
+(481, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:48:59'),
+(482, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-21', '20:49:07'),
+(483, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:49:07'),
+(484, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:49:10'),
+(485, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:52:21'),
+(486, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:52:25'),
+(487, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:52:41'),
+(488, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:52:42'),
+(489, NULL, '127.0.0.1', 'login', 'index', '2017-02-21', '20:52:47'),
+(490, NULL, '127.0.0.1', 'login', 'index', '2017-02-21', '20:52:50'),
+(491, 1, '127.0.0.1', 'aviso', 'index', '2017-02-21', '20:52:51'),
+(492, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:52:55'),
+(493, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '20:53:04'),
+(494, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:53:05'),
+(495, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:53:10'),
+(496, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:53:14'),
+(497, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '20:53:28'),
+(498, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:53:28'),
+(499, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:53:34'),
+(500, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:53:38'),
+(501, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:53:52'),
+(502, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:53:56'),
+(503, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:54:03'),
+(504, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:54:07'),
+(505, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '20:54:31'),
+(506, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '20:54:32'),
+(507, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:54:37'),
+(508, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:54:40'),
+(509, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '20:59:30'),
+(510, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '20:59:33'),
+(511, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '21:01:24'),
+(512, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:01:29'),
+(513, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:01:33'),
+(514, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:01:50'),
+(515, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:01:53'),
+(516, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '21:05:54'),
+(517, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:06:22'),
+(518, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:06:25'),
+(519, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:07:07'),
+(520, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:07:11'),
+(521, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:15:30'),
+(522, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:15:36'),
+(523, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:16:38'),
+(524, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:16:41'),
+(525, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:17:18'),
+(526, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:17:21'),
+(527, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:18:52'),
+(528, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:18:56'),
+(529, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:20:22'),
+(530, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:20:26'),
+(531, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '21:31:11'),
+(532, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '21:31:18'),
+(533, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:32:15'),
+(534, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:32:18'),
+(535, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:34:16'),
+(536, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:34:20'),
+(537, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '21:35:10'),
+(538, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:35:13'),
+(539, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:35:17'),
+(540, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:37:46'),
+(541, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:37:49'),
+(542, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '21:37:49'),
+(543, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:37:58'),
+(544, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:38:03'),
+(545, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '21:38:03'),
+(546, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '21:39:42'),
+(547, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:39:48'),
+(548, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:39:54'),
+(549, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:42:55'),
+(550, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:43:00'),
+(551, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '21:43:20'),
+(552, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '21:43:24'),
+(553, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:34:29'),
+(554, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:34:32'),
+(555, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '22:35:02'),
+(556, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '22:35:02'),
+(557, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:35:07'),
+(558, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:35:11'),
+(559, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '22:35:45'),
+(560, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '22:35:45'),
+(561, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:35:53'),
+(562, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:35:57'),
+(563, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:36:40'),
+(564, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:36:43'),
+(565, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:38:10'),
+(566, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:38:13'),
+(567, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:39:30'),
+(568, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '22:39:30'),
+(569, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:39:39'),
+(570, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '22:39:39'),
+(571, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '22:39:56'),
+(572, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '22:39:56'),
+(573, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:40:00'),
+(574, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:40:04'),
+(575, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:52:18'),
+(576, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:52:22'),
+(577, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:52:52'),
+(578, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:52:55'),
+(579, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:54:18'),
+(580, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:54:23'),
+(581, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:54:45'),
+(582, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:54:49'),
+(583, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:55:08'),
+(584, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '22:55:44'),
+(585, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '22:55:49'),
+(586, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:08:20'),
+(587, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:08:24'),
+(588, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '23:13:13'),
+(589, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:13:13'),
+(590, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:13:19'),
+(591, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:13:26'),
+(592, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:16:11'),
+(593, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:16:17'),
+(594, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '23:16:24'),
+(595, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:16:24'),
+(596, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:16:29'),
+(597, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:16:33'),
+(598, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:27:45'),
+(599, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:27:51'),
+(600, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:30:19'),
+(601, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:30:23'),
+(602, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:31:15'),
+(603, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:31:22'),
+(604, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '23:33:24'),
+(605, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:33:24'),
+(606, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:33:45'),
+(607, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:33:50'),
+(608, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:34:09'),
+(609, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:34:13'),
+(610, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:35:21'),
+(611, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:35:25'),
+(612, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:35:45'),
+(613, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:35:50'),
+(614, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:37:54'),
+(615, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:37:58'),
+(616, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:40:46'),
+(617, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:40:49'),
+(618, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:41:20'),
+(619, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:41:41'),
+(620, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:41:49'),
+(621, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:46:16'),
+(622, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:46:20'),
+(623, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:49:34'),
+(624, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:49:38'),
+(625, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:33'),
+(626, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:33'),
+(627, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:33'),
+(628, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:34'),
+(629, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:34'),
+(630, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:35'),
+(631, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:35'),
+(632, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:35'),
+(633, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:36'),
+(634, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:37'),
+(635, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:38'),
+(636, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:42'),
+(637, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:42'),
+(638, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:43'),
+(639, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:43'),
+(640, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:47'),
+(641, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:48'),
+(642, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:48'),
+(643, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:49'),
+(644, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:49'),
+(645, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:49'),
+(646, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:50'),
+(647, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:50'),
+(648, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:51'),
+(649, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:51'),
+(650, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:52'),
+(651, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:52'),
+(652, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:53'),
+(653, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:53'),
+(654, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:53'),
+(655, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:56'),
+(656, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:56'),
+(657, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:56'),
+(658, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:57'),
+(659, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:57'),
+(660, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:57'),
+(661, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:58'),
+(662, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:58'),
+(663, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:50:59'),
+(664, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:50:59'),
+(665, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:00'),
+(666, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:00'),
+(667, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:01'),
+(668, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:01'),
+(669, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:01'),
+(670, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:02'),
+(671, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:02'),
+(672, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:03'),
+(673, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:05'),
+(674, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:05'),
+(675, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:05'),
+(676, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:06'),
+(677, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:07'),
+(678, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:07'),
+(679, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:08'),
+(680, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:08'),
+(681, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:08'),
+(682, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:09'),
+(683, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:10'),
+(684, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:10'),
+(685, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:11'),
+(686, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:11'),
+(687, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:11'),
+(688, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:14'),
+(689, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:14'),
+(690, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:14'),
+(691, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:15'),
+(692, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:16'),
+(693, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:16'),
+(694, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:17'),
+(695, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:17'),
+(696, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:17'),
+(697, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:18'),
+(698, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:18'),
+(699, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:18'),
+(700, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:19'),
+(701, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:19'),
+(702, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:20'),
+(703, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:22'),
+(704, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:23'),
+(705, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:23'),
+(706, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:24'),
+(707, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:24'),
+(708, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:24'),
+(709, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:26'),
+(710, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:26'),
+(711, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:26'),
+(712, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:27'),
+(713, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:28'),
+(714, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:28'),
+(715, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:51:29'),
+(716, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:29'),
+(717, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:32'),
+(718, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:32'),
+(719, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:35'),
+(720, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:35'),
+(721, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:35'),
+(722, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:36'),
+(723, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:36'),
+(724, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:37'),
+(725, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:38'),
+(726, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:51:38'),
+(727, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:38'),
+(728, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:40'),
+(729, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:42'),
+(730, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:42'),
+(731, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:44'),
+(732, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:44'),
+(733, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:44'),
+(734, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:45'),
+(735, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:46'),
+(736, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:51:46'),
+(737, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '23:51:46'),
+(738, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:51:47'),
+(739, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:51:47'),
+(740, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '23:52:11'),
+(741, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:52:11'),
+(742, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:29'),
+(743, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:31'),
+(744, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:31'),
+(745, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:31'),
+(746, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:32'),
+(747, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:33'),
+(748, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:33'),
+(749, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:34'),
+(750, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:34'),
+(751, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:34'),
+(752, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:35');
+INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
+(753, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:35'),
+(754, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:35'),
+(755, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:36'),
+(756, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:36'),
+(757, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:37'),
+(758, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:37'),
+(759, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:38'),
+(760, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:38'),
+(761, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:39'),
+(762, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:39'),
+(763, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:40'),
+(764, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:41'),
+(765, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:42'),
+(766, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:42'),
+(767, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:43'),
+(768, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:43'),
+(769, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:43'),
+(770, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:44'),
+(771, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:44'),
+(772, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:45'),
+(773, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:46'),
+(774, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:46'),
+(775, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:46'),
+(776, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:47'),
+(777, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:47'),
+(778, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:47'),
+(779, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:49'),
+(780, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:50'),
+(781, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:50'),
+(782, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:51'),
+(783, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:51'),
+(784, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:51'),
+(785, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:52'),
+(786, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:52'),
+(787, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:52'),
+(788, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:53'),
+(789, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:54'),
+(790, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:54'),
+(791, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:54'),
+(792, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:55'),
+(793, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:55'),
+(794, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:56'),
+(795, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:56'),
+(796, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:56'),
+(797, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:57'),
+(798, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:57'),
+(799, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:58'),
+(800, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:52:58'),
+(801, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:59'),
+(802, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:52:59'),
+(803, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:01'),
+(804, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:01'),
+(805, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:01'),
+(806, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:02'),
+(807, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:03'),
+(808, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:03'),
+(809, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:04'),
+(810, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:04'),
+(811, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:04'),
+(812, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:05'),
+(813, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:05'),
+(814, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:05'),
+(815, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:06'),
+(816, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:07'),
+(817, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:07'),
+(818, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:08'),
+(819, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:08'),
+(820, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:08'),
+(821, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:09'),
+(822, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:10'),
+(823, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:10'),
+(824, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:11'),
+(825, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:11'),
+(826, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:11'),
+(827, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:14'),
+(828, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:14'),
+(829, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:14'),
+(830, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:15'),
+(831, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:16'),
+(832, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:16'),
+(833, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:16'),
+(834, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:18'),
+(835, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:18'),
+(836, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:53:19'),
+(837, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:19'),
+(838, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:20'),
+(839, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:21'),
+(840, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:22'),
+(841, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:23'),
+(842, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:24'),
+(843, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:27'),
+(844, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:27'),
+(845, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:28'),
+(846, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:29'),
+(847, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:29'),
+(848, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:30'),
+(849, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:32'),
+(850, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:32'),
+(851, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:33'),
+(852, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:34'),
+(853, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:35'),
+(854, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:36'),
+(855, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:37'),
+(856, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:38'),
+(857, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:39'),
+(858, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:40'),
+(859, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:41'),
+(860, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:42'),
+(861, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:43'),
+(862, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:44'),
+(863, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:45'),
+(864, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:46'),
+(865, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:47'),
+(866, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:48'),
+(867, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:49'),
+(868, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:50'),
+(869, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:51'),
+(870, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:52'),
+(871, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:53'),
+(872, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:54'),
+(873, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:55'),
+(874, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:56'),
+(875, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:57'),
+(876, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:58'),
+(877, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:53:59'),
+(878, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:00'),
+(879, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:01'),
+(880, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:02'),
+(881, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:03'),
+(882, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:04'),
+(883, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:05'),
+(884, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:06'),
+(885, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:08'),
+(886, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:08'),
+(887, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:09'),
+(888, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:14'),
+(889, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:15'),
+(890, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:15'),
+(891, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:17'),
+(892, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:18'),
+(893, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:18'),
+(894, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:19'),
+(895, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:19'),
+(896, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:20'),
+(897, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:21'),
+(898, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:22'),
+(899, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:24'),
+(900, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:24'),
+(901, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:25'),
+(902, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:27'),
+(903, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:27'),
+(904, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:28'),
+(905, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:29'),
+(906, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:30'),
+(907, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:31'),
+(908, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:32'),
+(909, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:33'),
+(910, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:34'),
+(911, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:35'),
+(912, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:36'),
+(913, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:37'),
+(914, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:38'),
+(915, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:39'),
+(916, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:40'),
+(917, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:41'),
+(918, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:42'),
+(919, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:43'),
+(920, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:44'),
+(921, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:45'),
+(922, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:46'),
+(923, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:47'),
+(924, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:48'),
+(925, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:49'),
+(926, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:50'),
+(927, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:51'),
+(928, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:52'),
+(929, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:53'),
+(930, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:54'),
+(931, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:55'),
+(932, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:56'),
+(933, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:57'),
+(934, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:58'),
+(935, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:54:59'),
+(936, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:00'),
+(937, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:01'),
+(938, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:02'),
+(939, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:03'),
+(940, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:04'),
+(941, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:05'),
+(942, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:06'),
+(943, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:07'),
+(944, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:08'),
+(945, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:09'),
+(946, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:10'),
+(947, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:11'),
+(948, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:12'),
+(949, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:13'),
+(950, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:14'),
+(951, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:15'),
+(952, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:16'),
+(953, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:17'),
+(954, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:18'),
+(955, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:19'),
+(956, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:20'),
+(957, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:21'),
+(958, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:22'),
+(959, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:23'),
+(960, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:24'),
+(961, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:25'),
+(962, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:26'),
+(963, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:27'),
+(964, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:28'),
+(965, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:29'),
+(966, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:30'),
+(967, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:31'),
+(968, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:32'),
+(969, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:33'),
+(970, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:34'),
+(971, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:35'),
+(972, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:36'),
+(973, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:37'),
+(974, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:38'),
+(975, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:39'),
+(976, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:40'),
+(977, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:41'),
+(978, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:42'),
+(979, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:43'),
+(980, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:44'),
+(981, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:45'),
+(982, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:46'),
+(983, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:47'),
+(984, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:48'),
+(985, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:49'),
+(986, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:50'),
+(987, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:51'),
+(988, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:52'),
+(989, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:53'),
+(990, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:54'),
+(991, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:56'),
+(992, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:56'),
+(993, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:57'),
+(994, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:55:59'),
+(995, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:00'),
+(996, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:01'),
+(997, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:01'),
+(998, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:02'),
+(999, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:03'),
+(1000, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:04'),
+(1001, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:05'),
+(1002, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:07'),
+(1003, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:08'),
+(1004, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:09'),
+(1005, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:10'),
+(1006, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:11'),
+(1007, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:12'),
+(1008, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:13'),
+(1009, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:13'),
+(1010, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:14'),
+(1011, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:15'),
+(1012, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:17'),
+(1013, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:17'),
+(1014, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:19'),
+(1015, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:20'),
+(1016, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:21'),
+(1017, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:22'),
+(1018, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:23'),
+(1019, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:24'),
+(1020, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:25'),
+(1021, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:26'),
+(1022, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:26'),
+(1023, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:28'),
+(1024, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:29'),
+(1025, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:29'),
+(1026, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:31'),
+(1027, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:32'),
+(1028, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:33'),
+(1029, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:34'),
+(1030, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:35'),
+(1031, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:36'),
+(1032, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:36'),
+(1033, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:37'),
+(1034, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:38'),
+(1035, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:39'),
+(1036, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:41'),
+(1037, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:42'),
+(1038, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:56:48'),
+(1039, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:56:48'),
+(1040, NULL, '127.0.0.1', 'ina', 'updonw', '2017-02-21', '23:56:48'),
+(1041, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '23:56:48'),
+(1042, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:57:13'),
+(1043, 1, '127.0.0.1', 'app', 'updonw', '2017-02-21', '23:57:28'),
+(1044, 1, '127.0.0.1', 'app', 'index', '2017-02-21', '23:57:28'),
+(1045, NULL, '127.0.0.1', 'ina', 'index', '2017-02-21', '23:57:38'),
+(1046, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-21', '23:57:43'),
+(1047, NULL, '127.0.0.1', 'ina', 'updonw', '2017-02-21', '23:59:59'),
+(1048, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-21', '23:59:59'),
+(1049, NULL, '127.0.0.1', 'legal', 'index', '2017-02-22', '00:00:09'),
+(1050, NULL, '127.0.0.1', 'principal', 'index', '2017-02-22', '00:00:13'),
+(1051, NULL, '127.0.0.1', 'agencia', 'index', '2017-02-22', '00:00:18'),
+(1052, NULL, '127.0.0.1', 'agencia', 'auto_completado', '2017-02-22', '00:00:20'),
+(1053, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-22', '00:00:20'),
+(1054, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-22', '00:00:22'),
+(1055, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:00:29'),
+(1056, 1, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:00:43'),
+(1057, 1, '127.0.0.1', 'aviso', 'index', '2017-02-22', '00:00:44'),
+(1058, 1, '127.0.0.1', 'legal', 'index', '2017-02-22', '00:00:47'),
+(1059, 1, '127.0.0.1', 'legal', 'index', '2017-02-22', '00:00:53'),
+(1060, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:01:01'),
+(1061, 1, '127.0.0.1', 'login', 'cerrar', '2017-02-22', '00:04:49'),
+(1062, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-22', '00:04:49'),
+(1063, NULL, '127.0.0.1', 'login', 'index', '2017-02-22', '00:04:55'),
+(1064, NULL, '127.0.0.1', 'login', 'index', '2017-02-22', '00:04:59'),
+(1065, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:04:59'),
+(1066, 1, '127.0.0.1', 'principal', 'index', '2017-02-22', '00:05:12'),
+(1067, 1, '127.0.0.1', 'registro', 'index', '2017-02-22', '00:05:15'),
+(1068, 1, '127.0.0.1', 'principal', 'index', '2017-02-22', '00:05:19'),
+(1069, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:05:24'),
+(1070, 1, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:05:37'),
+(1071, 1, '127.0.0.1', 'aviso', 'index', '2017-02-22', '00:05:37'),
+(1072, NULL, '127.0.0.1', 'principal', 'index', '2017-02-22', '00:06:21'),
+(1073, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-22', '00:06:27'),
+(1074, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-22', '00:06:29'),
+(1075, NULL, '127.0.0.1', 'principal', 'tipo', '2017-02-22', '00:06:30'),
+(1076, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:08:22'),
+(1077, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:08:32'),
+(1078, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:08:32'),
+(1079, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:08:46'),
+(1080, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:08:47'),
+(1081, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:09:34'),
+(1082, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:09:34'),
+(1083, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:09:45'),
+(1084, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:09:46'),
+(1085, NULL, '127.0.0.1', 'ina', 'updonw', '2017-02-22', '00:09:46'),
+(1086, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-22', '00:09:47'),
+(1087, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:10:00'),
+(1088, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:10:21'),
+(1089, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:10:21'),
+(1090, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:10:31'),
+(1091, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:10:32'),
+(1092, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:13:33'),
+(1093, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:13:36'),
+(1094, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:15:15'),
+(1095, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:15:18'),
+(1096, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:16:17'),
+(1097, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:16:39'),
+(1098, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:16:44'),
+(1099, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:17:42'),
+(1100, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:17:46'),
+(1101, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:19:29'),
+(1102, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:19:32'),
+(1103, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:20:00'),
+(1104, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:20:00'),
+(1105, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:20:10'),
+(1106, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-22', '00:20:10'),
+(1107, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:20:19'),
+(1108, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:20:20'),
+(1109, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:20:28'),
+(1110, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:20:29'),
+(1111, NULL, '127.0.0.1', 'ina', 'updonw', '2017-02-22', '00:20:29'),
+(1112, NULL, '127.0.0.1', 'aviso', 'index', '2017-02-22', '00:20:29'),
+(1113, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:20:43'),
+(1114, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:20:44'),
+(1115, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:20:51'),
+(1116, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:20:52'),
+(1117, 1, '127.0.0.1', 'app', 'updonw', '2017-02-22', '00:21:08'),
+(1118, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:21:08'),
+(1119, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:21:16'),
+(1120, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:21:17'),
+(1121, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:21:38'),
+(1122, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:21:39'),
+(1123, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:21:52'),
+(1124, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:21:53'),
+(1125, NULL, '127.0.0.1', 'login', 'index', '2017-02-22', '00:21:59'),
+(1126, NULL, '127.0.0.1', 'ina', 'index', '2017-02-22', '00:22:08'),
+(1127, NULL, '127.0.0.1', 'ina', 'fecha', '2017-02-22', '00:22:09'),
+(1128, NULL, '127.0.0.1', 'login', 'index', '2017-02-22', '00:22:17'),
+(1129, NULL, '127.0.0.1', 'login', 'index', '2017-02-22', '00:22:23'),
+(1130, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:22:24'),
+(1131, 1, '127.0.0.1', 'principal', 'index', '2017-02-22', '00:23:51'),
+(1132, NULL, '127.0.0.1', 'ina', 'index', '0000-00-00', '-00:00:44'),
+(1133, NULL, '127.0.0.1', 'ina', 'fecha', '0000-00-00', '-00:00:48'),
+(1134, NULL, '127.0.0.1', 'login', 'index', '0000-00-00', '-00:00:55'),
+(1135, NULL, '127.0.0.1', 'login', 'index', '0000-00-00', '00:00:00'),
+(1136, 1, '127.0.0.1', 'app', 'index', '0000-00-00', '00:00:00'),
+(1137, 1, '127.0.0.1', 'registro', 'index', '2017-02-22', '00:00:06'),
+(1138, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:00:06'),
+(1139, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '00:00:06'),
+(1140, 1, '127.0.0.1', 'app', 'index', '2017-02-22', '06:34:15');
 
 -- --------------------------------------------------------
 
@@ -458,11 +1291,11 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 -- Estructura de tabla para la tabla `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-`id_menu` int(11) NOT NULL,
+CREATE TABLE `menu` (
+  `id_menu` int(11) NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `enlace` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `menu`
@@ -482,19 +1315,19 @@ INSERT INTO `menu` (`id_menu`, `titulo`, `enlace`) VALUES
 -- Estructura de tabla para la tabla `pagos`
 --
 
-CREATE TABLE IF NOT EXISTS `pagos` (
-`id_pagos` int(11) NOT NULL,
+CREATE TABLE `pagos` (
+  `id_pagos` int(11) NOT NULL,
   `id_chicas` int(11) NOT NULL,
   `fecha_pago` date NOT NULL,
   `fecha_vencimiento` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `pagos`
 --
 
 INSERT INTO `pagos` (`id_pagos`, `id_chicas`, `fecha_pago`, `fecha_vencimiento`) VALUES
-(1, 1, '2017-02-01', '2017-03-01');
+(1, 1, '2017-02-19', '2017-02-22');
 
 -- --------------------------------------------------------
 
@@ -502,12 +1335,12 @@ INSERT INTO `pagos` (`id_pagos`, `id_chicas`, `fecha_pago`, `fecha_vencimiento`)
 -- Estructura de tabla para la tabla `permisos`
 --
 
-CREATE TABLE IF NOT EXISTS `permisos` (
-`id_permisos` int(11) NOT NULL,
+CREATE TABLE `permisos` (
+  `id_permisos` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
   `permiso` int(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -516,14 +1349,14 @@ CREATE TABLE IF NOT EXISTS `permisos` (
 INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 (1, 1, 2, 1),
 (2, 2, 2, 1),
-(3, 3, 1, 1),
+(3, 3, 1, 0),
 (4, 4, 2, 1),
 (5, 3, 2, 1),
 (6, 5, 2, 1),
 (7, 6, 1, 1),
-(8, 1, 1, 1),
-(9, 4, 1, 1),
-(10, 2, 1, 1),
+(8, 1, 1, 0),
+(9, 4, 1, 0),
+(10, 2, 1, 0),
 (11, 6, 2, 0);
 
 -- --------------------------------------------------------
@@ -532,11 +1365,11 @@ INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 -- Estructura de tabla para la tabla `role`
 --
 
-CREATE TABLE IF NOT EXISTS `role` (
-`id_role` int(11) NOT NULL,
+CREATE TABLE `role` (
+  `id_role` int(11) NOT NULL,
   `role` varchar(50) NOT NULL,
   `peso` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `role`
@@ -549,16 +1382,35 @@ INSERT INTO `role` (`id_role`, `role`, `peso`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `switch`
+--
+
+CREATE TABLE `switch` (
+  `id` int(11) NOT NULL,
+  `accion` int(11) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `switch`
+--
+
+INSERT INTO `switch` (`id`, `accion`, `fecha`) VALUES
+(19, 0, '2017-03-05');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-`id_usuario` int(11) NOT NULL,
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
   `id_role` int(11) NOT NULL DEFAULT '2',
   `login` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -573,13 +1425,20 @@ INSERT INTO `usuario` (`id_usuario`, `id_role`, `login`, `password`, `estado`) V
 -- Estructura de tabla para la tabla `votacion`
 --
 
-CREATE TABLE IF NOT EXISTS `votacion` (
-`id_votacion` int(11) NOT NULL,
+CREATE TABLE `votacion` (
+  `id_votacion` int(11) NOT NULL,
   `id_chica` int(11) NOT NULL,
   `votacion` int(11) NOT NULL,
   `ip` varchar(200) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `votacion`
+--
+
+INSERT INTO `votacion` (`id_votacion`, `id_chica`, `votacion`, `ip`, `fecha`) VALUES
+(1, 1, 5, '127.0.0.1', '2017-02-19');
 
 --
 -- Índices para tablas volcadas
@@ -589,67 +1448,87 @@ CREATE TABLE IF NOT EXISTS `votacion` (
 -- Indices de la tabla `agencia`
 --
 ALTER TABLE `agencia`
- ADD PRIMARY KEY (`id_agencia`), ADD UNIQUE KEY `nombre_agencia` (`nombre_agencia`);
+  ADD PRIMARY KEY (`id_agencia`),
+  ADD UNIQUE KEY `nombre_agencia` (`nombre_agencia`);
 
 --
 -- Indices de la tabla `chicas`
 --
 ALTER TABLE `chicas`
- ADD PRIMARY KEY (`id_chicas`), ADD KEY `id_agencia` (`id_agencia`);
+  ADD PRIMARY KEY (`id_chicas`),
+  ADD KEY `id_agencia` (`id_agencia`);
 
 --
 -- Indices de la tabla `fotos_agencia`
 --
 ALTER TABLE `fotos_agencia`
- ADD PRIMARY KEY (`id_foto`), ADD KEY `id_chicas` (`id_agencia`), ADD KEY `id_chicas_2` (`id_agencia`);
+  ADD PRIMARY KEY (`id_foto`),
+  ADD KEY `id_chicas` (`id_agencia`),
+  ADD KEY `id_chicas_2` (`id_agencia`);
 
 --
 -- Indices de la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
- ADD PRIMARY KEY (`id_foto`), ADD KEY `id_chicas` (`id_chicas`);
+  ADD PRIMARY KEY (`id_foto`),
+  ADD KEY `id_chicas` (`id_chicas`);
 
 --
 -- Indices de la tabla `log`
 --
 ALTER TABLE `log`
- ADD PRIMARY KEY (`id`), ADD KEY `id_usuario` (`id_usuario`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `menu`
 --
 ALTER TABLE `menu`
- ADD PRIMARY KEY (`id_menu`);
+  ADD PRIMARY KEY (`id_menu`);
 
 --
 -- Indices de la tabla `pagos`
 --
 ALTER TABLE `pagos`
- ADD PRIMARY KEY (`id_pagos`), ADD KEY `id_chica` (`id_chicas`);
+  ADD PRIMARY KEY (`id_pagos`),
+  ADD KEY `id_chica` (`id_chicas`);
 
 --
 -- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
- ADD PRIMARY KEY (`id_permisos`), ADD KEY `id_menu` (`id_menu`,`id_role`), ADD KEY `id_role` (`id_role`);
+  ADD PRIMARY KEY (`id_permisos`),
+  ADD KEY `id_menu` (`id_menu`,`id_role`),
+  ADD KEY `id_role` (`id_role`);
 
 --
 -- Indices de la tabla `role`
 --
 ALTER TABLE `role`
- ADD PRIMARY KEY (`id_role`);
+  ADD PRIMARY KEY (`id_role`);
+
+--
+-- Indices de la tabla `switch`
+--
+ALTER TABLE `switch`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
- ADD PRIMARY KEY (`id_usuario`), ADD KEY `id_role_2` (`id_role`), ADD KEY `id_role_3` (`id_role`), ADD KEY `id_role_4` (`id_role`), ADD KEY `id_role_5` (`id_role`);
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `id_role_2` (`id_role`),
+  ADD KEY `id_role_3` (`id_role`),
+  ADD KEY `id_role_4` (`id_role`),
+  ADD KEY `id_role_5` (`id_role`);
 
 --
 -- Indices de la tabla `votacion`
 --
 ALTER TABLE `votacion`
- ADD PRIMARY KEY (`id_votacion`), ADD KEY `id_chica` (`id_chica`);
+  ADD PRIMARY KEY (`id_votacion`),
+  ADD KEY `id_chica` (`id_chica`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -659,57 +1538,62 @@ ALTER TABLE `votacion`
 -- AUTO_INCREMENT de la tabla `agencia`
 --
 ALTER TABLE `agencia`
-MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_agencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `chicas`
 --
 ALTER TABLE `chicas`
-MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_chicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `fotos_agencia`
 --
 ALTER TABLE `fotos_agencia`
-MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=321;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1141;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-MODIFY `id_pagos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_pagos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --
 ALTER TABLE `role`
-MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `switch`
+--
+ALTER TABLE `switch`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `votacion`
 --
 ALTER TABLE `votacion`
-MODIFY `id_votacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_votacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --
@@ -718,50 +1602,50 @@ MODIFY `id_votacion` int(11) NOT NULL AUTO_INCREMENT;
 -- Filtros para la tabla `chicas`
 --
 ALTER TABLE `chicas`
-ADD CONSTRAINT `chicas_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `chicas_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos_agencia`
 --
 ALTER TABLE `fotos_agencia`
-ADD CONSTRAINT `fotos_agencia_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fotos_agencia_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos_chicas`
 --
 ALTER TABLE `fotos_chicas`
-ADD CONSTRAINT `fotos_chicas_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fotos_chicas_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `log`
 --
 ALTER TABLE `log`
-ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `pagos`
 --
 ALTER TABLE `pagos`
-ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`id_chicas`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `permisos`
 --
 ALTER TABLE `permisos`
-ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `votacion`
 --
 ALTER TABLE `votacion`
-ADD CONSTRAINT `votacion_ibfk_1` FOREIGN KEY (`id_chica`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `votacion_ibfk_1` FOREIGN KEY (`id_chica`) REFERENCES `chicas` (`id_chicas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
