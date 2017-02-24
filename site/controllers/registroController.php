@@ -32,7 +32,7 @@ class registroController extends Controller
 		
 	     
        $this->_view->titulo = 'Registro Agencias - OrienteX';
-       $this->_view->setJs(array('js'));
+       $this->_view->setJs(array('js','validate_agencia'));
        $this->_view->setCss(array('index'));
         
        
@@ -45,7 +45,7 @@ public function nenas()
 		//$this->_view->area_r="apagada";           
      ;	
          $this->_view->titulo = 'Registrar - OrienteX';
-       	 $this->_view->setJs(array('rne'));
+       	 $this->_view->setJs(array('rne','validate_nenas'));
      	 $this->_view->setCss(array('index'));
       	 $rs=$this->_registro->get_agencias();
 

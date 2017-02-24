@@ -49,7 +49,7 @@ class loginController extends Controller
             Session::set('id_usuario', $row['id_usuario']);
             Session::set('tiempo', time());
             if ($row['id_role']==1) {
-                $this->enviaremail($row['login']);
+               // $this->enviaremail($row['login']);
                 $this->redireccionar("app");
                 break;
             }
