@@ -83,7 +83,18 @@ class appController extends Controller
        $this->chicas=$this->loadModel('principal');
        echo json_encode($this->chicas->pago_chicas($_POST['id_chica'],$_POST['meses']));
     }
-        function updonw(){
+
+    function fotos_chicas(){
+        $this->chicas=$this->loadModel('principal');
+        echo json_encode($this->chicas->fotos_chicas($_POST['id_chica']));
+    }
+
+    function foto_perfil(){
+        $this->chicas=$this->loadModel('principal');
+        echo json_encode($this->chicas->foto_perfil($_POST['id_foto'],$_POST['id_chica']));
+    }
+    
+    function updonw(){
      $objeto=$this->loadModel('app');
        echo print_r($_POST);
        if ($_POST['accion']==0) {

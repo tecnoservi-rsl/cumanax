@@ -58,6 +58,8 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
     )";
 
 
+
+
 $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
 
@@ -78,8 +80,7 @@ $this->_db->query($sql);
                  // $obj_img->save($target_path);
             }
 
-
-                 
+         
 
 
 

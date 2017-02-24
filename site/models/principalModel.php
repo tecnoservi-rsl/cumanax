@@ -54,7 +54,7 @@ return $datos->fetchall();
 public function get_photo_all($id){
 
 
-$sql="select * from fotos_chicas where id_chicas='$id'";
+$sql="select * from fotos_chicas where id_chicas='$id' order by perfil DESC";
 
 $datos = $this->_db->query($sql);
         
@@ -104,13 +104,11 @@ $datos = $this->_db->query($sql);
 
 public function buscar_chicas($nombre){
    
-$sql="select * from chicas,pagos WHERE chicas.nombre_chicas like '$nombre%' and chicas.id_chicas=pagos.id_chicas";
-
-
-
+$sql="select * from chicas,pagos 
+WHERE chicas.nombre_chicas 
+like '$nombre%' and chicas.id_chicas=pagos.id_chicas";
 $datos = $this->_db->query($sql);
 return $datos->fetchall();
-
 }
 
 public function eliminar_chicas($id_chica){
@@ -123,6 +121,20 @@ public function pago_chicas($id_chica,$meses){
 $sql="update pagos set fecha_pago=CURDATE(), fecha_vencimiento=DATE_ADD(CURDATE(), interval $meses month) where id_chicas='$id_chica'";
 $this->_db->query($sql);
 return 0;  
+}
+
+public function fotos_chicas($id_chica){
+    $sql="select * from fotos_chicas where id_chicas=$id_chica";
+    $datos = $this->_db->query($sql);
+    return $datos->fetchall();
+}
+
+public function foto_perfil($id_foto,$id_chica){
+    $sql="update fotos_chicas set perfil=0 where id_foto!='$id_foto' and id_chicas='$id_chica'";
+    $this->_db->query($sql);
+    $sql="update fotos_chicas set perfil=1 where id_foto='$id_foto'";
+    $this->_db->query($sql);
+    return 0; 
 }
 
 }?>

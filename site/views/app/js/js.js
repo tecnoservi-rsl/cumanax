@@ -96,6 +96,7 @@ decision=confirm("Desea realmente eliminarlo");
 if(decision==false){
 	exit();
 }
+
 $.post(base_url + 'app/eliminar_chicas',{
 		id_chica: id_chica
 			},function(datos){
