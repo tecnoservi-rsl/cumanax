@@ -31,7 +31,7 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
 }
 
 
-    $sql="insert into chicas values ('',
+    $sql="insert into chicas values (NULL,
     '".ucwords  ($datos['tipo'] )."',
     '".ucwords  ($datos['nombre'] )."',
     '".ucwords  ($datos['fecha_nacimiento'])."',
@@ -63,7 +63,7 @@ if (isset($datos['agencia']) && $datos["agencia"]!=0) {
 $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
 
- $sql="insert into pagos values('',$id_publicacion,CURDATE(),DATE_ADD(CURDATE(), interval 3 DAY))";
+ $sql="insert into pagos values(NULL,$id_publicacion,CURDATE(),DATE_ADD(CURDATE(), interval 3 DAY))";
 $this->_db->query($sql);
 
             for ($i=0; $i < count($fotos['fotos']['name']) ; $i++) 
@@ -71,7 +71,8 @@ $this->_db->query($sql);
                   $target_path = "public/img/fotos/";
                   $nombre=uniqid('cumanax').$fotos['fotos']['name'][$i];
                   $target_path = $target_path .$nombre;
-                  $sql="insert into fotos_chicas values ('','".$id_publicacion."','".$nombre."')";
+                  $sql="insert into fotos_chicas values (NULL,'".$id_publicacion."','".$nombre."','0')";
+               
                   $this->_db->query($sql);
                   move_uploaded_file($fotos['fotos']['tmp_name'][$i], $target_path); 
                  // $obj_img = new SimpleImage();
@@ -91,7 +92,7 @@ $this->_db->query($sql);
       {   
 
 
-   echo $sql="insert into agencia values ('',
+   echo $sql="insert into agencia values (NULL,
     '".strtoupper ($datos['agencia'] )."',
     '".strtoupper ($datos['preview'] )."',
     '".strtoupper ($datos['nro_contacto'])."',

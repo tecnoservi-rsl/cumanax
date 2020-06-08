@@ -51,7 +51,7 @@ class loginController extends Controller
             if ($row['id_role']==1) {
                // $this->enviaremail($row['login']);
                 $this->redireccionar("app");
-                break;
+                return;
             }
            $this->redireccionar();
         }
